@@ -312,6 +312,8 @@ ul{
 
 .profile-top{
 
+    position:relative;
+
     display:flex;
 
     align-items:center;
@@ -319,8 +321,6 @@ ul{
     gap:10px;
 
     cursor:pointer;
-
-    position:relative;
 
 }
 
@@ -1602,12 +1602,11 @@ ul{
 /*==============================
         PROFILE MENU
 ==============================*/
-
 .profile-dropdown{
 
     position:absolute;
 
-    top:60px;
+    top:55px;
 
     right:0;
 
@@ -1615,23 +1614,23 @@ ul{
 
     background:#fff;
 
-    border-radius:18px;
+    border-radius:15px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
 
     display:none;
 
-    overflow-y:auto;
+    flex-direction:column;
 
-    max-height:300px;
+    overflow:hidden;
 
-    box-shadow:0 20px 40px rgba(0,0,0,.12);
-
-    z-index:9999;
+    z-index:99999;
 
 }
 
 .profile-dropdown.show{
 
-    display:block;
+    display:flex;
 
 }
 
@@ -1639,11 +1638,13 @@ ul{
 
     display:flex;
 
-    gap:14px;
-
     align-items:center;
 
-    padding:16px;
+    gap:12px;
+
+    padding:15px 18px;
+
+    color:#333;
 
     transition:.3s;
 
@@ -1651,9 +1652,15 @@ ul{
 
 .profile-dropdown a:hover{
 
-    background:var(--primary);
+    background:#0A66C2;
 
     color:#fff;
+
+}
+
+.navbar{
+
+    overflow:visible;
 
 }
 
