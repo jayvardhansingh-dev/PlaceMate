@@ -224,3 +224,41 @@ loginForm.requestSubmit();
 }
 
 });
+
+// ================================
+// Mobile Sidebar
+// ================================
+
+const menuBtn=document.getElementById("menuBtn");
+
+const sidebar=document.querySelector(".sidebar");
+
+const overlay=document.getElementById("sidebarOverlay");
+
+menuBtn.addEventListener("click",()=>{
+
+sidebar.classList.add("active");
+
+overlay.classList.add("active");
+
+});
+
+overlay.addEventListener("click",()=>{
+
+sidebar.classList.remove("active");
+
+overlay.classList.remove("active");
+
+});
+
+window.addEventListener("resize",()=>{
+
+if(window.innerWidth>768){
+
+sidebar.classList.remove("active");
+
+overlay.classList.remove("active");
+
+}
+
+});

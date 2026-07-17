@@ -1706,3 +1706,826 @@ transition:all .3s ease;
 transform:translateY(-6px);
 
 }
+
+/*==========================================
+        RESPONSIVE NAVBAR
+==========================================*/
+
+.menu-btn{
+
+    display:none;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    background:#0A66C2;
+
+    color:#fff;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+/* Overlay */
+
+.sidebar-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:998;
+
+}
+
+.sidebar-overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/*===============================
+        TABLET
+================================*/
+
+@media(max-width:1024px){
+
+.dashboard-container{
+
+    grid-template-columns:250px 1fr;
+
+}
+
+.right-panel{
+
+    display:none;
+
+}
+
+}
+
+/*===============================
+        MOBILE
+================================*/
+
+@media(max-width:768px){
+
+body{
+
+    overflow-x:hidden;
+
+}
+
+.menu-btn{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.search-box{
+
+    display:none;
+
+}
+
+.navbar{
+
+    padding:15px;
+
+}
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+
+    left:-300px;
+
+    width:280px;
+
+    height:100vh;
+
+    background:#fff;
+
+    transition:.35s;
+
+    z-index:999;
+
+    overflow-y:auto;
+
+}
+
+.sidebar.active{
+
+    left:0;
+
+}
+
+.dashboard-container{
+
+    display:block;
+
+}
+
+.main-content{
+
+    width:100%;
+
+    padding:20px 15px;
+
+}
+
+.right-panel{
+
+    display:none;
+
+}
+
+}
+
+/*===============================
+        SMALL MOBILE
+================================*/
+
+@media(max-width:480px){
+
+.navbar{
+
+    padding:12px;
+
+}
+
+.logo h2{
+
+    font-size:22px;
+
+}
+
+.profile-top span{
+
+    display:none;
+
+}
+
+.profile-top i{
+
+    display:none;
+
+}
+
+}
+
+/*==========================================
+        RESPONSIVE MAIN CONTENT
+==========================================*/
+
+@media (max-width:1024px){
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+}
+
+.jobs-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+}
+
+.recommend-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+}
+
+.badge-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+}
+
+}
+
+/*==========================================
+            MOBILE
+==========================================*/
+
+@media (max-width:768px){
+
+.main-content{
+
+padding:18px;
+
+}
+
+/* Welcome */
+
+.welcome-card{
+
+flex-direction:column;
+
+text-align:center;
+
+gap:20px;
+
+padding:25px;
+
+}
+
+.welcome-text h1{
+
+font-size:28px;
+
+}
+
+.welcome-text p{
+
+font-size:15px;
+
+}
+
+.welcome-image{
+
+font-size:65px;
+
+}
+
+/* Statistics */
+
+.stats{
+
+grid-template-columns:1fr;
+
+gap:16px;
+
+}
+
+.card{
+
+padding:22px;
+
+}
+
+.card h2{
+
+font-size:30px;
+
+}
+
+.card h3{
+
+font-size:17px;
+
+}
+
+/* Latest Jobs */
+
+.jobs-grid{
+
+grid-template-columns:1fr;
+
+gap:18px;
+
+}
+
+.job-card{
+
+width:100%;
+
+}
+
+/* Recommended */
+
+.recommend-grid{
+
+grid-template-columns:1fr;
+
+gap:18px;
+
+}
+
+/* Achievements */
+
+.badge-grid{
+
+grid-template-columns:1fr;
+
+}
+
+/* Announcements */
+
+.announcement-card{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:15px;
+
+}
+
+/* Applications */
+
+.applications{
+
+overflow-x:auto;
+
+}
+
+.applications table{
+
+min-width:700px;
+
+}
+
+/* Activity */
+
+.activity ul li{
+
+font-size:15px;
+
+}
+
+/* Profile Progress */
+
+.profile-progress{
+
+padding:20px;
+
+}
+
+/* Cards */
+
+.card,
+.job-card,
+.recommend-card,
+.panel-card,
+.profile-progress,
+.applications,
+.achievement-section,
+.activity,
+.announcements{
+
+border-radius:18px;
+
+}
+
+}
+
+/*==========================================
+        SMALL DEVICES
+==========================================*/
+
+@media (max-width:480px){
+
+.main-content{
+
+padding:14px;
+
+}
+
+.section-title{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:10px;
+
+}
+
+.section-title h2{
+
+font-size:22px;
+
+}
+
+.section-title a{
+
+font-size:14px;
+
+}
+
+.welcome-text h1{
+
+font-size:24px;
+
+}
+
+.welcome-text p{
+
+font-size:14px;
+
+}
+
+.card{
+
+padding:18px;
+
+}
+
+.card h2{
+
+font-size:26px;
+
+}
+
+.card h3{
+
+font-size:16px;
+
+}
+
+.job-card button,
+
+.recommend-card button{
+
+width:100%;
+
+}
+
+.progress-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:8px;
+
+}
+
+}
+
+/*==========================================
+        TOUCH FRIENDLY
+==========================================*/
+
+@media (hover:none){
+
+button,
+
+a,
+
+li{
+
+min-height:44px;
+
+}
+
+}
+
+/*==========================================
+        PART 3 - FINAL RESPONSIVE
+==========================================*/
+
+/* Mobile Notification */
+
+@media (max-width:768px){
+
+.notification-box{
+
+    width:300px;
+
+    right:-20px;
+
+}
+
+}
+
+/*==========================================
+        PROFILE MENU
+==========================================*/
+
+@media (max-width:768px){
+
+.profile-top{
+
+    gap:10px;
+
+}
+
+.profile-dropdown{
+
+    right:0;
+
+    width:220px;
+
+}
+
+}
+
+/*==========================================
+        RIGHT PANEL
+==========================================*/
+
+@media (max-width:768px){
+
+.right-panel{
+
+    display:block;
+
+    width:100%;
+
+    margin-top:25px;
+
+}
+
+.profile-card,
+
+.panel-card{
+
+    margin-bottom:20px;
+
+}
+
+}
+
+/*==========================================
+        FOOTER
+==========================================*/
+
+.dashboard-footer{
+
+    margin-top:40px;
+
+    padding:20px;
+
+    text-align:center;
+
+    background:#fff;
+
+    border-top:1px solid #e5e7eb;
+
+    font-size:15px;
+
+    color:#555;
+
+}
+
+.dashboard-footer strong{
+
+    color:#0A66C2;
+
+}
+
+@media (max-width:768px){
+
+.dashboard-footer{
+
+    font-size:14px;
+
+    padding:18px 15px;
+
+}
+
+}
+
+/*==========================================
+        SCROLLBAR
+==========================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#0A66C2;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#eef3ff;
+
+}
+
+/*==========================================
+        SMOOTH ANIMATION
+==========================================*/
+
+.card,
+.job-card,
+.recommend-card,
+.panel-card,
+.announcement-card,
+.badge,
+.profile-progress{
+
+    transition:.3s ease;
+
+}
+
+.card:hover,
+.job-card:hover,
+.recommend-card:hover,
+.panel-card:hover,
+.badge:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+
+/*==========================================
+        BUTTONS
+==========================================*/
+
+button{
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/*==========================================
+        IMAGES
+==========================================*/
+
+img{
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
+/*==========================================
+        TABLE
+==========================================*/
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+th,
+td{
+
+    white-space:nowrap;
+
+}
+
+/*==========================================
+        SMALL MOBILE
+==========================================*/
+
+@media(max-width:480px){
+
+.profile-dropdown{
+
+    width:200px;
+
+}
+
+.notification-box{
+
+    width:260px;
+
+    right:-10px;
+
+}
+
+.logo h2{
+
+    font-size:20px;
+
+}
+
+.welcome-image{
+
+    display:none;
+
+}
+
+.card i{
+
+    font-size:28px;
+
+}
+
+}
+
+/*==========================================
+        VERY SMALL DEVICES
+==========================================*/
+
+@media(max-width:360px){
+
+.main-content{
+
+    padding:10px;
+
+}
+
+.card{
+
+    padding:15px;
+
+}
+
+.job-card{
+
+    padding:18px;
+
+}
+
+.section-title h2{
+
+    font-size:20px;
+
+}
+
+.login-btn,
+
+button{
+
+    font-size:14px;
+
+}
+
+}
+
+/*==========================================
+        LANDSCAPE PHONE
+==========================================*/
+
+@media (max-height:500px){
+
+.sidebar{
+
+    overflow-y:auto;
+
+}
+
+}
+
+/*==========================================
+        END
+==========================================*/
