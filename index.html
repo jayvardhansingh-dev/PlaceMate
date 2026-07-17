@@ -5,375 +5,762 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <title>PlaceMate - Placement Management System</title>
+    <title>PlaceMate | Placement Management System</title>
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Google Font -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="style.css">
 
 </head>
 
 <body>
 
-<!--========================
-        HEADER
-=========================-->
+<!-- ===================================
+            HEADER
+=================================== -->
 
-<header>
+<header class="header">
 
-<div class="logo">
+    <div class="logo">
 
-<i class="fa-solid fa-graduation-cap"></i>
+        <i class="fa-solid fa-graduation-cap"></i>
 
-PlaceMate
+        <span>PlaceMate</span>
 
-</div>
+    </div>
 
-<nav>
+    <nav class="navbar">
 
-<a href="#">Home</a>
+        <a href="#">Home</a>
 
-<a href="#about">About</a>
+        <a href="#about">About</a>
 
-<a href="#services">Services</a>
+        <a href="#features">Features</a>
 
-<a href="#companies">Companies</a>
+        <a href="#companies">Companies</a>
 
-<a href="#team">Team</a>
+        <a href="#process">Process</a>
 
-<a href="#contact">Contact</a>
+        <a href="#team">Team</a>
 
-</nav>
+        <a href="#contact">Contact</a>
 
-<button class="login-btn">
+    </nav>
 
-Student Login
+    <div class="header-buttons">
 
-</button>
+        <a href="login.html" class="login-btn">
+
+            Student Login
+
+        </a>
+
+        <a href="#" class="register-btn">
+
+            Register
+
+        </a>
+
+    </div>
 
 </header>
 
-<!--========================
-        HERO
-=========================-->
+<!-- ===================================
+            HERO
+=================================== -->
 
 <section class="hero">
 
-<div class="hero-content">
+    <div class="hero-left">
 
-<h1>
+        <span class="hero-tag">
 
-Welcome to PlaceMate
+            🚀 India's Smart Placement Portal
 
+        </span>
 
-</h1>
+        <h1>
 
-<p>
+            Start Your Career Journey
 
-PlaceMate is a Placement Management System that helps students explore job opportunities, apply for placements, and connect with top companies through one platform.
+            with
 
-</p>
+            <span>PlaceMate</span>
 
-<div class="hero-buttons">
+        </h1>
 
-<button id="exploreBtn">
+        <p>
 
-Explore Companies
+            Connect students with top companies,
+            discover placement opportunities,
+            track applications,
+            and build your career from one platform.
 
-</button>
+        </p>
 
-<button id="registerBtn">
+        <div class="hero-buttons">
 
-Register Now
+            <a href="#companies"
+                class="primary-btn">
 
-</button>
+                Explore Jobs
 
-</div>
+            </a>
 
-</div>
+            <a href="login.html"
+                class="secondary-btn">
 
-</section>
+                Student Login
 
-<!--========================
-        ABOUT
-=========================-->
-
-<section id="about">
-
-<h2 class="section-title">
-
-About Project
-
-</h2>
-
-<p class="about-text">
-
-The Placement Management System is designed to simplify campus recruitment by connecting students with recruiters. Students can view companies, apply for jobs, track applications, and manage their placement activities through an easy-to-use web portal.
-
-</p>
-
-</section>
-
-<!--========================
-      SERVICES
-=========================-->
-
-<section id="services">
-
-<h2 class="section-title">
-
-Our Services
-
-</h2>
-
-<div class="service-container">
-
-<div class="service-card">
-
-<i class="fa-solid fa-building"></i>
-
-<h3>
-
-Company Listings
-
-</h3>
-
-<p>
-
-Browse placement opportunities from various companies.
-
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fa-solid fa-file-circle-check"></i>
-
-<h3>
-
-Easy Application
-
-</h3>
-
-<p>
-
-Students can apply for jobs with a single click.
-
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fa-solid fa-chart-line"></i>
-
-<h3>
-
-Placement Tracking
-
-</h3>
-
-<p>
-
-Track application status and interview progress.
-
-</p>
-
-</div>
-
-<div class="service-card">
-
-<i class="fa-solid fa-user-graduate"></i>
-
-<h3>
-
-Student Dashboard
-
-</h3>
-
-<p>
-
-Manage profile, resume and placement history.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!--========================
-      COMPANIES
-=========================-->
-
-<section id="companies">
-
-<h2 class="section-title">
-
-Top Recruiting Companies
-
-</h2>
-
-<div class="company-container">
-
-<div class="company-card">
-
-<h3>TCS</h3>
-
-<p>Software Engineer</p>
-
-<button class="apply-btn">Apply Now</button>
-
-</div>
-
-<div class="company-card">
-
-<h3>Infosys</h3>
-
-<p>System Engineer</p>
-
-<button class="apply-btn">Apply Now</button>
-
-</div>
-
-<div class="company-card">
-
-<h3>Wipro</h3>
-
-<p>Web Developer</p>
-
-<button class="apply-btn">Apply Now</button>
-
-</div>
-
-<div class="company-card">
-
-<h3>Accenture</h3>
-
-<p>Associate Software Engineer</p>
-
-<button class="apply-btn">Apply Now</button>
-
-</div>
-
-</div>
-
-</section>
-
-<!--========================
-      STATISTICS
-=========================-->
-
-<section class="stats">
-
-<div class="stat-box">
-
-<h2>500+</h2>
-
-<p>Students</p>
-
-</div>
-
-<div class="stat-box">
-
-<h2>120+</h2>
-
-<p>Companies</p>
-
-</div>
-
-<div class="stat-box">
-
-<h2>350+</h2>
-
-<p>Placements</p>
-
-</div>
-
-<div class="stat-box">
-
-<h2>95%</h2>
-
-<p>Success Rate</p>
-
-</div>
-
-</section>
-
-<!-- ================= TEAM ================= -->
-
-<section class="team-section" id="team">
-
-    <h2 class="section-title">Meet Our Team</h2>
-
-    <p class="section-subtitle">
-        Click on a team member to view their profile.
-    </p>
-
-    <div class="team-circle-container">
-
-        <div class="team-circle"
-            data-name="Jayvardhan Singh"
-            data-role="Frontend Developer"
-            data-roll="241272106033"
-            data-email="jayvardhantech.py@gmail.com"
-            data-skills="HTML, CSS, JavaScript, Python"
-            data-github="https://github.com/jayvardhansingh-dev"
-            data-linkedin="https://linkedin.com/in/jayvardhansingh2210">
-
-            <img src="images/jay.png">
-
-            <span>Jayvardhan</span>
+            </a>
 
         </div>
 
-        <div class="team-circle"
-            data-name="Mohammad Uzair"
-            data-role="Backend Developer"
-            data-roll="BCA002"
-            data-email="uzair@email.com"
-            data-skills="PHP, MySQL, Node.js">
+        <div class="hero-stats">
 
-            <img src="images/uzair.png">
+            <div>
 
-            <span>Uzair</span>
+                <h2>500+</h2>
+
+                <p>Students</p>
+
+            </div>
+
+            <div>
+
+                <h2>120+</h2>
+
+                <p>Companies</p>
+
+            </div>
+
+            <div>
+
+                <h2>350+</h2>
+
+                <p>Placements</p>
+
+            </div>
 
         </div>
 
-        <div class="team-circle"
-            data-name="Utsav Saraswat"
-            data-role="Testing & Documentation"
-            data-roll="BCA003"
-            data-email="utsav@email.com"
-            data-skills="Testing, Documentation">
+    </div>
 
-            <img src="images/utsav.png">
+    <div class="hero-right">
 
-            <span>Utsav</span>
+        <div class="hero-image">
+
+            <i class="fa-solid fa-user-graduate"></i>
 
         </div>
 
-        <div class="team-circle"
-            data-name="Aakash Yadav"
-            data-role="Database Management"
-            data-roll="BCA004"
-            data-email="aakash@email.com"
-            data-skills="MySQL, Database">
+    </div>
 
-            <img src="images/aakash.png">
+</section>
 
-            <span>Aakash</span>
+<!-- ===================================
+        TRUSTED COMPANIES
+=================================== -->
+
+<section
+    class="trusted-companies">
+
+    <h2>
+
+        Trusted By Leading Companies
+
+    </h2>
+
+    <div class="company-logos">
+
+        <div>
+
+            <i class="fa-brands fa-google"></i>
+
+            Google
+
+        </div>
+
+        <div>
+
+            <i class="fa-brands fa-microsoft"></i>
+
+            Microsoft
+
+        </div>
+
+        <div>
+
+            <i class="fa-brands fa-amazon"></i>
+
+            Amazon
+
+        </div>
+
+        <div>
+
+            <i class="fa-solid fa-building"></i>
+
+            Infosys
+
+        </div>
+
+        <div>
+
+            <i class="fa-solid fa-building"></i>
+
+            TCS
+
+        </div>
+
+        <div>
+
+            <i class="fa-solid fa-building"></i>
+
+            Wipro
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+            ABOUT
+=================================== -->
+
+<section
+    id="about"
+    class="about">
+
+    <div class="about-left">
+
+        <i class="fa-solid fa-laptop-code"></i>
+
+    </div>
+
+    <div class="about-right">
+
+        <span>
+
+            ABOUT PLACEMATE
+
+        </span>
+
+        <h2>
+
+            A Smart Placement
+            Management System
+
+        </h2>
+
+        <p>
+
+            PlaceMate helps colleges manage campus placements
+            efficiently by connecting students with recruiters.
+            Students can apply for jobs, monitor application
+            status, and prepare for interviews using one
+            centralized platform.
+
+        </p>
+
+        <div class="about-list">
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Easy Job Applications
+
+            </div>
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Company Management
+
+            </div>
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Student Dashboard
+
+            </div>
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Placement Tracking
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+        FEATURES
+=================================== -->
+
+<section
+    id="features"
+    class="features">
+
+    <div class="section-heading">
+
+        <span>
+
+            OUR FEATURES
+
+        </span>
+
+        <h2>
+
+            Everything You Need
+            For Campus Placements
+
+        </h2>
+
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-building"></i>
+
+            <h3>
+
+                Company Listings
+
+            </h3>
+
+            <p>
+
+                Explore opportunities
+                from top recruiters.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-file-circle-check"></i>
+
+            <h3>
+
+                One Click Apply
+
+            </h3>
+
+            <p>
+
+                Apply to companies
+                quickly and easily.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h3>
+
+                Placement Tracking
+
+            </h3>
+
+            <p>
+
+                Monitor every stage
+                of your placement.
+
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-user-graduate"></i>
+
+            <h3>
+
+                Student Dashboard
+
+            </h3>
+
+            <p>
+
+                Manage profile,
+                applications and resume.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+        LATEST JOBS
+=================================== -->
+
+<section id="jobs" class="latest-jobs">
+
+    <div class="section-heading">
+
+        <span>LATEST OPPORTUNITIES</span>
+
+        <h2>Trending Placement Opportunities</h2>
+
+    </div>
+
+    <div class="jobs-grid">
+
+        <div class="job-card">
+
+            <div class="job-top">
+
+                <i class="fa-brands fa-google"></i>
+
+                <span>Google</span>
+
+            </div>
+
+            <h3>Frontend Developer</h3>
+
+            <p>Location: Bengaluru</p>
+
+            <p>Package: ₹18 LPA</p>
+
+            <a href="#" class="job-btn">Apply Now</a>
+
+        </div>
+
+        <div class="job-card">
+
+            <div class="job-top">
+
+                <i class="fa-brands fa-microsoft"></i>
+
+                <span>Microsoft</span>
+
+            </div>
+
+            <h3>Software Engineer</h3>
+
+            <p>Location: Hyderabad</p>
+
+            <p>Package: ₹20 LPA</p>
+
+            <a href="#" class="job-btn">Apply Now</a>
+
+        </div>
+
+        <div class="job-card">
+
+            <div class="job-top">
+
+                <i class="fa-brands fa-amazon"></i>
+
+                <span>Amazon</span>
+
+            </div>
+
+            <h3>Full Stack Developer</h3>
+
+            <p>Location: Pune</p>
+
+            <p>Package: ₹22 LPA</p>
+
+            <a href="#" class="job-btn">Apply Now</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+        STATISTICS
+=================================== -->
+
+<section class="statistics">
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-user-graduate"></i>
+
+        <h2 class="counter" data-target="500">0</h2>
+
+        <p>Registered Students</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-building"></i>
+
+        <h2 class="counter" data-target="120">0</h2>
+
+        <p>Recruiting Companies</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-briefcase"></i>
+
+        <h2 class="counter" data-target="350">0</h2>
+
+        <p>Successful Placements</p>
+
+    </div>
+
+    <div class="stat-card">
+
+        <i class="fa-solid fa-award"></i>
+
+        <h2>95%</h2>
+
+        <p>Placement Rate</p>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+        TOP RECRUITERS
+=================================== -->
+
+<section id="companies" class="companies">
+
+    <div class="section-heading">
+
+        <span>TOP RECRUITERS</span>
+
+        <h2>Our Recruiting Partners</h2>
+
+    </div>
+
+    <div class="company-grid">
+
+        <div class="company-card">
+
+            <i class="fa-brands fa-google"></i>
+
+            <h3>Google</h3>
+
+            <p>Software Development</p>
+
+        </div>
+
+        <div class="company-card">
+
+            <i class="fa-brands fa-microsoft"></i>
+
+            <h3>Microsoft</h3>
+
+            <p>Cloud & AI</p>
+
+        </div>
+
+        <div class="company-card">
+
+            <i class="fa-brands fa-amazon"></i>
+
+            <h3>Amazon</h3>
+
+            <p>Web Services</p>
+
+        </div>
+
+        <div class="company-card">
+
+            <i class="fa-solid fa-building"></i>
+
+            <h3>TCS</h3>
+
+            <p>IT Services</p>
+
+        </div>
+
+        <div class="company-card">
+
+            <i class="fa-solid fa-building"></i>
+
+            <h3>Infosys</h3>
+
+            <p>Consulting</p>
+
+        </div>
+
+        <div class="company-card">
+
+            <i class="fa-solid fa-building"></i>
+
+            <h3>Wipro</h3>
+
+            <p>Technology</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+        PLACEMENT PROCESS
+=================================== -->
+
+<section id="process" class="process">
+
+    <div class="section-heading">
+
+        <span>PLACEMENT PROCESS</span>
+
+        <h2>Your Journey to Success</h2>
+
+    </div>
+
+    <div class="process-container">
+
+        <div class="process-step">
+
+            <div class="process-icon">
+
+                <i class="fa-solid fa-user-plus"></i>
+
+            </div>
+
+            <h3>Register</h3>
+
+            <p>Create your PlaceMate account.</p>
+
+        </div>
+
+        <div class="process-step">
+
+            <div class="process-icon">
+
+                <i class="fa-solid fa-id-card"></i>
+
+            </div>
+
+            <h3>Complete Profile</h3>
+
+            <p>Upload your resume and details.</p>
+
+        </div>
+
+        <div class="process-step">
+
+            <div class="process-icon">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </div>
+
+            <h3>Apply</h3>
+
+            <p>Apply for placement opportunities.</p>
+
+        </div>
+
+        <div class="process-step">
+
+            <div class="process-icon">
+
+                <i class="fa-solid fa-comments"></i>
+
+            </div>
+
+            <h3>Interview</h3>
+
+            <p>Attend interviews with recruiters.</p>
+
+        </div>
+
+        <div class="process-step">
+
+            <div class="process-icon">
+
+                <i class="fa-solid fa-trophy"></i>
+
+            </div>
+
+            <h3>Get Placed</h3>
+
+            <p>Receive your offer letter.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+        CALL TO ACTION
+=================================== -->
+
+<section class="cta-section">
+
+    <div class="cta-content">
+
+        <h2>Ready to Build Your Career?</h2>
+
+        <p>
+
+            Join PlaceMate today and connect with India's leading companies.
+            Start applying for your dream job in just a few clicks.
+
+        </p>
+
+        <div class="cta-buttons">
+
+            <a href="login.html" class="primary-btn">
+
+                Student Login
+
+            </a>
+
+            <a href="#contact" class="secondary-btn">
+
+                Contact Us
+
+            </a>
 
         </div>
 
@@ -382,7 +769,102 @@ Top Recruiting Companies
 </section>
 
 
-<!-- ================= PROFILE POPUP ================= -->
+
+<!-- ===================================
+            TEAM
+=================================== -->
+
+<section class="team-section" id="team">
+
+    <div class="section-heading">
+
+        <span>OUR TEAM</span>
+
+        <h2>Meet the Developers</h2>
+
+    </div>
+
+    <p class="section-subtitle">
+
+        Click any profile to view complete details.
+
+    </p>
+
+    <div class="team-grid">
+
+        <div class="team-card"
+
+            data-name="Jayvardhan Singh"
+            data-role="Frontend Developer"
+            data-roll="241272106033"
+            data-email="jayvardhantech.py@gmail.com"
+            data-skills="HTML, CSS, JavaScript, Python"
+            data-github="https://github.com/jayvardhansingh-dev"
+            data-linkedin="https://linkedin.com/in/jayvardhansingh2210">
+
+            <img src="images/jay.png" alt="Jayvardhan">
+
+            <h3>Jayvardhan Singh</h3>
+
+            <p>Frontend Developer</p>
+
+        </div>
+
+        <div class="team-card"
+
+            data-name="Mohammad Uzair"
+            data-role="Backend Developer"
+            data-roll="241272106053"
+            data-email="mohammeduzair483@gmail.com"
+            data-skills="Node.js, Express.js, MySQL">
+
+            <img src="images/uzair.png" alt="Uzair">
+
+            <h3>Mohammad Uzair</h3>
+
+            <p>Backend Developer</p>
+
+        </div>
+
+        <div class="team-card"
+
+            data-name="Utsav Saraswat"
+            data-role="Testing & Documentation"
+            data-roll="241272106097"
+            data-email="saraswatutsav13@gmail.com"
+            data-skills="Testing, Documentation">
+
+            <img src="images/utsav.png" alt="Utsav">
+
+            <h3>Utsav Saraswat</h3>
+
+            <p>Testing & Documentation</p>
+
+        </div>
+
+        <div class="team-card"
+
+            data-name="Aakash Yadav"
+            data-role="Database Management"
+            data-roll="241272106002"
+            data-email="aakashy24-bca@sanskar.org"
+            data-skills="MySQL, Database">
+
+            <img src="images/aakash.png" alt="Aakash">
+
+            <h3>Aakash Yadav</h3>
+
+            <p>Database Management</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+        TEAM PROFILE POPUP
+=================================== -->
 
 <div class="profile-modal" id="profileModal">
 
@@ -390,7 +872,7 @@ Top Recruiting Companies
 
         <span class="close-profile">&times;</span>
 
-        <img id="modalImage" src="">
+        <img id="modalImage" src="" alt="Profile">
 
         <h2 id="modalName"></h2>
 
@@ -402,47 +884,297 @@ Top Recruiting Companies
 
         <p><strong>Skills:</strong> <span id="modalSkills"></span></p>
 
-        <a id="githubLink" target="_blank">GitHub</a>
+        <div class="profile-links">
 
-        <a id="linkedinLink" target="_blank">LinkedIn</a>
+            <a id="githubLink" target="_blank">
+
+                <i class="fa-brands fa-github"></i>
+
+                GitHub
+
+            </a>
+
+            <a id="linkedinLink" target="_blank">
+
+                <i class="fa-brands fa-linkedin"></i>
+
+                LinkedIn
+
+            </a>
+
+        </div>
 
     </div>
 
 </div>
 
-<!--========================
-      CONTACT
-=========================-->
+<!-- ===================================
+            FAQ
+=================================== -->
 
-<section id="contact">
+<section class="faq-section">
 
-<h2 class="section-title">
+    <div class="section-heading">
 
-Contact Us
+        <span>FAQ</span>
 
-</h2>
+        <h2>Frequently Asked Questions</h2>
 
-<form id="contactForm">
+    </div>
 
-<input type="text" placeholder="Your Name" required>
+    <div class="faq-container">
 
-<input type="email" placeholder="Email Address" required>
+        <div class="faq-item">
 
-<textarea placeholder="Your Message"></textarea>
+            <h3>
 
-<button type="submit">
+                Who can use PlaceMate?
 
-Send Message
+            </h3>
 
-</button>
+            <p>
 
-</form>
+                Students, Training & Placement Officers,
+                and Recruiters can use the system.
+
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+
+                Is registration free?
+
+            </h3>
+
+            <p>
+
+                Yes. Students can register and apply
+                for campus placements without any fee.
+
+            </p>
+
+        </div>
+
+        <div class="faq-item">
+
+            <h3>
+
+                Can I track my applications?
+
+            </h3>
+
+            <p>
+
+                Yes. Every application can be tracked
+                directly from the student dashboard.
+
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
-<!--=========================
-        APPLY MODAL
-==========================-->
+<!-- ===================================
+        PLACEMENT NEWS
+=================================== -->
+
+<section class="news-section">
+
+    <div class="section-heading">
+
+        <span>LATEST NEWS</span>
+
+        <h2>Placement Updates</h2>
+
+    </div>
+
+    <div class="news-grid">
+
+        <div class="news-card">
+
+            <i class="fa-solid fa-newspaper"></i>
+
+            <h3>
+
+                TCS Campus Drive
+
+            </h3>
+
+            <p>
+
+                Registration closes on 20 August 2026.
+
+            </p>
+
+        </div>
+
+        <div class="news-card">
+
+            <i class="fa-solid fa-calendar-days"></i>
+
+            <h3>
+
+                Infosys Hiring
+
+            </h3>
+
+            <p>
+
+                Online Assessment scheduled for next week.
+
+            </p>
+
+        </div>
+
+        <div class="news-card">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            <h3>
+
+                Microsoft Internship
+
+            </h3>
+
+            <p>
+
+                Summer Internship applications are now open.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+            CONTACT
+=================================== -->
+
+<section id="contact" class="contact-section">
+
+    <div class="section-heading">
+
+        <span>CONTACT US</span>
+
+        <h2>Get In Touch</h2>
+
+    </div>
+
+    <div class="contact-container">
+
+        <!-- Contact Information -->
+
+        <div class="contact-info">
+
+            <h3>Let's Connect</h3>
+
+            <p>
+
+                Have any questions about placements or the
+                PlaceMate platform? We'd love to hear from you.
+
+            </p>
+
+            <div class="info-box">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <span>placemate.support@gmail.com</span>
+
+            </div>
+
+            <div class="info-box">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <span>+91 89419 89091</span>
+
+            </div>
+
+            <div class="info-box">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <span>Hapur, Uttar Pradesh, India</span>
+
+            </div>
+
+            <div class="social-icons">
+
+                <a href="#">
+
+                    <i class="fa-brands fa-linkedin"></i>
+
+                </a>
+
+                <a href="#">
+
+                    <i class="fa-brands fa-github"></i>
+
+                </a>
+
+                <a href="#">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+                <a href="#">
+
+                    <i class="fa-brands fa-x-twitter"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Contact Form -->
+
+        <form class="contact-form" id="contactForm">
+
+            <input
+                type="text"
+                placeholder="Full Name"
+                required>
+
+            <input
+                type="email"
+                placeholder="Email Address"
+                required>
+
+            <input
+                type="text"
+                placeholder="Subject"
+                required>
+
+            <textarea
+                rows="6"
+                placeholder="Write your message..."
+                required></textarea>
+
+            <button type="submit">
+
+                Send Message
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- ===================================
+        APPLY JOB MODAL
+=================================== -->
 
 <div id="applyModal" class="modal">
 
@@ -450,9 +1182,13 @@ Send Message
 
         <span class="close-modal">&times;</span>
 
-        <h2>Apply for Job</h2>
+        <h2>Apply for Placement</h2>
 
-        <p id="companyName">Company</p>
+        <p id="companyName">
+
+            Company Name
+
+        </p>
 
         <form id="applyForm">
 
@@ -492,37 +1228,104 @@ Send Message
 
 </div>
 
-<!--========================
-        FOOTER
-=========================-->
+<!-- ===================================
+            FOOTER
+=================================== -->
 
-<footer>
+<footer class="footer">
 
-<h3>
+    <div class="footer-container">
 
-PlaceMate
+        <div class="footer-col">
 
-</h3>
+            <h3>
 
-<p>
+                <i class="fa-solid fa-graduation-cap"></i>
 
-Placement Management System
+                PlaceMate
 
-</p>
+            </h3>
 
-<p>
+            <p>
 
-Developed as a BCA Minor Project
+                Connecting Students with
+                Career Opportunities.
 
-</p>
+            </p>
 
-<p>
+        </div>
 
-© 2026 All Rights Reserved
+        <div class="footer-col">
 
-</p>
+            <h4>Quick Links</h4>
+
+            <a href="#">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#companies">Companies</a>
+
+            <a href="#team">Team</a>
+
+            <a href="#contact">Contact</a>
+
+        </div>
+
+        <div class="footer-col">
+
+            <h4>Services</h4>
+
+            <a href="#">Campus Drives</a>
+
+            <a href="#">Placement Tracking</a>
+
+            <a href="#">Resume Upload</a>
+
+            <a href="#">Student Dashboard</a>
+
+        </div>
+
+        <div class="footer-col">
+
+            <h4>Developed By</h4>
+
+            <p>
+
+                Jayvardhan Singh
+
+            </p>
+
+            <p>
+
+                BCA Minor Project
+
+            </p>
+
+            <p>
+
+                © 2026 All Rights Reserved
+
+            </p>
+
+        </div>
+
+    </div>
 
 </footer>
+
+<!-- ===================================
+        BACK TO TOP BUTTON
+=================================== -->
+
+<button id="backToTop">
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!-- ===================================
+        JAVASCRIPT
+=================================== -->
 
 <script src="script.js"></script>
 

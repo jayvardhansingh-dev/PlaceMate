@@ -1,50 +1,209 @@
-console.log("CareerConnect Loaded");
+/* ==========================================
+        PLACE MATE
+        SCRIPT.JS
+========================================== */
 
-const loginBtn = document.querySelector(".login-btn");
+/* ==========================================
+        SMOOTH SCROLL
+========================================== */
 
-if (loginBtn) {
-    loginBtn.addEventListener("click", function () {
-        window.location.href = "login.html";
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+
+            target.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+        }
+
     });
-}
 
-const exploreBtn = document.getElementById("exploreBtn");
+});
 
-if (exploreBtn) {
-    exploreBtn.addEventListener("click", function () {
-        document.getElementById("companies").scrollIntoView({
-            behavior: "smooth"
-        });
+/* ==========================================
+        COUNTER ANIMATION
+========================================== */
+
+const counters = document.querySelectorAll(".counter");
+
+const speed = 200;
+
+counters.forEach(counter => {
+
+    const updateCounter = () => {
+
+        const target = +counter.getAttribute("data-target");
+
+        const count = +counter.innerText;
+
+        const increment = Math.ceil(target / speed);
+
+        if (count < target) {
+
+            counter.innerText = count + increment;
+
+            setTimeout(updateCounter, 10);
+
+        } else {
+
+            counter.innerText = target + "+";
+
+        }
+
+    };
+
+    updateCounter();
+
+});
+
+/* ==========================================
+        BACK TO TOP
+========================================== */
+
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 400) {
+
+        backToTop.style.display = "block";
+
+    } else {
+
+        backToTop.style.display = "none";
+
+    }
+
+});
+
+backToTop.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
     });
-}
 
-const registerBtn = document.getElementById("registerBtn");
+});
 
-if (registerBtn) {
-    registerBtn.addEventListener("click", function () {
-        document.getElementById("contact").scrollIntoView({
-            behavior: "smooth"
-        });
+/* ==========================================
+        TEAM POPUP
+========================================== */
+
+const teamCards = document.querySelectorAll(".team-card");
+
+const profileModal = document.getElementById("profileModal");
+
+const modalImage = document.getElementById("modalImage");
+
+const modalName = document.getElementById("modalName");
+
+const modalRole = document.getElementById("modalRole");
+
+const modalRoll = document.getElementById("modalRoll");
+
+const modalEmail = document.getElementById("modalEmail");
+
+const modalSkills = document.getElementById("modalSkills");
+
+const githubLink = document.getElementById("githubLink");
+
+const linkedinLink = document.getElementById("linkedinLink");
+
+const closeProfile = document.querySelector(".close-profile");
+
+teamCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        modalImage.src = card.querySelector("img").src;
+
+        modalName.innerText = card.dataset.name;
+
+        modalRole.innerText = card.dataset.role;
+
+        modalRoll.innerText = card.dataset.roll;
+
+        modalEmail.innerText = card.dataset.email;
+
+        modalSkills.innerText = card.dataset.skills;
+
+        if (card.dataset.github) {
+
+            githubLink.href = card.dataset.github;
+
+            githubLink.style.display = "inline-block";
+
+        } else {
+
+            githubLink.style.display = "none";
+
+        }
+
+        if (card.dataset.linkedin) {
+
+            linkedinLink.href = card.dataset.linkedin;
+
+            linkedinLink.style.display = "inline-block";
+
+        } else {
+
+            linkedinLink.style.display = "none";
+
+        }
+
+        profileModal.classList.add("active");
+
     });
-}
 
-// ============================
-// APPLY MODAL
-// ============================
+});
+
+closeProfile.addEventListener("click", () => {
+
+    profileModal.classList.remove("active");
+
+});
+
+window.addEventListener("click", (e) => {
+
+    if (e.target === profileModal) {
+
+        profileModal.classList.remove("active");
+
+    }
+
+});
+
+/* ==========================================
+        APPLY MODAL
+========================================== */
 
 const applyModal = document.getElementById("applyModal");
-const applyForm = document.getElementById("applyForm");
+
+const applyButtons = document.querySelectorAll(".job-btn");
+
 const companyName = document.getElementById("companyName");
+
 const closeModal = document.querySelector(".close-modal");
 
-const applyBtns = document.querySelectorAll(".apply-btn");
+applyButtons.forEach(button => {
 
-applyBtns.forEach(btn => {
+    button.addEventListener("click", function (e) {
 
-    btn.addEventListener("click", function(){
+        e.preventDefault();
 
-        const company =
-        this.parentElement.querySelector("h3").innerText;
+        const company = this.parentElement.querySelector("span").innerText;
 
         companyName.innerText = company;
 
@@ -54,15 +213,15 @@ applyBtns.forEach(btn => {
 
 });
 
-closeModal.addEventListener("click", function(){
+closeModal.addEventListener("click", () => {
 
     applyModal.style.display = "none";
 
 });
 
-window.addEventListener("click", function(e){
+window.addEventListener("click", (e) => {
 
-    if(e.target === applyModal){
+    if (e.target === applyModal) {
 
         applyModal.style.display = "none";
 
@@ -70,104 +229,375 @@ window.addEventListener("click", function(e){
 
 });
 
-// ============================
-// APPLY FORM SUBMIT
-// ============================
+/* ==========================================
+        CONTACT FORM
+========================================== */
 
-applyForm.addEventListener("submit", function(e){
+const contactForm = document.getElementById("contactForm");
 
-    e.preventDefault();
+if (contactForm) {
 
-    const name = document.getElementById("studentName").value.trim();
-    const email = document.getElementById("studentEmail").value.trim();
-    const phone = document.getElementById("studentPhone").value.trim();
-    const resume = document.getElementById("studentResume").files.length;
+    contactForm.addEventListener("submit", function (e) {
 
-    if(name === "" || email === "" || phone === "" || resume === 0){
+        e.preventDefault();
 
-        alert("Please fill all the fields.");
+        alert("✅ Thank you! Your message has been sent successfully.");
 
-        return;
+        contactForm.reset();
 
-    }
+    });
 
-    alert(
-        "🎉 Congratulations " + name +
-        "!\n\nYour application for " +
-        companyName.innerText +
-        " has been submitted successfully."
-    );
+}
 
-    applyForm.reset();
+/* ==========================================
+        APPLY FORM
+========================================== */
 
-    applyModal.style.display = "none";
+const applyForm = document.getElementById("applyForm");
 
-});
+if (applyForm) {
 
-/*====================================
-        TEAM PROFILE POPUP
-====================================*/
+    applyForm.addEventListener("submit", function (e) {
 
-const teamMembers = document.querySelectorAll(".team-circle");
+        e.preventDefault();
 
-const profileModal = document.getElementById("profileModal");
+        alert("🎉 Application Submitted Successfully!");
 
-const modalImage = document.getElementById("modalImage");
-const modalName = document.getElementById("modalName");
-const modalRole = document.getElementById("modalRole");
-const modalRoll = document.getElementById("modalRoll");
-const modalEmail = document.getElementById("modalEmail");
-const modalSkills = document.getElementById("modalSkills");
+        applyModal.style.display = "none";
 
-const githubLink = document.getElementById("githubLink");
-const linkedinLink = document.getElementById("linkedinLink");
+        applyForm.reset();
 
-const closeProfile = document.querySelector(".close-profile");
+    });
 
-teamMembers.forEach(member => {
+}
 
-    member.addEventListener("click", () => {
+/* ==========================================
+        ACTIVE NAVBAR
+========================================== */
 
-        modalImage.src = member.querySelector("img").src;
+const sections = document.querySelectorAll("section[id]");
 
-        modalName.innerText = member.dataset.name;
-        modalRole.innerText = member.dataset.role;
-        modalRoll.innerText = member.dataset.roll;
-        modalEmail.innerText = member.dataset.email;
-        modalSkills.innerText = member.dataset.skills;
+const navLinks = document.querySelectorAll(".navbar a");
 
-        if(member.dataset.github){
-            githubLink.href = member.dataset.github;
-            githubLink.style.display = "inline-block";
-        }else{
-            githubLink.style.display = "none";
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 120;
+
+        const sectionHeight = section.offsetHeight;
+
+        if (window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight) {
+
+            current = section.getAttribute("id");
+
         }
 
-        if(member.dataset.linkedin){
-            linkedinLink.href = member.dataset.linkedin;
-            linkedinLink.style.display = "inline-block";
-        }else{
-            linkedinLink.style.display = "none";
-        }
+    });
 
-        profileModal.style.display = "flex";
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+
+            link.classList.add("active");
+
+        }
 
     });
 
 });
 
-closeProfile.addEventListener("click", () => {
+/* ==========================================
+        SCROLL REVEAL
+========================================== */
 
-    profileModal.style.display = "none";
+const revealElements = document.querySelectorAll(
+
+".feature-card,\
+.job-card,\
+.company-card,\
+.success-card,\
+.team-card,\
+.news-card,\
+.stat-card,\
+.process-step,\
+.faq-item"
+
+);
+
+const revealOnScroll = () => {
+
+    const trigger = window.innerHeight * 0.85;
+
+    revealElements.forEach(el => {
+
+        const top = el.getBoundingClientRect().top;
+
+        if (top < trigger) {
+
+            el.style.opacity = "1";
+
+            el.style.transform = "translateY(0)";
+
+        }
+
+    });
+
+};
+
+revealElements.forEach(el => {
+
+    el.style.opacity = "0";
+
+    el.style.transform = "translateY(40px)";
+
+    el.style.transition = ".6s ease";
 
 });
 
-window.addEventListener("click", (e) => {
+window.addEventListener("scroll", revealOnScroll);
 
-    if(e.target === profileModal){
+window.addEventListener("load", revealOnScroll);
 
-        profileModal.style.display = "none";
+/* ==========================================
+        HERO BUTTONS
+========================================== */
+
+const exploreBtn = document.querySelector(".primary-btn");
+
+if (exploreBtn) {
+
+    exploreBtn.addEventListener("click", function () {
+
+        console.log("Explore Jobs Clicked");
+
+    });
+
+}
+
+const loginBtn = document.querySelector(".login-btn");
+
+if (loginBtn) {
+
+    loginBtn.addEventListener("click", function () {
+
+        console.log("Student Login");
+
+    });
+
+}
+
+/* ==========================================
+        FLOATING HEADER
+========================================== */
+
+const header = document.querySelector(".header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 50) {
+
+        header.style.padding = "0 8%";
+
+        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.12)";
+
+    } else {
+
+        header.style.boxShadow = "0 5px 25px rgba(0,0,0,.08)";
 
     }
 
 });
+
+/* ==========================================
+        FADE HERO CONTENT
+========================================== */
+
+const heroLeft = document.querySelector(".hero-left");
+
+const heroRight = document.querySelector(".hero-right");
+
+window.addEventListener("load", () => {
+
+    if (heroLeft) {
+
+        heroLeft.style.opacity = "0";
+
+        heroLeft.style.transform = "translateX(-40px)";
+
+    }
+
+    if (heroRight) {
+
+        heroRight.style.opacity = "0";
+
+        heroRight.style.transform = "translateX(40px)";
+
+    }
+
+    setTimeout(() => {
+
+        if (heroLeft) {
+
+            heroLeft.style.transition = ".8s";
+
+            heroLeft.style.opacity = "1";
+
+            heroLeft.style.transform = "translateX(0)";
+
+        }
+
+        if (heroRight) {
+
+            heroRight.style.transition = ".8s";
+
+            heroRight.style.opacity = "1";
+
+            heroRight.style.transform = "translateX(0)";
+
+        }
+
+    }, 200);
+
+});
+
+/* ==========================================
+        PREVENT EMPTY LINKS
+========================================== */
+
+document.querySelectorAll('a[href="#"]').forEach(link => {
+
+    link.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+    });
+
+});
+
+/* ==========================================
+        CONSOLE MESSAGE
+========================================== */
+
+console.log("🚀 PlaceMate Landing Page Loaded Successfully");
+
+/* ==========================================
+        SEARCH JOBS
+========================================== */
+
+const searchInput = document.getElementById("jobSearch");
+
+if (searchInput) {
+
+    searchInput.addEventListener("keyup", function () {
+
+        const value = this.value.toLowerCase();
+
+        const jobs = document.querySelectorAll(".job-card");
+
+        jobs.forEach(job => {
+
+            const text = job.innerText.toLowerCase();
+
+            job.style.display = text.includes(value) ? "block" : "none";
+
+        });
+
+    });
+
+}
+
+/* ==========================================
+        LOADING SCREEN
+========================================== */
+
+window.addEventListener("load", () => {
+
+    const loader = document.querySelector(".loader");
+
+    if(loader){
+
+        loader.style.opacity = "0";
+
+        setTimeout(()=>{
+
+            loader.style.display = "none";
+
+        },500);
+
+    }
+
+});
+
+/* ==========================================
+        BUTTON RIPPLE EFFECT
+========================================== */
+
+document.querySelectorAll("button").forEach(button=>{
+
+    button.addEventListener("click",function(e){
+
+        const circle=document.createElement("span");
+
+        const diameter=Math.max(this.clientWidth,this.clientHeight);
+
+        const radius=diameter/2;
+
+        circle.style.width=circle.style.height=`${diameter}px`;
+
+        circle.style.left=`${e.clientX-this.getBoundingClientRect().left-radius}px`;
+
+        circle.style.top=`${e.clientY-this.getBoundingClientRect().top-radius}px`;
+
+        circle.classList.add("ripple");
+
+        const ripple=this.getElementsByClassName("ripple")[0];
+
+        if(ripple){
+
+            ripple.remove();
+
+        }
+
+        this.appendChild(circle);
+
+    });
+
+});
+
+/* ==========================================
+        CURRENT YEAR
+========================================== */
+
+const year=document.getElementById("currentYear");
+
+if(year){
+
+    year.textContent=new Date().getFullYear();
+
+}
+
+/* ==========================================
+        PAGE FADE
+========================================== */
+
+document.body.style.opacity="0";
+
+window.addEventListener("load",()=>{
+
+    document.body.style.transition=".6s";
+
+    document.body.style.opacity="1";
+
+});
+
+/* ==========================================
+        PAGE READY
+========================================== */
+
+console.log("✅ PlaceMate Premium Version Ready");
