@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlaceMate Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<header class="dashboard-header">
+
+    <h2>CareerConnect</h2>
+
+    <button id="logoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+    </button>
+
+</header>
+
+<section class="dashboard">
+
+    <div class="profile-card">
+
+        <i class="fa-solid fa-user-graduate profile-icon"></i>
+
+        <h2 id="studentName">Student Name</h2>
+
+        <p id="studentRoll">Roll Number</p>
+
+    </div>
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h3>Applied Jobs</h3>
+            <span>4</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Selected</h3>
+            <span>1</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Pending</h3>
+            <span>2</span>
+        </div>
+
+        <div class="stat-card">
+            <h3>Rejected</h3>
+            <span>1</span>
+        </div>
+
+    </div>
+
+    <div class="companies-card">
+
+        <h2>Recent Applications</h2>
+
+        <ul>
+
+            <li>✅ TCS</li>
+
+            <li>✅ Infosys</li>
+
+            <li>🟡 Wipro</li>
+
+            <li>❌ Accenture</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>
