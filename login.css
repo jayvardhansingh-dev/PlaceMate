@@ -920,3 +920,36 @@ background:#dc2626;
 }
 
 }
+
+
+.register-link{
+
+    text-align:center;
+
+    margin-top:20px;
+
+}
+
+.register-link p{
+
+    color:#666;
+
+    margin-bottom:8px;
+
+}
+
+.register-link a{
+
+    color:#0A66C2;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.register-link a:hover{
+
+    text-decoration:underline;
+
+}
