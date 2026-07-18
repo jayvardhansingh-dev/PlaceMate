@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlaceMate | Home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/dashboard.css">
+<title>PlaceMate | Dashboard</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/dashboard.css">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
 
 <body class="light-theme">
 
-<!--================ NAVBAR ================-->
+<!--=========================
+        NAVBAR
+==========================-->
 
-<nav class="navbar">
+<header class="navbar">
 
     <div class="logo">
 
@@ -29,15 +33,15 @@
 
     <div class="search-box">
 
-        <i class="fa fa-search"></i>
+        <i class="fa-solid fa-search"></i>
 
         <input
         type="text"
-        placeholder="Search students, companies, skills...">
+        placeholder="Search students, companies...">
 
     </div>
 
-    <div class="nav-icons">
+    <div class="nav-right">
 
         <button id="themeBtn">
 
@@ -45,378 +49,442 @@
 
         </button>
 
-        <button>
-
-            <i class="fa-regular fa-bell"></i>
-
-        </button>
-
-        <button>
-
-            <i class="fa-regular fa-envelope"></i>
-
-        </button>
-
-        <img
-        src="images/default-profile.png"
-        class="nav-profile">
-
     </div>
 
-</nav>
+</header>
 
-<!--================ MAIN ================-->
+<!--=========================
+        MAIN CONTAINER
+==========================-->
 
-<div class="container">
+<div class="dashboard">
 
-<!--================ LEFT SIDEBAR ================-->
+<!--=========================
+        SIDEBAR
+==========================-->
 
-<aside class="left-sidebar">
+<aside class="sidebar">
 
-<div class="profile-card">
+    <h3>Menu</h3>
 
-<div class="cover-photo"></div>
+    <a href="dashboard.html" class="active">
 
-<img
-src="images/default-profile.png"
-class="profile-photo">
+        <i class="fa-solid fa-house"></i>
 
-<h2 id="studentName">
+        Dashboard
 
-Jayvardhan Singh
+    </a>
 
-</h2>
+    <a href="placements.html">
 
-<p>
+        <i class="fa-solid fa-briefcase"></i>
 
-BCA Student
+        Placements
 
-</p>
+    </a>
 
-<div class="career-score">
+    <a href="profile.html">
 
-<h4>
+        <i class="fa-solid fa-user"></i>
 
-Career Score
+        My Profile
 
-</h4>
+    </a>
 
-<div class="score-circle">
+    <a href="resume.html">
 
-85%
+        <i class="fa-solid fa-file"></i>
 
-</div>
+        Resume
 
-</div>
+    </a>
 
-<div class="profile-stats">
+    <a href="settings.html">
 
-<div>
+        <i class="fa-solid fa-gear"></i>
 
-<h3>125</h3>
+        Settings
 
-<p>Followers</p>
+    </a>
 
-</div>
+    <button
+    id="logoutBtn"
+    class="logout-btn">
 
-<div>
+        <i class="fa-solid fa-right-from-bracket"></i>
 
-<h3>72</h3>
+        Logout
 
-<p>Following</p>
-
-</div>
-
-<div>
-
-<h3>18</h3>
-
-<p>Posts</p>
-
-</div>
-
-</div>
-
-<button class="profile-btn">
-    <a href="profile.html" style="text-decoration: none; color: inherit;">
-        View Profile
-
-
-</button>
-
-</div>
-
-<nav class="sidebar-menu">
-
-<a href="#" class="active">
-
-<i class="fa-solid fa-house"></i>
-
-Home
-
-</a>
-
-<a href="#">
-
-<i class="fa-solid fa-user"></i>
-
-My Profile
-
-</a>
-
-<a href="profile.html">
-
-<i class="fa-solid fa-briefcase"></i>
-
-Placements
-
-</a>
-
-<a href="#">
-
-<i class="fa-solid fa-user-group"></i>
-
-Network
-
-</a>
-
-<a href="#">
-
-<i class="fa-solid fa-file"></i>
-
-Applications
-
-</a>
-
-<a href="#">
-
-<i class="fa-solid fa-gear"></i>
-
-Settings
-
-</a>
-
-<a href="#" id="logoutBtn">
-
-<i class="fa-solid fa-right-from-bracket"></i>
-
-Logout
-
-</a>
-
-</nav>
+    </button>
 
 </aside>
 
-<!--================ FEED ================-->
+<!--=========================
+        MAIN CONTENT
+==========================-->
 
-<main class="feed">
+<main class="main-content">
 
-<div class="create-post">
+<!-- Profile -->
 
-<div class="post-top">
+<section class="profile-card">
 
-<img
-src="images/default-profile.png"
-class="create-profile">
+    <div class="profile-info">
 
-<input
-type="text"
-placeholder="Share your achievement...">
+        <h1 id="studentName">
 
-</div>
+            Jayvardhan Singh
 
-<div class="post-actions">
+        </h1>
 
-<button>
+        <p class="designation">
 
-<i class="fa-regular fa-image"></i>
+            BCA Student • Full Stack Web Developer
 
-Photo
+        </p>
 
-</button>
+        <p class="location">
 
-<button>
+            <i class="fa-solid fa-location-dot"></i>
 
-<i class="fa-solid fa-certificate"></i>
+            India
 
-Certificate
+        </p>
 
-</button>
+        <button class="edit-profile">
 
-<button>
+            Edit Profile
 
-<i class="fa-solid fa-code"></i>
+        </button>
 
-Project
+    </div>
 
-</button>
+</section>
 
-<button class="post-btn">
+<!-- About -->
 
-Post
+<section class="card">
 
-</button>
+    <div class="card-header">
 
-</div>
+        <h2>
 
-</div>
+            About Me
 
-<!-- Feed Starts -->
+        </h2>
 
-<div id="postContainer">
+    </div>
 
-<!-- Posts from JavaScript -->
+    <p id="bio">
 
-</div>
+        Passionate BCA student learning Full Stack Development.
+        Building projects and preparing for placements.
+
+    </p>
+
+</section>
+
+<!-- Skills -->
+
+<section class="card">
+
+    <div class="card-header">
+
+        <h2>
+
+            Skills
+
+        </h2>
+
+        <button id="addSkillBtn">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Add
+
+        </button>
+
+    </div>
+
+    <div
+    class="skills"
+    id="skillsContainer">
+
+        <span>HTML</span>
+
+        <span>CSS</span>
+
+        <span>JavaScript</span>
+
+        <span>Python</span>
+
+    </div>
+
+</section>
+
+<!--=========================
+        EDUCATION
+==========================-->
+
+<section class="card">
+
+    <div class="card-header">
+
+        <h2>Education</h2>
+
+        <button id="addEducationBtn">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Add
+
+        </button>
+
+    </div>
+
+    <div id="educationContainer">
+
+        <div class="education-item">
+
+            <h3>Bachelor of Computer Applications (BCA)</h3>
+
+            <p>2024 - Present</p>
+
+            <span>Currently Pursuing</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--=========================
+        CERTIFICATES
+==========================-->
+
+<section class="card">
+
+    <div class="card-header">
+
+        <h2>Certificates</h2>
+
+        <button id="addCertificateBtn">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Add
+
+        </button>
+
+    </div>
+
+    <div
+    class="certificate-grid"
+    id="certificateContainer">
+
+        <div class="certificate-card">
+
+            <i class="fa-solid fa-award"></i>
+
+            <h3>Python Certificate</h3>
+
+            <p>CodeWithHarry</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--=========================
+        PROJECTS
+==========================-->
+
+<section class="card">
+
+    <div class="card-header">
+
+        <h2>Projects</h2>
+
+        <button id="addProjectBtn">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Add
+
+        </button>
+
+    </div>
+
+    <div
+    class="project-list"
+    id="projectContainer">
+
+        <div class="project-card">
+
+            <h3>PlaceMate</h3>
+
+            <p>
+
+                Student Placement Portal built using HTML, CSS and JavaScript.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--=========================
+        RESUME
+==========================-->
+
+<section class="card">
+
+    <div class="card-header">
+
+        <h2>Resume</h2>
+
+        <button id="uploadResumeBtn">
+
+            Upload
+
+        </button>
+
+    </div>
+
+    <div
+    class="resume-box"
+    id="resumeBox">
+
+        <i class="fa-solid fa-file-pdf"></i>
+
+        <div>
+
+            <h3>No Resume Uploaded</h3>
+
+            <p>Upload your latest resume.</p>
+
+        </div>
+
+    </div>
+
+</section>
 
 </main>
 
-<!--================ RIGHT SIDEBAR ================-->
+<!--=========================
+        RIGHT SIDEBAR
+==========================-->
 
 <aside class="right-sidebar">
 
-<div class="widget">
+<!-- Career Score -->
 
-<h3>
+<div class="card">
 
-Top Recruiters
+    <h2>Career Score</h2>
 
-</h3>
+    <div class="progress">
 
-<ul>
+        <div
+        class="progress-bar"
+        id="progressBar">
 
-<li>Google</li>
+            0%
 
-<li>Microsoft</li>
+        </div>
 
-<li>Amazon</li>
+    </div>
 
-<li>Infosys</li>
+    <h3 id="careerScore">
 
-<li>TCS</li>
+        0%
 
-</ul>
-
-</div>
-
-<div class="widget">
-
-<h3>
-
-Latest Placement Drives
-
-</h3>
-
-<div class="drive">
-
-Google Internship
-
-<span>
-
-Apply
-
-</span>
+    </h3>
 
 </div>
 
-<div class="drive">
+<!-- Quick Actions -->
 
-Amazon SDE
+<div class="card">
 
-<span>
+    <h2>Quick Actions</h2>
 
-Apply
+    <button id="quickResume">
 
-</span>
+        <i class="fa-solid fa-file-arrow-up"></i>
 
-</div>
+        Upload Resume
 
-<div class="drive">
+    </button>
 
-Accenture
+    <button id="quickCertificate">
 
-<span>
+        <i class="fa-solid fa-award"></i>
 
-Apply
+        Add Certificate
 
-</span>
+    </button>
 
-</div>
+    <button id="quickProject">
 
-</div>
+        <i class="fa-solid fa-code"></i>
 
-<div class="widget">
+        Add Project
 
-<h3>
-
-Trending Skills
-
-</h3>
-
-<div class="skill">
-
-HTML
+    </button>
 
 </div>
 
-<div class="skill">
+<!-- Recent Achievement -->
 
-CSS
+<div class="card">
 
-</div>
+    <h2>Recent Achievement</h2>
 
-<div class="skill">
+    <ul class="achievement-list">
 
-JavaScript
+        <li>
 
-</div>
+            🏅 Python Certificate Completed
 
-<div class="skill">
+        </li>
 
-Python
+        <li>
 
-</div>
+            🚀 Portfolio Website Published
 
-<div class="skill">
+        </li>
 
-React
+        <li>
 
-</div>
+            💼 Started Building PlaceMate
 
-<div class="skill">
+        </li>
 
-Node.js
-
-</div>
+    </ul>
 
 </div>
 
-<div class="widget">
+<!-- Placement Tips -->
 
-<h3>
+<div class="card">
 
-Upcoming Events
+    <h2>Placement Tips</h2>
 
-</h3>
+    <ul class="tips-list">
 
-<p>
+        <li>✔ Keep your resume updated.</li>
 
-💼 Resume Workshop
+        <li>✔ Add every project you build.</li>
 
-</p>
+        <li>✔ Practice aptitude daily.</li>
 
-<p>
+        <li>✔ Complete your profile.</li>
 
-🚀 Mock Interview
-
-</p>
-
-<p>
-
-🎯 Placement Bootcamp
-
-</p>
+    </ul>
 
 </div>
 
