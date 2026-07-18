@@ -141,3 +141,13 @@ const members = {
     }
 
 };
+
+menuBtn.addEventListener("click", () => {
+
+    console.log("Menu Clicked");
+
+    sidebar.classList.add("show");
+
+    overlay.classList.add("show");
+
+});
