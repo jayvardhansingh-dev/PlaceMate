@@ -319,9 +319,7 @@ body{
 
 .profile-card h1{
 
-    font-size:34px;
-
-    margin-bottom:10px;
+font-size:clamp(24px,5vw,34px);
 
 }
 
@@ -338,6 +336,12 @@ body{
     margin-top:10px;
 
     font-size:15px;
+
+}
+
+.card{
+
+width:100%;
 
 }
 
@@ -852,93 +856,69 @@ grid-column:1/-1;
         MOBILE
 =========================================*/
 
-@media(max-width:768px){
-
-.navbar{
-
-flex-direction:column;
-
-height:auto;
-
-gap:15px;
-
-padding:20px;
-
-}
-
-.search-box{
-
-width:100%;
-
-}
+@media (max-width:768px){
 
 .dashboard{
 
-grid-template-columns:1fr;
+display:flex;
+
+flex-direction:column;
 
 padding:15px;
+
+gap:20px;
 
 }
 
 .sidebar{
 
-position:relative;
+width:100%;
 
-top:0;
+display:flex;
 
-}
+overflow-x:auto;
 
-.profile-card{
+gap:10px;
 
-padding:25px;
+padding:12px;
 
-}
-
-.profile-card h1{
-
-font-size:28px;
+position:static;
 
 }
 
-.card{
+.sidebar h3{
 
-padding:18px;
-
-}
-
-.card-header{
-
-flex-direction:column;
-
-align-items:flex-start;
-
-gap:12px;
+display:none;
 
 }
 
-.skills{
+.sidebar a{
 
-gap:8px;
+white-space:nowrap;
 
-}
+margin:0;
 
-.skills span{
-
-font-size:13px;
+padding:12px 18px;
 
 }
 
-.certificate-grid{
+.logout-btn{
 
-grid-template-columns:1fr;
+min-width:140px;
+
+margin-top:0;
 
 }
 
-.resume-box{
+.main-content{
 
-flex-direction:column;
+width:100%;
 
-text-align:center;
+}
+
+.right-sidebar{
+
+width:100%;
 
 }
 
