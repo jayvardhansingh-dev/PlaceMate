@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>PlaceMate Admin Dashboard</title>
+
+<link rel="stylesheet"
+href="../css/admin.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- =======================
+Sidebar
+======================= -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-user-shield"></i>
+
+<span>PlaceMate</span>
+
+</div>
+
+<ul>
+
+<li class="active">
+
+<a href="admin-dashboard.html">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Dashboard
+
+</a>
+
+</li>
+
+<li>
+
+<a href="students.html">
+
+<i class="fa-solid fa-user-graduate"></i>
+
+Students
+
+</a>
+
+</li>
+
+<li>
+
+<a href="companies.html">
+
+<i class="fa-solid fa-building"></i>
+
+Companies
+
+</a>
+
+</li>
+
+<li>
+
+<a href="applications.html">
+
+<i class="fa-solid fa-file-lines"></i>
+
+Applications
+
+</a>
+
+</li>
+
+<li>
+
+<a href="drives.html">
+
+<i class="fa-solid fa-calendar-days"></i>
+
+Placement Drives
+
+</a>
+
+</li>
+
+<li>
+
+<a href="notices.html">
+
+<i class="fa-solid fa-bullhorn"></i>
+
+Notices
+
+</a>
+
+</li>
+
+<li>
+
+<a href="reports.html">
+
+<i class="fa-solid fa-chart-pie"></i>
+
+Reports
+
+</a>
+
+</li>
+
+<li>
+
+<a href="settings.html">
+
+<i class="fa-solid fa-gear"></i>
+
+Settings
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#"
+onclick="adminLogout()">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+</li>
+
+</ul>
+
+</aside>
+
+<!-- =======================
+Main
+======================= -->
+
+<main class="main">
+
+<header class="topbar">
+
+    <h1>Admin Dashboard</h1>
+
+    <div class="admin-actions">
+
+        <button class="notification-btn">
+            <i class="fa-solid fa-bell"></i>
+            <span class="badge">3</span>
+        </button>
+
+        <div class="admin-profile" id="profileMenu">
+
+            <img src="../images/admin.png" alt="Admin">
+
+            <div>
+
+                <h4>Placement Officer</h4>
+                <small>Administrator</small>
+
+            </div>
+
+            <i class="fa-solid fa-chevron-down"></i>
+
+            <div class="profile-dropdown">
+
+                <a href="#">
+                    <i class="fa-solid fa-user"></i>
+                    My Profile
+                </a>
+
+                <a href="settings.html">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </a>
+
+                <hr>
+
+                <a href="#" id="logoutBtn" class="logout-link">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- =======================
+Statistics
+======================= -->
+
+<section class="stats">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-user-graduate"></i>
+
+<h2 id="studentCount">
+
+0
+
+</h2>
+
+<p>
+
+Students
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-building"></i>
+
+<h2 id="companyCount">
+
+0
+
+</h2>
+
+<p>
+
+Companies
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-file-lines"></i>
+
+<h2 id="applicationCount">
+
+0
+
+</h2>
+
+<p>
+
+Applications
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<i class="fa-solid fa-trophy"></i>
+
+<h2 id="placedCount">
+
+0
+
+</h2>
+
+<p>
+
+Placed
+
+</p>
+
+</div>
+
+</section>
+
+<!-- =======================
+Dashboard Grid
+======================= -->
+
+<section class="dashboard-grid">
+
+<div class="panel">
+
+<h2>
+
+Recent Applications
+
+</h2>
+
+<div id="recentApplications">
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>
+
+Latest Students
+
+</h2>
+
+<div id="recentStudents">
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>
+
+Upcoming Drives
+
+</h2>
+
+<div id="upcomingDrives">
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>
+
+Recent Notices
+
+</h2>
+
+<div id="recentNotices">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =======================
+Analytics
+======================= -->
+
+<section class="analytics">
+
+<div class="chart-card">
+
+<h2>
+
+Placement Analytics
+
+</h2>
+
+<canvas id="placementChart">
+
+</canvas>
+
+</div>
+
+<div class="chart-card">
+
+<h2>
+
+Applications Analytics
+
+</h2>
+
+<canvas id="applicationChart">
+
+</canvas>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="../js/storage.js"></script>
+
+<script src="../js/companies.js"></script>
+
+<script src="../js/admin-dashboard.js"></script>
+
+</body>
+
+</html>

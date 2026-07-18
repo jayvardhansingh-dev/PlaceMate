@@ -1,498 +1,654 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PlaceMate | Dashboard</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PlaceMate Dashboard</title>
 
-<link rel="stylesheet" href="css/dashboard.css">
+        <link rel="stylesheet" href="css/dashboard.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    </head>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <body>
 
-</head>
+        <!-- ================= NAVBAR ================= -->
 
-<body class="light-theme">
+        <header class="navbar">
 
-<!--=========================
-        NAVBAR
-==========================-->
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>PlaceMate</span>
+            </div>
 
-<header class="navbar">
+            <div class="search-box">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" placeholder="Search...">
+            </div>
 
-    <div class="logo">
+            <div class="nav-right">
 
-        <i class="fa-solid fa-graduation-cap"></i>
+                <button id="themeBtn">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
 
-        <span>PlaceMate</span>
+                <div class="profile-mini">
+                    <img id="miniProfile" src="images/jay.png">
+                    <div>
+                        <h4 id="miniName">Jayvardhan Singh</h4>
+                        <small>Online</small>
+                    </div>
+                </div>
 
-    </div>
+            </div>
 
-    <div class="search-box">
+        </header>
 
-        <i class="fa-solid fa-search"></i>
+        <!-- ================= DASHBOARD ================= -->
 
-        <input
-        type="text"
-        placeholder="Search students, companies...">
+        <div class="dashboard">
 
-    </div>
+            <!-- ================= SIDEBAR ================= -->
 
-    <div class="nav-right">
+            <aside class="sidebar">
 
-        <button id="themeBtn">
+                <div class="sidebar-profile">
 
-            <i class="fa-solid fa-moon"></i>
+                    <img id="profileImage" src="images/jay.png">
 
-        </button>
+                    <h2 id="userName">Jayvardhan Singh</h2>
 
-    </div>
+                    <p id="userRole">👑 Team Leader</p>
 
-</header>
+                </div>
 
-<!--=========================
-        MAIN CONTAINER
-==========================-->
+                <ul>
 
-<div class="dashboard">
+                    <li class="active">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </li>
 
-<!--=========================
-        SIDEBAR
-==========================-->
+                    <li>
+                        <i class="fa-solid fa-user"></i>
+                        My Profile
+                    </li>
 
-<aside class="sidebar">
+                    <li>
+                        <i class="fa-solid fa-building"></i>
+                        Companies
+                    </li>
 
-    <h3>Menu</h3>
+                    <li>
+                        <i class="fa-solid fa-briefcase"></i>
+                        Placements
+                    </li>
 
-    <a href="dashboard.html" class="active">
+                    <li>
+                        <i class="fa-solid fa-users"></i>
+                        Team
+                    </li>
 
-        <i class="fa-solid fa-house"></i>
+                    <li>
+                        <i class="fa-solid fa-file"></i>
+                        Resume
+                    </li>
 
-        Dashboard
+                    <li>
+                        <i class="fa-solid fa-chart-line"></i>
+                        Analytics
+                    </li>
 
-    </a>
+                    <li>
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </li>
 
-    <a href="placements.html">
+                    <li id="logoutBtn">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Logout
+                    </li>
 
-        <i class="fa-solid fa-briefcase"></i>
+                </ul>
 
-        Placements
+            </aside>
 
-    </a>
+            <!-- ================= MAIN ================= -->
 
-    <a href="profile.html">
+            <main class="main-content">
 
-        <i class="fa-solid fa-user"></i>
+                <!-- HERO -->
 
-        My Profile
+                <section class="hero-card">
 
-    </a>
+                    <div class="hero-left">
 
-    <a href="resume.html">
+                        <h1>
+                            Welcome Back 👋
+                        </h1>
 
-        <i class="fa-solid fa-file"></i>
+                        <h2 id="welcomeText">
+                            Jayvardhan Singh
+                        </h2>
 
-        Resume
+                        <p>
+                            Welcome to your PlaceMate dashboard. Track
+                            placements,
+                            projects, certificates and your career progress.
+                        </p>
 
-    </a>
+                    </div>
 
-    <a href="settings.html">
+                    <div class="hero-right">
 
-        <i class="fa-solid fa-gear"></i>
+                        <div class="career-circle">
 
-        Settings
+                            <h1 id="careerScore">
+                                98%
+                            </h1>
 
-    </a>
+                            <span>Career Score</span>
 
-    <button
-    id="logoutBtn"
-    class="logout-btn">
+                        </div>
 
-        <i class="fa-solid fa-right-from-bracket"></i>
+                    </div>
 
-        Logout
+                </section>
 
-    </button>
+                <!-- STATISTICS -->
 
-</aside>
+                <section class="stats-grid">
 
-<!--=========================
-        MAIN CONTENT
-==========================-->
+                    <div class="stat-card">
+                        <i class="fa-solid fa-code"></i>
+                        <h2 id="projectCount">12</h2>
+                        <p>Projects</p>
+                    </div>
 
-<main class="main-content">
+                    <div class="stat-card">
+                        <i class="fa-solid fa-award"></i>
+                        <h2 id="certificateCount">8</h2>
+                        <p>Certificates</p>
+                    </div>
 
-<!-- Profile -->
+                    <div class="stat-card">
+                        <i class="fa-solid fa-building"></i>
+                        <h2 id="companyCount">32</h2>
+                        <p>Companies</p>
+                    </div>
 
-<section class="profile-card">
+                    <div class="stat-card">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <h2 id="applicationCount">168</h2>
+                        <p>Applications</p>
+                    </div>
 
-    <div class="profile-info">
+                </section>
 
-        <h1 id="studentName">
+                <!-- QUICK ACTIONS -->
 
-            Jayvardhan Singh
+                <section class="dashboard-section">
 
-        </h1>
+                    <div class="section-header">
 
-        <p class="designation">
+                        <h2>Quick Actions</h2>
 
-            BCA Student • Full Stack Web Developer
+                    </div>
 
-        </p>
+                    <div class="action-grid" id="actionGrid">
 
-        <p class="location">
+                    </div>
 
-            <i class="fa-solid fa-location-dot"></i>
+                </section>
 
-            India
+                <!-- PROJECTS -->
 
-        </p>
+                <section class="dashboard-section">
 
-        <button class="edit-profile">
+                    <div class="section-header">
 
-            Edit Profile
+                        <h2>Featured Projects</h2>
 
-        </button>
+                    </div>
 
-    </div>
+                    <div class="project-grid" id="projectGrid">
 
-</section>
+                    </div>
 
-<!-- About -->
+                </section>
 
-<section class="card">
+                <!-- SKILLS -->
 
-    <div class="card-header">
+                <section class="dashboard-section">
 
-        <h2>
+                    <div class="section-header">
 
-            About Me
+                        <h2>Technical Skills</h2>
 
-        </h2>
+                    </div>
 
-    </div>
+                    <div class="skills-container" id="skillsContainer">
 
-    <p id="bio">
+                    </div>
 
-        Passionate BCA student learning Full Stack Development.
-        Building projects and preparing for placements.
+                </section>
 
-    </p>
+                <!-- ================= Placement Progress ================= -->
 
-</section>
+                <section class="dashboard-section">
 
-<!-- Skills -->
+                    <div class="section-header">
+                        <h2>Placement Progress</h2>
+                    </div>
 
-<section class="card">
+                    <div class="progress-grid">
 
-    <div class="card-header">
+                        <div class="progress-card">
+                            <h3>Profile Completion</h3>
+                            <div class="progress-bar">
+                                <div class="progress-fill"
+                                    style="width:95%"></div>
+                            </div>
+                            <span>95%</span>
+                        </div>
 
-        <h2>
+                        <div class="progress-card">
+                            <h3>Resume Score</h3>
+                            <div class="progress-bar">
+                                <div class="progress-fill"
+                                    style="width:92%"></div>
+                            </div>
+                            <span>92%</span>
+                        </div>
 
-            Skills
+                        <div class="progress-card">
+                            <h3>Interview Ready</h3>
+                            <div class="progress-bar">
+                                <div class="progress-fill"
+                                    style="width:89%"></div>
+                            </div>
+                            <span>89%</span>
+                        </div>
 
-        </h2>
+                        <div class="progress-card">
+                            <h3>Placement Ready</h3>
+                            <div class="progress-bar">
+                                <div class="progress-fill"
+                                    style="width:94%"></div>
+                            </div>
+                            <span>94%</span>
+                        </div>
 
-        <button id="addSkillBtn">
+                    </div>
 
-            <i class="fa-solid fa-plus"></i>
+                </section>
 
-            Add
+                <!-- ================= Upcoming Drives ================= -->
 
-        </button>
+                <section class="dashboard-section">
 
-    </div>
+                    <div class="section-header">
+                        <h2>Upcoming Placement Drives</h2>
+                    </div>
 
-    <div
-    class="skills"
-    id="skillsContainer">
+                    <div class="drive-grid">
 
-        <span>HTML</span>
+                        <div class="drive-card">
+                            <h3>TCS</h3>
+                            <p>Package : 7 LPA</p>
+                            <button>Apply</button>
+                        </div>
 
-        <span>CSS</span>
+                        <div class="drive-card">
+                            <h3>Infosys</h3>
+                            <p>Package : 6 LPA</p>
+                            <button>Apply</button>
+                        </div>
 
-        <span>JavaScript</span>
+                        <div class="drive-card">
+                            <h3>Wipro</h3>
+                            <p>Package : 5.5 LPA</p>
+                            <button>Apply</button>
+                        </div>
 
-        <span>Python</span>
+                        <div class="drive-card">
+                            <h3>Accenture</h3>
+                            <p>Package : 6.8 LPA</p>
+                            <button>Apply</button>
+                        </div>
 
-    </div>
+                    </div>
 
-</section>
+                </section>
 
-<!--=========================
-        EDUCATION
-==========================-->
+                <!-- ================= Recent Activity ================= -->
 
-<section class="card">
+                <section class="dashboard-section">
 
-    <div class="card-header">
+                    <div class="section-header">
+                        <h2>Recent Activity</h2>
+                    </div>
 
-        <h2>Education</h2>
+                    <div class="activity-list">
 
-        <button id="addEducationBtn">
+                        <div class="activity-card">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <h4>Resume Updated</h4>
+                                <small>2 Hours Ago</small>
+                            </div>
+                        </div>
 
-            <i class="fa-solid fa-plus"></i>
+                        <div class="activity-card">
+                            <i class="fa-solid fa-code"></i>
+                            <div>
+                                <h4>Project Uploaded</h4>
+                                <small>Yesterday</small>
+                            </div>
+                        </div>
 
-            Add
+                        <div class="activity-card">
+                            <i class="fa-solid fa-building"></i>
+                            <div>
+                                <h4>Applied to Infosys</h4>
+                                <small>2 Days Ago</small>
+                            </div>
+                        </div>
 
-        </button>
+                        <div class="activity-card">
+                            <i class="fa-solid fa-award"></i>
+                            <div>
+                                <h4>Certificate Added</h4>
+                                <small>Last Week</small>
+                            </div>
+                        </div>
 
-    </div>
+                    </div>
 
-    <div id="educationContainer">
+                </section>
 
-        <div class="education-item">
+                <!-- ================= Notifications ================= -->
 
-            <h3>Bachelor of Computer Applications (BCA)</h3>
+                <section class="dashboard-section">
 
-            <p>2024 - Present</p>
+                    <div class="section-header">
+                        <h2>Notifications</h2>
+                    </div>
 
-            <span>Currently Pursuing</span>
+                    <div class="notification-list">
+
+                        <div class="notification-card">
+                            🔔 TCS registration opens tomorrow.
+                        </div>
+
+                        <div class="notification-card">
+                            📄 Resume score increased to 92%.
+                        </div>
+
+                        <div class="notification-card">
+                            🎉 New placement drive available.
+                        </div>
+
+                        <div class="notification-card">
+                            📅 Interview scheduled on Monday.
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= Certificates ================= -->
+
+                <section class="dashboard-section">
+
+                    <div class="section-header">
+                        <h2>Certificates</h2>
+                    </div>
+
+                    <div class="certificate-grid">
+
+                        <div class="certificate-card">
+                            <i class="fa-solid fa-award"></i>
+                            <h3>Python</h3>
+                            <p>CodeWithHarry</p>
+                        </div>
+
+                        <div class="certificate-card">
+                            <i class="fa-solid fa-certificate"></i>
+                            <h3>HTML & CSS</h3>
+                            <p>SoloLearn</p>
+                        </div>
+
+                        <div class="certificate-card">
+                            <i class="fa-solid fa-medal"></i>
+                            <h3>JavaScript</h3>
+                            <p>SoloLearn</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= Resume ================= -->
+
+                <section class="dashboard-section">
+
+                    <div class="section-header">
+                        <h2>Resume</h2>
+                    </div>
+
+                    <div class="resume-card">
+
+                        <div>
+                            <h3>Latest Resume</h3>
+                            <p>Jayvardhan_Singh_Resume.pdf</p>
+                        </div>
+
+                        <div>
+
+                            <button>View</button>
+
+                            <button>Download</button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= Core Team ================= -->
+
+                <section class="dashboard-section">
+
+                    <div class="section-header">
+                        <h2>Core Team</h2>
+                        <a href="team.html">View All</a>
+                    </div>
+
+                    <div class="team-grid">
+
+                        <div class="team-card">
+                            <img src="images/jay.png" alt>
+                            <h3>Jayvardhan Singh</h3>
+                            <p>👑 Team Leader</p>
+                        </div>
+
+                        <div class="team-card">
+                            <img src="images/uzair.png" alt>
+                            <h3>Uzair</h3>
+                            <p>💻 Backend Developer</p>
+                        </div>
+
+                        <div class="team-card">
+                            <img src="images/utsav.png" alt>
+                            <h3>Utsav Saraswat</h3>
+                            <p>🗄 Database Management</p>
+                        </div>
+
+                        <div class="team-card">
+                            <img src="images/aakash.png" alt>
+                            <h3>Aakash Yadav</h3>
+                            <p>📋 Testing & Documentation</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= Analytics ================= -->
+
+                <section class="dashboard-section">
+
+                    <div class="section-header">
+                        <h2>Performance Analytics</h2>
+                    </div>
+
+                    <div class="analytics-grid">
+
+                        <div class="analytics-card">
+                            <h3>Applications</h3>
+                            <h1>168</h1>
+                        </div>
+
+                        <div class="analytics-card">
+                            <h3>Interviews</h3>
+                            <h1>24</h1>
+                        </div>
+
+                        <div class="analytics-card">
+                            <h3>Offers</h3>
+                            <h1>8</h1>
+                        </div>
+
+                        <div class="analytics-card">
+                            <h3>Success Rate</h3>
+                            <h1>87%</h1>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= Top Recruiters ================= -->
+
+                <section class="dashboard-section">
+
+                    <div class="section-header">
+                        <h2>Top Recruiters</h2>
+                    </div>
+
+                    <div class="recruiter-grid">
+
+                        <div class="recruiter-card">
+                            <i class="fa-solid fa-building"></i>
+                            <h3>TCS</h3>
+                        </div>
+
+                        <div class="recruiter-card">
+                            <i class="fa-solid fa-building"></i>
+                            <h3>Infosys</h3>
+                        </div>
+
+                        <div class="recruiter-card">
+                            <i class="fa-solid fa-building"></i>
+                            <h3>Wipro</h3>
+                        </div>
+
+                        <div class="recruiter-card">
+                            <i class="fa-solid fa-building"></i>
+                            <h3>Accenture</h3>
+                        </div>
+
+                        <div class="recruiter-card">
+                            <i class="fa-solid fa-building"></i>
+                            <h3>Capgemini</h3>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= Calendar ================= -->
+
+                <section class="dashboard-section">
+
+                    <div class="section-header">
+                        <h2>Upcoming Schedule</h2>
+                    </div>
+
+                    <div class="schedule-list">
+
+                        <div class="schedule-card">
+                            <strong>21 July</strong>
+                            <p>TCS Online Test</p>
+                        </div>
+
+                        <div class="schedule-card">
+                            <strong>24 July</strong>
+                            <p>Infosys Interview</p>
+                        </div>
+
+                        <div class="schedule-card">
+                            <strong>28 July</strong>
+                            <p>Resume Submission</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= Footer ================= -->
+
+                <footer class="dashboard-footer">
+
+                    <div class="footer-content">
+
+                        <div>
+                            <h2>PlaceMate</h2>
+                            <p>Student Placement Portal</p>
+                        </div>
+
+                        <div>
+                            <p>
+                                © 2026 PlaceMate. All Rights Reserved.
+                            </p>
+
+                            <small>
+                                Developed by Team PlaceMate ❤️
+                            </small>
+                        </div>
+
+                    </div>
+
+                </footer>
+
+            </main>
 
         </div>
 
-    </div>
+        <!-- Universal Modal -->
 
-</section>
+        <div id="modal" class="modal">
 
-<!--=========================
-        CERTIFICATES
-==========================-->
+            <div class="modal-content">
 
-<section class="card">
+                <span class="close-modal">&times;</span>
 
-    <div class="card-header">
+                <div id="modalBody">
 
-        <h2>Certificates</h2>
+                </div>
 
-        <button id="addCertificateBtn">
-
-            <i class="fa-solid fa-plus"></i>
-
-            Add
-
-        </button>
-
-    </div>
-
-    <div
-    class="certificate-grid"
-    id="certificateContainer">
-
-        <div class="certificate-card">
-
-            <i class="fa-solid fa-award"></i>
-
-            <h3>Python Certificate</h3>
-
-            <p>CodeWithHarry</p>
+            </div>
 
         </div>
+        
+        <script src="js/storage.js"></script>
+        <script src="js/members.js"></script>
+        
+        <script src="js/dashboard.js"></script>
 
-    </div>
+    </body>
 
-</section>
-
-<!--=========================
-        PROJECTS
-==========================-->
-
-<section class="card">
-
-    <div class="card-header">
-
-        <h2>Projects</h2>
-
-        <button id="addProjectBtn">
-
-            <i class="fa-solid fa-plus"></i>
-
-            Add
-
-        </button>
-
-    </div>
-
-    <div
-    class="project-list"
-    id="projectContainer">
-
-        <div class="project-card">
-
-            <h3>PlaceMate</h3>
-
-            <p>
-
-                Student Placement Portal built using HTML, CSS and JavaScript.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!--=========================
-        RESUME
-==========================-->
-
-<section class="card">
-
-    <div class="card-header">
-
-        <h2>Resume</h2>
-
-        <button id="uploadResumeBtn">
-
-            Upload
-
-        </button>
-
-    </div>
-
-    <div
-    class="resume-box"
-    id="resumeBox">
-
-        <i class="fa-solid fa-file-pdf"></i>
-
-        <div>
-
-            <h3>No Resume Uploaded</h3>
-
-            <p>Upload your latest resume.</p>
-
-        </div>
-
-    </div>
-
-</section>
-
-</main>
-
-<!--=========================
-        RIGHT SIDEBAR
-==========================-->
-
-<aside class="right-sidebar">
-
-<!-- Career Score -->
-
-<div class="card">
-
-    <h2>Career Score</h2>
-
-    <div class="progress">
-
-        <div
-        class="progress-bar"
-        id="progressBar">
-
-            0%
-
-        </div>
-
-    </div>
-
-    <h3 id="careerScore">
-
-        0%
-
-    </h3>
-
-</div>
-
-<!-- Quick Actions -->
-
-<div class="card">
-
-    <h2>Quick Actions</h2>
-
-    <button id="quickResume">
-
-        <i class="fa-solid fa-file-arrow-up"></i>
-
-        Upload Resume
-
-    </button>
-
-    <button id="quickCertificate">
-
-        <i class="fa-solid fa-award"></i>
-
-        Add Certificate
-
-    </button>
-
-    <button id="quickProject">
-
-        <i class="fa-solid fa-code"></i>
-
-        Add Project
-
-    </button>
-
-</div>
-
-<!-- Recent Achievement -->
-
-<div class="card">
-
-    <h2>Recent Achievement</h2>
-
-    <ul class="achievement-list">
-
-        <li>
-
-            🏅 Python Certificate Completed
-
-        </li>
-
-        <li>
-
-            🚀 Portfolio Website Published
-
-        </li>
-
-        <li>
-
-            💼 Started Building PlaceMate
-
-        </li>
-
-    </ul>
-
-</div>
-
-<!-- Placement Tips -->
-
-<div class="card">
-
-    <h2>Placement Tips</h2>
-
-    <ul class="tips-list">
-
-        <li>✔ Keep your resume updated.</li>
-
-        <li>✔ Add every project you build.</li>
-
-        <li>✔ Practice aptitude daily.</li>
-
-        <li>✔ Complete your profile.</li>
-
-    </ul>
-
-</div>
-
-</aside>
-
-</div>
-
-<script src="js/dashboard.js"></script>
-
-</body>
 </html>

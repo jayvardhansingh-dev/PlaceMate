@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PlaceMate | Profile</title>
+
+    <link rel="stylesheet" href="css/profile.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="profile-card">
+
+        <div class="profile-header">
+
+            <img
+                id="profileImage"
+                src="images/default-avatar.png"
+                alt="Profile">
+
+            <label class="upload-btn">
+
+                <i class="fa-solid fa-camera"></i>
+
+                Change Photo
+
+                <input
+                    type="file"
+                    id="photoInput"
+                    accept="image/*"
+                    hidden>
+
+            </label>
+
+        </div>
+
+        <form id="profileForm">
+
+            <div class="row">
+
+                <div class="input-group">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="name">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="email">
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="input-group">
+
+                    <label>Phone</label>
+
+                    <input
+                        type="text"
+                        id="phone">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>College</label>
+
+                    <input
+                        type="text"
+                        id="college">
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="input-group">
+
+                    <label>Branch</label>
+
+                    <input
+                        type="text"
+                        id="branch">
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Semester</label>
+
+                    <input
+                        type="text"
+                        id="semester">
+
+                </div>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>CGPA</label>
+
+                <input
+                    type="number"
+                    id="cgpa"
+                    step="0.01">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Bio</label>
+
+                <textarea
+                    id="bio"
+                    rows="5"
+                    placeholder="Write about yourself..."></textarea>
+
+            </div>
+
+            <button
+                type="submit"
+                class="save-btn">
+
+                <i class="fa-solid fa-floppy-disk"></i>
+
+                Save Profile
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="js/storage.js"></script>
+<script src="js/profile.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>PlaceMate Admin Login</title>
+
+<link rel="stylesheet"
+href="../css/admin-login.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="left">
+
+        <div class="overlay">
+
+            <i class="fa-solid fa-user-shield"></i>
+
+            <h1>PlaceMate Admin</h1>
+
+            <p>
+
+                Manage students, companies and placement drives from one dashboard.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="right">
+
+        <form id="adminLoginForm">
+
+            <h2>Admin Login</h2>
+
+            <p>Authorized users only</p>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="Admin Email"
+                    required>
+
+            </div>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                    required>
+
+            </div>
+
+            <button class="login-btn">
+
+                Login
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="../js/storage.js"></script>
+<script src="../js/admin-login.js"></script>
+
+</body>
+
+</html>

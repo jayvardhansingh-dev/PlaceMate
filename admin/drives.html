@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PlaceMate | Placement Drives</title>
+
+<link rel="stylesheet" href="../css/admin.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-user-shield"></i>
+
+<span>PlaceMate</span>
+
+</div>
+
+<ul>
+
+<li><a href="admin-dashboard.html"><i class="fa-solid fa-chart-line"></i><span>Dashboard</span></a></li>
+
+<li><a href="students.html"><i class="fa-solid fa-user-graduate"></i><span>Students</span></a></li>
+
+<li><a href="companies.html"><i class="fa-solid fa-building"></i><span>Companies</span></a></li>
+
+<li><a href="applications.html"><i class="fa-solid fa-file-lines"></i><span>Applications</span></a></li>
+
+<li class="active"><a href="drives.html"><i class="fa-solid fa-calendar-days"></i><span>Placement Drives</span></a></li>
+
+<li><a href="#" onclick="adminLogout()"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a></li>
+
+</ul>
+
+</aside>
+
+<main class="main">
+
+<header class="topbar">
+
+<h1>Placement Drives</h1>
+
+<button id="addDriveBtn" class="primary-btn">
+
+<i class="fa-solid fa-plus"></i>
+
+New Drive
+
+</button>
+
+</header>
+
+<div class="table-card">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Company</th>
+
+<th>Date</th>
+
+<th>Time</th>
+
+<th>Venue</th>
+
+<th>Mode</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="driveTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</main>
+
+<!-- Modal -->
+
+<div class="modal" id="driveModal">
+
+<div class="modal-content">
+
+<span class="close-modal">&times;</span>
+
+<h2 id="modalTitle">Placement Drive</h2>
+
+<form id="driveForm">
+
+<input type="hidden" id="driveId">
+
+<div class="input-group">
+
+<label>Company</label>
+
+<input type="text" id="driveCompany" required>
+
+</div>
+
+<div class="input-group">
+
+<label>Date</label>
+
+<input type="date" id="driveDate" required>
+
+</div>
+
+<div class="input-group">
+
+<label>Time</label>
+
+<input type="time" id="driveTime" required>
+
+</div>
+
+<div class="input-group">
+
+<label>Venue</label>
+
+<input type="text" id="driveVenue">
+
+</div>
+
+<div class="input-group">
+
+<label>Mode</label>
+
+<select id="driveMode">
+
+<option>Offline</option>
+
+<option>Online</option>
+
+<option>Hybrid</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>Status</label>
+
+<select id="driveStatus">
+
+<option>Upcoming</option>
+
+<option>Ongoing</option>
+
+<option>Completed</option>
+
+</select>
+
+</div>
+
+<button class="primary-btn">
+
+Save Drive
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="../js/storage.js"></script>
+
+<script src="../js/admin-drives.js"></script>
+
+</body>
+
+</html>

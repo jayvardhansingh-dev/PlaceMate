@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>PlaceMate | Applications</title>
+
+<link rel="stylesheet"
+href="../css/admin.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-user-shield"></i>
+
+<span>PlaceMate</span>
+
+</div>
+
+<ul>
+
+<li><a href="admin-dashboard.html"><i class="fa-solid fa-chart-line"></i><span>Dashboard</span></a></li>
+
+<li><a href="students.html"><i class="fa-solid fa-user-graduate"></i><span>Students</span></a></li>
+
+<li><a href="companies.html"><i class="fa-solid fa-building"></i><span>Companies</span></a></li>
+
+<li class="active"><a href="applications.html"><i class="fa-solid fa-file-lines"></i><span>Applications</span></a></li>
+
+<li><a href="#" onclick="adminLogout()"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a></li>
+
+</ul>
+
+</aside>
+
+<!-- Main -->
+
+<main class="main">
+
+<header class="topbar">
+
+<h1>Application Management</h1>
+
+</header>
+
+<div class="table-toolbar">
+
+<input
+type="text"
+id="searchApplication"
+placeholder="Search Student or Company">
+
+<select id="statusFilter">
+
+<option value="">All Status</option>
+
+<option>Applied</option>
+
+<option>Shortlisted</option>
+
+<option>Interview</option>
+
+<option>Selected</option>
+
+<option>Rejected</option>
+
+</select>
+
+</div>
+
+<div class="table-card">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Student</th>
+
+<th>Company</th>
+
+<th>Applied On</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="applicationTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</main>
+
+<!-- Details Modal -->
+
+<div class="modal" id="applicationModal">
+
+<div class="modal-content">
+
+<span class="close-modal">&times;</span>
+
+<div id="applicationBody"></div>
+
+</div>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="../js/storage.js"></script>
+<script src="../js/companies.js"></script>
+<script src="../js/admin-applications.js"></script>
+
+</body>
+
+</html>

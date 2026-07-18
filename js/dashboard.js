@@ -1,357 +1,139 @@
-/*=========================================
-        PlaceMate Dashboard JS
-        Part 1
-=========================================*/
+// ==========================
+// Get Member
+// ==========================
+// ==========================
+// Get Member
+// ==========================
 
+const loggedUser = getCurrentUser();
 
-//==========================================
-// LOGIN CHECK
-//==========================================
+console.log("Current User:", loggedUser);
 
-if(localStorage.getItem("isLoggedIn")!=="true"){
+const currentMember = members[loggedUser];
 
-    window.location.href="login.html";
+console.log("Current Member:", currentMember);
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+        logoutUser();
+        window.location.href = "login.html";
+    });
+}
+// ==========================
+// Universal Modal
+// ==========================
+
+const modal = document.getElementById("modal");
+const modalBody = document.getElementById("modalBody");
+const closeModal = document.querySelector(".close-modal");
+
+function openModal(content){
+
+    modalBody.innerHTML = content;
+
+    modal.style.display = "flex";
 
 }
 
+function hideModal(){
 
-//==========================================
-// LOAD STUDENT
-//==========================================
-
-const studentRoll=localStorage.getItem("studentRoll");
-
-const studentName=localStorage.getItem("studentName");
-
-let students=JSON.parse(localStorage.getItem("students"))||[];
-
-let currentStudent=students.find(s=>s.roll===studentRoll);
-
-
-//==========================================
-// CREATE PROFILE
-//==========================================
-
-if(!currentStudent){
-
-    currentStudent={
-
-        roll:studentRoll,
-
-        name:studentName||"Student",
-
-        bio:"BCA Student learning Full Stack Development.",
-
-        location:"India",
-
-        skills:["HTML","CSS","JavaScript"],
-
-        education:[],
-
-        certificates:[],
-
-        projects:[],
-
-        resume:null
-
-    };
-
-    students.push(currentStudent);
-
-    saveStudents();
+    modal.style.display = "none";
 
 }
 
+closeModal.onclick = hideModal;
 
-//==========================================
-// SAVE
-//==========================================
+window.onclick = function(e){
 
-function saveStudents(){
+    if(e.target === modal){
 
-    localStorage.setItem(
-
-        "students",
-
-        JSON.stringify(students)
-
-    );
-
-}
-
-
-//==========================================
-// LOAD PROFILE
-//==========================================
-
-function loadProfile(){
-
-    document.getElementById("studentName").textContent=
-
-    currentStudent.name;
-
-    document.getElementById("bio").textContent=
-
-    currentStudent.bio;
-
-    document.querySelector(".location").innerHTML=
-
-    `<i class="fa-solid fa-location-dot"></i> ${currentStudent.location}`;
-
-}
-
-loadProfile();
-
-
-//==========================================
-// THEME
-//==========================================
-
-const body=document.body;
-
-const themeBtn=document.getElementById("themeBtn");
-
-let theme=localStorage.getItem("theme")||"light";
-
-body.classList.add(theme+"-theme");
-
-updateThemeIcon();
-
-
-themeBtn.onclick=function(){
-
-    if(body.classList.contains("light-theme")){
-
-        body.classList.replace("light-theme","dark-theme");
-
-        localStorage.setItem("theme","dark");
+        hideModal();
 
     }
 
-    else{
-
-        body.classList.replace("dark-theme","light-theme");
-
-        localStorage.setItem("theme","light");
-
-    }
-
-    updateThemeIcon();
-
 }
 
+// ==========================
+// Helper
+// ==========================
 
-function updateThemeIcon(){
-
-    themeBtn.innerHTML=
-
-    body.classList.contains("dark-theme")
-
-    ?'<i class="fa-solid fa-sun"></i>'
-
-    :'<i class="fa-solid fa-moon"></i>';
-
+function setText(id, value) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.textContent = value;
+    }
 }
 
+// ==========================
+// Basic Info
+// ==========================
 
+setText("userName", currentMember.name);
+setText("miniName", currentMember.name);
+setText("welcomeText", currentMember.name);
 
-//==========================================
-// EDIT PROFILE
-//==========================================
+setText("userRole", currentMember.role);
 
-const editBtn=document.querySelector(".edit-profile");
+setText("careerScore", currentMember.score + "%");
 
-editBtn.onclick=function(){
+setText("projectCount", currentMember.projects);
+setText("certificateCount", currentMember.certificates);
+setText("companyCount", currentMember.companies);
+setText("applicationCount", currentMember.applications);
 
-    let name=prompt(
+// ==========================
+// Profile Images
+// ==========================
 
-        "Enter Name",
+document.getElementById("profileImage").src = currentMember.image;
+document.getElementById("miniProfile").src = currentMember.image;
+// ==========================
+// Quick Actions
+// ==========================
 
-        currentStudent.name
+const actionGrid = document.getElementById("actionGrid");
 
-    );
+if (actionGrid) {
 
-    if(name){
+    actionGrid.innerHTML = "";
 
-        currentStudent.name=name;
+    currentMember.actions.forEach(action => {
 
-        localStorage.setItem(
-
-            "studentName",
-
-            name
-
-        );
-
-    }
-
-    let bio=prompt(
-
-        "Enter Bio",
-
-        currentStudent.bio
-
-    );
-
-    if(bio){
-
-        currentStudent.bio=bio;
-
-    }
-
-    let location=prompt(
-
-        "Enter Location",
-
-        currentStudent.location
-
-    );
-
-    if(location){
-
-        currentStudent.location=location;
-
-    }
-
-    saveStudents();
-
-    loadProfile();
-
-}
-
-
-
-//==========================================
-// LOGOUT
-//==========================================
-
-const logoutBtn=document.getElementById("logoutBtn");
-
-logoutBtn.onclick=function(){
-
-    let logout=confirm(
-
-        "Logout from PlaceMate?"
-
-    );
-
-    if(!logout) return;
-
-    localStorage.removeItem("isLoggedIn");
-
-    localStorage.removeItem("studentRoll");
-
-    localStorage.removeItem("studentName");
-
-    window.location.href="login.html";
-
-}
-
-
-console.log("Dashboard Part 1 Loaded");
-
-/*=========================================
-        PlaceMate Dashboard JS
-        Part 2
-=========================================*/
-
-
-//==========================================
-// SKILLS
-//==========================================
-
-const skillsContainer = document.getElementById("skillsContainer");
-const addSkillBtn = document.getElementById("addSkillBtn");
-
-function renderSkills(){
-
-    skillsContainer.innerHTML="";
-
-    currentStudent.skills.forEach((skill,index)=>{
-
-        skillsContainer.innerHTML+=`
-
-        <span>
-
-            ${skill}
-
-            <i class="fa-solid fa-xmark remove-skill"
-               data-index="${index}"></i>
-
-        </span>
-
+        actionGrid.innerHTML += `
+            <div class="action-card">
+                <h3>${action}</h3>
+            </div>
         `;
 
     });
 
 }
 
-renderSkills();
+// ==========================
+// Projects
+// ==========================
 
-addSkillBtn.onclick=function(){
+const projectGrid = document.getElementById("projectGrid");
 
-    let skill=prompt("Enter Skill");
+if(projectGrid){
 
-    if(!skill) return;
+    projectGrid.innerHTML="";
 
-    currentStudent.skills.push(skill);
+    currentMember.projectsList.forEach(project=>{
 
-    saveStudents();
+        projectGrid.innerHTML+=`
 
-    renderSkills();
+        <div class="project-card">
 
-    updateCareerScore();
+            <h3>${project.title}</h3>
 
-}
+            <p>${project.description}</p>
 
-document.addEventListener("click",function(e){
+            <button class="view-project">
 
-    if(e.target.classList.contains("remove-skill")){
-
-        let index=e.target.dataset.index;
-
-        currentStudent.skills.splice(index,1);
-
-        saveStudents();
-
-        renderSkills();
-
-        updateCareerScore();
-
-    }
-
-});
-
-
-//==========================================
-// CERTIFICATES
-//==========================================
-
-const certificateContainer=document.getElementById("certificateContainer");
-
-const addCertificateBtn=document.getElementById("addCertificateBtn");
-
-function renderCertificates(){
-
-    certificateContainer.innerHTML="";
-
-    currentStudent.certificates.forEach((certificate,index)=>{
-
-        certificateContainer.innerHTML+=`
-
-        <div class="certificate-card">
-
-            <i class="fa-solid fa-award"></i>
-
-            <h3>${certificate.title}</h3>
-
-            <p>${certificate.provider}</p>
-
-            <button
-            class="delete-certificate"
-            data-index="${index}">
-
-            Delete
+                View Details
 
             </button>
 
@@ -361,252 +143,265 @@ function renderCertificates(){
 
     });
 
-}
+    document.querySelectorAll(".view-project").forEach((btn,index)=>{
 
-renderCertificates();
+        btn.onclick=()=>{
 
-addCertificateBtn.onclick=function(){
+            const p=currentMember.projectsList[index];
 
-    let title=prompt("Certificate Name");
+            openModal(`
 
-    if(!title) return;
+                <h2>${p.title}</h2>
 
-    let provider=prompt("Issued By");
+                <br>
 
-    currentStudent.certificates.push({
+                <p><b>Description</b></p>
 
-        title,
+                <p>${p.description}</p>
 
-        provider
+                <br>
+
+                <p><b>Technology</b></p>
+
+                <p>${p.tech}</p>
+
+                <br>
+
+                <p><b>Status</b></p>
+
+                <p>${p.status}</p>
+
+            `);
+
+        };
 
     });
 
-    saveStudents();
+}
 
-    renderCertificates();
+// ==========================
+// Skills
+// ==========================
 
-    updateCareerScore();
+const skillsContainer = document.getElementById("skillsContainer");
+
+if (skillsContainer) {
+
+    skillsContainer.innerHTML = "";
+
+    currentMember.skills.forEach(skill => {
+
+        skillsContainer.innerHTML += `
+
+            <div class="skill">
+
+                <div class="skill-title">
+
+                    <span>${skill.name}</span>
+
+                    <span>${skill.percent}%</span>
+
+                </div>
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill"
+                        style="width:${skill.percent}%">
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
 
 }
 
-document.addEventListener("click",function(e){
-
-if(e.target.classList.contains("delete-certificate")){
-
-let index=e.target.dataset.index;
-
-currentStudent.certificates.splice(index,1);
-
-saveStudents();
-
-renderCertificates();
-
-updateCareerScore();
-
-}
-
-});
 
 
-//==========================================
-// PROJECTS
-//==========================================
+// ==========================
+// Certificates
+// ==========================
 
-const projectContainer=document.getElementById("projectContainer");
+const certificateGrid = document.getElementById("certificateGrid");
 
-const addProjectBtn=document.getElementById("addProjectBtn");
+if (certificateGrid) {
 
-function renderProjects(){
+    for (let i = 1; i <= currentMember.certificates; i++) {
 
-projectContainer.innerHTML="";
+        certificateGrid.innerHTML += `
 
-currentStudent.projects.forEach((project,index)=>{
+            <div class="certificate-card">
 
-projectContainer.innerHTML+=`
+                <i class="fa-solid fa-award"></i>
 
-<div class="project-card">
+                <h3>Certificate ${i}</h3>
 
-<h3>${project.title}</h3>
+                <p>Professional Skill Certificate</p>
 
-<p>${project.description}</p>
+            </div>
 
-<button
+        `;
 
-class="delete-project"
-
-data-index="${index}">
-
-Delete
-
-</button>
-
-</div>
-
-`;
-
-});
+    }
 
 }
 
-renderProjects();
+// ==========================
+// Team
+// ==========================
 
-addProjectBtn.onclick=function(){
+const teamGrid = document.getElementById("teamGrid");
 
-let title=prompt("Project Name");
+if(teamGrid){
 
-if(!title) return;
+    teamGrid.innerHTML = "";
 
-let description=prompt("Project Description");
+    Object.values(members).forEach(member=>{
 
-currentStudent.projects.push({
+        teamGrid.innerHTML += `
 
-title,
+        <div class="team-card" data-id="${member.id}">
 
-description
+            <img src="${member.image}">
 
-});
+            <h3>${member.name}</h3>
 
-saveStudents();
+            <p>${member.role}</p>
 
-renderProjects();
+        </div>
 
-updateCareerScore();
+        `;
 
-}
+    });
 
-document.addEventListener("click",function(e){
+    document.querySelectorAll(".team-card").forEach(card=>{
 
-if(e.target.classList.contains("delete-project")){
+        card.onclick=()=>{
 
-let index=e.target.dataset.index;
+            const id=card.dataset.id;
 
-currentStudent.projects.splice(index,1);
+            const member=Object.values(members).find(m=>m.id==id);
 
-saveStudents();
+            openModal(`
 
-renderProjects();
+                <center>
 
-updateCareerScore();
+                <img src="${member.image}">
 
-}
+                <h2>${member.name}</h2>
 
-});
+                <p>${member.role}</p>
 
+                <br>
 
-//==========================================
-// RESUME
-//==========================================
+                <h3>Statistics</h3>
 
-const uploadResumeBtn=document.getElementById("uploadResumeBtn");
+                <p>Projects : ${member.projects}</p>
 
-const resumeBox=document.getElementById("resumeBox");
+                <p>Certificates : ${member.certificates}</p>
 
-const resumeInput=document.createElement("input");
+                <p>Applications : ${member.applications}</p>
 
-resumeInput.type="file";
+                <br>
 
-resumeInput.accept=".pdf,.doc,.docx";
+                <h3>Skills</h3>
 
-resumeInput.style.display="none";
+                <ul>
 
-document.body.appendChild(resumeInput);
+                ${member.skills.map(skill=>`<li>${skill.name} (${skill.percent}%)</li>`).join("")}
 
-uploadResumeBtn.onclick=function(){
+                </ul>
 
-resumeInput.click();
+                </center>
 
-}
+            `);
 
-resumeInput.onchange=function(){
+        };
 
-let file=resumeInput.files[0];
-
-if(!file) return;
-
-currentStudent.resume={
-
-name:file.name,
-
-date:new Date().toLocaleDateString()
-
-};
-
-saveStudents();
-
-renderResume();
-
-updateCareerScore();
+    });
 
 }
 
-function renderResume(){
+// ==========================
+// Notifications
+// ==========================
 
-if(!currentStudent.resume) return;
+const notificationList = document.getElementById("notificationList");
 
-resumeBox.innerHTML=`
+if (notificationList) {
 
-<i class="fa-solid fa-file-pdf"></i>
+    notificationList.innerHTML = `
 
-<div>
+        <div class="notification-card">
+            Resume Updated Successfully
+        </div>
 
-<h3>${currentStudent.resume.name}</h3>
+        <div class="notification-card">
+            New Placement Drive Available
+        </div>
 
-<p>
+        <div class="notification-card">
+            ${currentMember.companies} Companies Interested
+        </div>
 
-Uploaded : ${currentStudent.resume.date}
-
-</p>
-
-</div>
-
-`;
-
-}
-
-renderResume();
-
-
-//==========================================
-// CAREER SCORE
-//==========================================
-
-function updateCareerScore(){
-
-let score=0;
-
-if(currentStudent.bio) score+=20;
-
-if(currentStudent.location) score+=10;
-
-score+=Math.min(currentStudent.skills.length*5,20);
-
-score+=Math.min(currentStudent.projects.length*10,20);
-
-score+=Math.min(currentStudent.certificates.length*5,20);
-
-if(currentStudent.resume) score+=10;
-
-document.getElementById("careerScore").textContent=
-
-score+"%";
-
-document.getElementById("progressBar").style.width=
-
-score+"%";
-
-document.getElementById("progressBar").textContent=
-
-score+"%";
+    `;
 
 }
 
-updateCareerScore();
+// ==========================
+// Activity
+// ==========================
 
+const activityList = document.getElementById("activityList");
 
-//==========================================
-// AUTO SAVE
-//==========================================
+if (activityList) {
 
-window.addEventListener("beforeunload",saveStudents);
+    activityList.innerHTML = `
 
-console.log("PlaceMate Dashboard Ready 🚀");
+        <div class="activity-card">
+            <i class="fa-solid fa-code"></i>
+            <div>
+                <h4>Completed Portfolio Project</h4>
+                <small>Today</small>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <i class="fa-solid fa-file"></i>
+            <div>
+                <h4>Resume Updated</h4>
+                <small>Yesterday</small>
+            </div>
+        </div>
+
+        <div class="activity-card">
+            <i class="fa-solid fa-building"></i>
+            <div>
+                <h4>Applied to Company</h4>
+                <small>2 Days Ago</small>
+            </div>
+        </div>
+
+    `;
+
+}
+
+// ==========================
+// Theme Toggle
+// ==========================
+
+const themeBtn = document.getElementById("themeBtn");
+
+if (themeBtn) {
+
+    themeBtn.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark");
+
+    });
+
+}

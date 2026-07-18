@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PlaceMate | Notice Board</title>
+
+<link rel="stylesheet" href="../css/admin.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+<i class="fa-solid fa-user-shield"></i>
+<span>PlaceMate</span>
+</div>
+
+<ul>
+
+<li><a href="admin-dashboard.html"><i class="fa-solid fa-chart-line"></i><span>Dashboard</span></a></li>
+
+<li><a href="students.html"><i class="fa-solid fa-user-graduate"></i><span>Students</span></a></li>
+
+<li><a href="companies.html"><i class="fa-solid fa-building"></i><span>Companies</span></a></li>
+
+<li><a href="applications.html"><i class="fa-solid fa-file-lines"></i><span>Applications</span></a></li>
+
+<li><a href="drives.html"><i class="fa-solid fa-calendar-days"></i><span>Placement Drives</span></a></li>
+
+<li class="active"><a href="notices.html"><i class="fa-solid fa-bullhorn"></i><span>Notice Board</span></a></li>
+
+<li><a href="#" onclick="adminLogout()"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a></li>
+
+</ul>
+
+</aside>
+
+<main class="main">
+
+<header class="topbar">
+
+<h1>Notice Board</h1>
+
+<button class="primary-btn" id="addNoticeBtn">
+
+<i class="fa-solid fa-plus"></i>
+
+Add Notice
+
+</button>
+
+</header>
+
+<div class="table-card">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Title</th>
+
+<th>Date</th>
+
+<th>Expiry</th>
+
+<th>Priority</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="noticeTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</main>
+
+<!-- Modal -->
+
+<div class="modal" id="noticeModal">
+
+<div class="modal-content">
+
+<span class="close-modal">&times;</span>
+
+<h2>Notice</h2>
+
+<form id="noticeForm">
+
+<input type="hidden" id="noticeId">
+
+<div class="input-group">
+
+<label>Title</label>
+
+<input type="text" id="noticeTitle" required>
+
+</div>
+
+<div class="input-group">
+
+<label>Description</label>
+
+<textarea id="noticeDescription" rows="5" required></textarea>
+
+</div>
+
+<div class="input-group">
+
+<label>Expiry Date</label>
+
+<input type="date" id="noticeExpiry">
+
+</div>
+
+<div class="input-group">
+
+<label>Priority</label>
+
+<select id="noticePriority">
+
+<option>Normal</option>
+
+<option>Important</option>
+
+<option>Urgent</option>
+
+</select>
+
+</div>
+
+<button class="primary-btn">
+
+Save Notice
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="../js/storage.js"></script>
+<script src="../js/admin-notices.js"></script>
+
+</body>
+
+</html>

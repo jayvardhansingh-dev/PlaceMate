@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>PlaceMate | Students</title>
+
+<link rel="stylesheet"
+href="../css/admin.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<i class="fa-solid fa-user-shield"></i>
+
+<span>PlaceMate</span>
+
+</div>
+
+<ul>
+
+<li>
+
+<a href="admin-dashboard.html">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<span>Dashboard</span>
+
+</a>
+
+</li>
+
+<li class="active">
+
+<a href="students.html">
+
+<i class="fa-solid fa-user-graduate"></i>
+
+<span>Students</span>
+
+</a>
+
+</li>
+
+<li>
+
+<a href="companies.html">
+
+<i class="fa-solid fa-building"></i>
+
+<span>Companies</span>
+
+</a>
+
+</li>
+
+<li>
+
+<a href="applications.html">
+
+<i class="fa-solid fa-file-lines"></i>
+
+<span>Applications</span>
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#"
+onclick="adminLogout()">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+<span>Logout</span>
+
+</a>
+
+</li>
+
+</ul>
+
+</aside>
+
+<!-- Main -->
+
+<main class="main">
+
+<header class="topbar">
+
+<h1>Student Management</h1>
+
+</header>
+
+<!-- Filters -->
+
+<div class="table-toolbar">
+
+<input
+type="text"
+id="searchStudent"
+placeholder="Search student...">
+
+<select id="branchFilter">
+
+<option value="">All Branches</option>
+
+<option>BCA</option>
+
+<option>B.Tech</option>
+
+<option>BBA</option>
+
+<option>MCA</option>
+
+</select>
+
+<select id="semesterFilter">
+
+<option value="">All Semester</option>
+
+<option>1</option>
+
+<option>2</option>
+
+<option>3</option>
+
+<option>4</option>
+
+<option>5</option>
+
+<option>6</option>
+
+<option>7</option>
+
+<option>8</option>
+
+</select>
+
+</div>
+
+<!-- Student Table -->
+
+<div class="table-card">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Photo</th>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Branch</th>
+
+<th>Semester</th>
+
+<th>CGPA</th>
+
+<th>Applications</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="studentTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</main>
+
+<!-- Modal -->
+
+<div id="modal" class="modal">
+
+<div class="modal-content">
+
+<span class="close-modal">
+
+&times;
+
+</span>
+
+<div id="modalBody"></div>
+
+</div>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="../js/storage.js"></script>
+
+<script src="../js/students.js"></script>
+
+</body>
+
+</html>

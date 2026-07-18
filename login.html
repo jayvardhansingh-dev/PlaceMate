@@ -1,230 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta charset="UTF-8">
+    <title>PlaceMate | Login</title>
 
-        <meta name="viewport"
-            content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/login.css">
 
-        <title>Student Login | PlaceMate</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
 
-        <!-- Google Fonts -->
+<body>
 
-        <link rel="preconnect"
-            href="https://fonts.googleapis.com">
+    <div class="login-container">
 
-        <link rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossorigin>
+        <!-- Left Side -->
+        <div class="left-panel">
 
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-            rel="stylesheet">
+            <div class="overlay">
 
-        <!-- Font Awesome -->
+                <h1>PlaceMate</h1>
 
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-
-        <!-- CSS -->
-
-        <link rel="stylesheet"
-            href="css/login.css">
-
-    </head>
-
-    <body>
-
-        <!-- ===================================
-        LOGIN CONTAINER
-=================================== -->
-
-        <div class="login-container">
-
-            <!-- ==============================
-            LEFT PANEL
-    =============================== -->
-
-            <div class="login-left">
-
-                <i class="fa-solid fa-graduation-cap"></i>
-
-                <h1>
-
-                    Welcome to PlaceMate
-
-                </h1>
+                <h2>Placement Management Portal</h2>
 
                 <p>
-
-                    Connecting Students with Career Opportunities.
-
-                    Login to access your dashboard, explore placement
-                    opportunities, track applications and manage your
-                    placement journey.
-
+                    Your gateway to internships, campus placements,
+                    resume management and career opportunities.
                 </p>
+
+                <div class="features">
+
+                    <div class="feature">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>Job Opportunities</span>
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-file"></i>
+                        <span>Resume Management</span>
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Placement Analytics</span>
+                    </div>
+
+                    <div class="feature">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        <span>Student Dashboard</span>
+                    </div>
+
+                </div>
 
             </div>
 
-            <!-- ==============================
-            RIGHT PANEL
-    =============================== -->
+        </div>
 
-            <div class="login-right">
+        <!-- Right Side -->
+        <div class="right-panel">
 
-                <h2>
+            <form id="loginForm">
 
-                    Student Login
+                <h2>Welcome Back 👋</h2>
 
-                </h2>
+                <p>Login to continue</p>
 
-                <p>
+                <!-- Email -->
 
-                    Enter your Roll Number and Password.
+                <div class="input-box">
 
-                </p>
+                    <i class="fa-solid fa-envelope"></i>
 
-                <form
-                    class="login-form"
-                    id="loginForm">
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Email Address"
+                        required>
 
-                    <!-- Roll Number -->
+                </div>
 
-                    <div class="input-group">
+                <!-- Password -->
 
-                        <i class="fa-solid fa-id-card"></i>
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Password"
+                        required>
+
+                    <i
+                        class="fa-solid fa-eye toggle-password"
+                        id="togglePassword">
+                    </i>
+
+                </div>
+
+                <!-- Options -->
+
+                <div class="options">
+
+                    <label>
 
                         <input
-    type="text"
-    id="rollNo"
-    placeholder="Roll Number"
-    required>
+                            type="checkbox"
+                            id="remember">
 
-                    </div>
+                        Remember Me
 
-                    <!-- Password -->
+                    </label>
 
-                    <div class="input-group">
+                    <a href="#">
+                        Forgot Password?
+                    </a>
 
-                        <i class="fa-solid fa-lock"></i>
+                </div>
 
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Password"
-                            required>
+                <!-- Login -->
 
-                        <i
-                            class="fa-solid fa-eye toggle-password"
-                            id="togglePassword"></i>
+                <button
+                    type="submit"
+                    class="login-btn">
 
-                    </div>
+                    <i class="fa-solid fa-right-to-bracket"></i>
 
-                    <!-- Remember -->
+                    Login
 
-                    <div class="login-options">
+                </button>
 
-                        <label class="remember">
+                <!-- Divider -->
 
-                            <input
-                                type="checkbox">
+                <div class="divider">
 
-                            Remember Me
+                    <span>OR</span>
 
-                        </label>
+                </div>
 
-                        <a
-                            href="#"
-                            class="forgot-password">
+                <!-- Demo Login -->
 
-                            Forgot Password?
+                <button
+                    type="button"
+                    class="demo-btn"
+                    id="demoLogin">
 
-                        </a>
+                    <i class="fa-solid fa-user"></i>
 
-                    </div>
+                    Login as Demo User
 
-                    <!-- Login -->
+                </button>
 
-                    <button
-                        type="submit"
-                        class="login-btn">
+                <!-- Register -->
 
-                        <i class="fa-solid fa-right-to-bracket"></i>
+                <div class="register">
 
-                        Login
+                    Don't have an account?
 
-                    </button>
+                    <a href="register.html">
 
-                    <!-- Divider -->
-
-                    <div class="divider">
-
-                        OR
-
-                    </div>
-
-                    <div class="register-link">
-
-    <p>New Student?</p>
-
-    <a href="register.html">Create an Account</a>
-
-</div>
-
-                    
-
-                    <!-- Home -->
-
-                    <a
-                        href="index.html"
-                        class="home-btn">
-
-                        <i class="fa-solid fa-house"></i>
-
-                        Back to Home
+                        Register
 
                     </a>
 
-                </form>
+                </div>
 
-            </div>
-
-        </div>
-
-        <!-- ===================================
-        LOGIN FOOTER
-=================================== -->
-
-        <div class="login-footer">
-
-            <p>
-
-                © 2026 PlaceMate
-
-            </p>
-
-            <p>
-
-                Placement Management System
-
-            </p>
-
-            <p>
-
-                Developed as a BCA Minor Project
-
-            </p>
+            </form>
 
         </div>
 
+    </div>
 
-        <!-- Login Script -->
+    <!-- Loading Screen -->
 
-        <script src="js/login.js"></script>
+    <div id="loader">
 
-    </body>
+        <div class="spinner"></div>
+
+        <p>Signing In...</p>
+
+    </div>
+
+    <!-- Toast -->
+
+    <div id="toast"></div>
+
+    <!-- JS -->
+
+    <script src="js/members.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
 
 </html>

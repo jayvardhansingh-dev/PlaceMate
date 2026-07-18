@@ -1,61 +1,88 @@
-// ==========================================
+// ======================================
 // PlaceMate Registration
-// ==========================================
+// ======================================
 
-const form = document.getElementById("registerForm");
+const registerForm = document.getElementById("registerForm");
 
-form.addEventListener("submit", function (e) {
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const phoneInput = document.getElementById("phone");
+const collegeInput = document.getElementById("college");
+const branchInput = document.getElementById("branch");
+const passwordInput = document.getElementById("password");
+const confirmPasswordInput = document.getElementById("confirmPassword");
+
+const toast = document.getElementById("toast");
+
+// ======================================
+// Toast
+// ======================================
+
+function showToast(message, success = true) {
+
+    toast.innerHTML = message;
+
+    toast.style.background = success
+        ? "#16a34a"
+        : "#dc2626";
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 3000);
+
+}
+
+// ======================================
+// Get Registered Users
+// ======================================
+
+function getRegisteredUsers() {
+
+    return Storage.get("registeredUsers") || [];
+
+}
+
+// ======================================
+// Save Registered Users
+// ======================================
+
+function saveRegisteredUsers(users) {
+
+    Storage.save("registeredUsers", users);
+
+}
+
+// ======================================
+// Register
+// ======================================
+
+registerForm.addEventListener("submit", function (e) {
 
     e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-
-    const roll = document.getElementById("roll").value.trim();
-
-    const email = document.getElementById("email").value.trim();
-
-    const mobile = document.getElementById("mobile").value.trim();
-
-    const course = document.getElementById("course").value;
-
-    const semester = document.getElementById("semester").value;
-
-    const password = document.getElementById("password").value;
-
-    const confirmPassword = document.getElementById("confirmPassword").value;
-
-    // =========================
-    // Validation
-    // =========================
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim().toLowerCase();
+    const phone = phoneInput.value.trim();
+    const college = collegeInput.value.trim();
+    const branch = branchInput.value.trim();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
 
     if (
-        name === "" ||
-        roll === "" ||
-        email === "" ||
-        mobile === "" ||
-        password === "" ||
-        confirmPassword === ""
+        !name ||
+        !email ||
+        !phone ||
+        !college ||
+        !branch ||
+        !password ||
+        !confirmPassword
     ) {
 
-        alert("Please fill all fields.");
-
-        return;
-
-    }
-
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailPattern.test(email)) {
-
-        alert("Please enter a valid email.");
-
-        return;
-
-    }
-
-    if (mobile.length !== 10 || isNaN(mobile)) {
-
-        alert("Enter a valid 10-digit mobile number.");
+        showToast("Please fill all fields", false);
 
         return;
 
@@ -63,7 +90,7 @@ form.addEventListener("submit", function (e) {
 
     if (password.length < 6) {
 
-        alert("Password must be at least 6 characters.");
+        showToast("Password must be at least 6 characters", false);
 
         return;
 
@@ -71,72 +98,74 @@ form.addEventListener("submit", function (e) {
 
     if (password !== confirmPassword) {
 
-        alert("Passwords do not match.");
+        showToast("Passwords do not match", false);
 
         return;
 
     }
 
-    // =========================
-    // Existing Students
-    // =========================
+    let users = getRegisteredUsers();
 
-    let students = JSON.parse(localStorage.getItem("students")) || [];
+    const exists = users.find(user => user.email === email);
 
-    // Duplicate Roll Number
+    if (exists) {
 
-    const rollExists = students.find(student => student.roll === roll);
-
-    if (rollExists) {
-
-        alert("Roll Number already registered.");
+        showToast("Email already registered", false);
 
         return;
 
     }
 
-    // Duplicate Email
+    const newUser = {
 
-    const emailExists = students.find(student => student.email === email);
-
-    if (emailExists) {
-
-        alert("Email already registered.");
-
-        return;
-
-    }
-
-    // =========================
-    // Save Student
-    // =========================
-
-    const student = {
+        id: Date.now(),
 
         name,
 
-        roll,
-
         email,
 
-        mobile,
+        phone,
 
-        course,
+        college,
 
-        semester,
+        branch,
 
-        password
+        password,
+
+        role: "Student",
+
+        image: "images/default-avatar.png",
+
+        score: 0,
+
+        projects: 0,
+
+        certificates: 0,
+
+        companies: 0,
+
+        applications: 0,
+
+        actions: [],
+
+        skills: [],
+
+        projectsList: []
 
     };
 
-    students.push(student);
+    users.push(newUser);
 
-    localStorage.setItem("students", JSON.stringify(students));
+    saveRegisteredUsers(users);
 
-    alert("Registration Successful!");
+    showToast("Registration Successful ✅");
 
-    form.reset();
+    registerForm.reset();
 
-    window.location.href = "login.html";
+    setTimeout(() => {
+
+        window.location.href = "login.html";
+
+    }, 1500);
 
 });
