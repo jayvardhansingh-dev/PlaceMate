@@ -405,3 +405,37 @@ if (themeBtn) {
     });
 
 }
+
+const menuBtn = document.getElementById("menuBtn");
+
+const sidebar = document.querySelector(".sidebar");
+
+const overlay = document.getElementById("overlay");
+
+menuBtn.addEventListener("click",()=>{
+
+    sidebar.classList.add("show");
+
+    overlay.classList.add("show");
+
+});
+
+overlay.addEventListener("click",()=>{
+
+    sidebar.classList.remove("show");
+
+    overlay.classList.remove("show");
+
+});
+
+document.querySelectorAll(".sidebar a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        sidebar.classList.remove("show");
+
+        overlay.classList.remove("show");
+
+    });
+
+});

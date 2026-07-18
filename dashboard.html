@@ -16,35 +16,41 @@
 
         <!-- ================= NAVBAR ================= -->
 
-        <header class="navbar">
+       <header class="navbar">
 
-            <div class="logo">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <span>PlaceMate</span>
+    <button class="menu-btn" id="menuBtn">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>PlaceMate</span>
+    </div>
+
+    <div class="nav-right">
+
+        <button id="themeBtn">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <div class="profile-mini">
+
+            <img id="miniProfile" src="images/jay.jpg">
+
+            <div>
+
+                <h4 id="miniName">Jayvardhan Singh</h4>
+
+                <small>Online</small>
+
             </div>
 
-            <div class="search-box">
-                <i class="fa-solid fa-search"></i>
-                <input type="text" placeholder="Search...">
-            </div>
+        </div>
+        <div class="overlay" id="overlay"></div>
 
-            <div class="nav-right">
+    </div>
 
-                <button id="themeBtn">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-
-                <div class="profile-mini">
-                    <img id="miniProfile" src="images/jay.png">
-                    <div>
-                        <h4 id="miniName">Jayvardhan Singh</h4>
-                        <small>Online</small>
-                    </div>
-                </div>
-
-            </div>
-
-        </header>
+</header>
 
         <!-- ================= DASHBOARD ================= -->
 
@@ -60,23 +66,24 @@
 
                     <h2 id="userName">Jayvardhan Singh</h2>
 
-                    <p id="userRole">👑 Team Leader</p>
+                    <p id="userRole">Frontend Developer</p>
 
                 </div>
 
                 <ul>
-
                     <li>
-                        <i class="fa-solid fa-house"></i>
-                        <a href="index.html">Home</a>
-                        
+                        <a href="index.html" class="menu-link active">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Dashboard</span>
+                        </a>
                     </li>
 
                     <li>
-                        <i class="fa-solid fa-building"></i>
-                        <a href="companies.html">Companies</a>
+                        <a href="companies.html" class="menu-link">
+                            <i class="fa-solid fa-building"></i>
+                            <span>Companies</span>
+                        </a>
                     </li>
-
                     <li>
                         <i class="fa-solid fa-briefcase"></i>
                         Placements
@@ -639,10 +646,10 @@
             </div>
 
         </div>
-        
+
         <script src="js/storage.js"></script>
         <script src="js/members.js"></script>
-        
+
         <script src="js/dashboard.js"></script>
 
     </body>
