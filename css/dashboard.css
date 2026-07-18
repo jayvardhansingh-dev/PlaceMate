@@ -1,0 +1,1437 @@
+/* ==========================================
+   PlaceMate V2 - Part 2A
+   Foundation + Themes + Navbar + Sidebar
+========================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    transition:.35s;
+}
+
+/* ===========================
+      LIGHT THEME
+=========================== */
+
+body.light-theme{
+
+    --bg:#f4f7fb;
+
+    --card:#ffffff;
+
+    --primary:#0a66c2;
+
+    --primary-hover:#004182;
+
+    --text:#1f2937;
+
+    --text-light:#6b7280;
+
+    --border:#e4e7eb;
+
+    --shadow:0 8px 25px rgba(0,0,0,.08);
+
+    --hover:#eef6ff;
+
+}
+
+/* ===========================
+      DARK THEME
+=========================== */
+
+body.dark-theme{
+
+    --bg:#0f172a;
+
+    --card:#1e293b;
+
+    --primary:#3b82f6;
+
+    --primary-hover:#2563eb;
+
+    --text:#ffffff;
+
+    --text-light:#cbd5e1;
+
+    --border:#334155;
+
+    --shadow:0 10px 35px rgba(0,0,0,.45);
+
+    --hover:#23324d;
+
+}
+
+/* ===========================
+      BODY
+=========================== */
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+/* ===========================
+      NAVBAR
+=========================== */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:var(--card);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:14px 40px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:25px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+.logo i{
+
+    font-size:28px;
+
+}
+
+.search-box{
+
+    width:42%;
+
+    position:relative;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:12px 18px 12px 45px;
+
+    border:none;
+
+    outline:none;
+
+    background:var(--bg);
+
+    border-radius:40px;
+
+    color:var(--text);
+
+    transition:.3s;
+
+}
+
+.search-box input:focus{
+
+    box-shadow:0 0 0 3px rgba(10,102,194,.15);
+
+}
+
+.search-box i{
+
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:var(--text-light);
+
+}
+
+.nav-icons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.nav-icons button{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    transition:.3s;
+
+    font-size:18px;
+
+}
+
+.nav-icons button:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+    transform:translateY(-2px);
+
+}
+
+.nav-profile{
+
+    width:42px;
+
+    height:42px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:2px solid var(--primary);
+
+    cursor:pointer;
+
+}
+
+/* ===========================
+      LAYOUT
+=========================== */
+
+.container{
+
+    max-width:1450px;
+
+    margin:25px auto;
+
+    display:grid;
+
+    grid-template-columns:300px 1fr 300px;
+
+    gap:25px;
+
+    padding:0 25px;
+
+}
+
+/* ===========================
+      PROFILE CARD
+=========================== */
+
+.profile-card{
+
+    background:var(--card);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+}
+
+.cover-photo{
+
+    height:120px;
+
+    background:linear-gradient(
+        135deg,
+        #0a66c2,
+        #4facfe
+    );
+
+}
+
+.profile-photo{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:50%;
+
+    border:5px solid white;
+
+    object-fit:cover;
+
+    margin-top:-55px;
+
+}
+
+.profile-card h2{
+
+    margin-top:12px;
+
+    font-size:23px;
+
+}
+
+.profile-card p{
+
+    color:var(--text-light);
+
+    margin-top:6px;
+
+}
+
+/* ===========================
+      CAREER SCORE
+=========================== */
+
+.career-score{
+
+    margin:20px;
+
+}
+
+.score-circle{
+
+    width:90px;
+
+    height:90px;
+
+    margin:15px auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        #0a66c2,
+        #4facfe
+    );
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+/* ===========================
+      STATS
+=========================== */
+
+.profile-stats{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    padding:18px;
+
+    border-top:1px solid var(--border);
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.profile-stats h3{
+
+    color:var(--primary);
+
+}
+
+.profile-stats p{
+
+    font-size:13px;
+
+}
+
+/* ===========================
+      PROFILE BUTTON
+=========================== */
+
+.profile-btn{
+
+    width:88%;
+
+    margin:20px auto;
+
+    display:block;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:var(--primary);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.profile-btn:hover{
+
+    background:var(--primary-hover);
+
+}
+
+/* ===========================
+      SIDEBAR MENU
+=========================== */
+
+.sidebar-menu{
+
+    background:var(--card);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+}
+
+.sidebar-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:18px 22px;
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+.sidebar-menu a i{
+
+    width:22px;
+
+    text-align:center;
+
+    color:var(--primary);
+
+}
+
+.sidebar-menu a:hover{
+
+    background:var(--hover);
+
+    padding-left:30px;
+
+}
+
+.sidebar-menu .active{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+.sidebar-menu .active i{
+
+    color:white;
+
+}
+
+/*==========================================
+        PLACE MATE V2
+          PART 2B
+     FEED + POSTS + ANIMATIONS
+==========================================*/
+
+/*==========================
+      FEED
+==========================*/
+
+.feed{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+/*==========================
+      CREATE POST
+==========================*/
+
+.create-post{
+
+    background:var(--card);
+
+    border-radius:18px;
+
+    padding:22px;
+
+    box-shadow:var(--shadow);
+
+    animation:fadeUp .5s ease;
+
+}
+
+.post-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.create-profile{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid var(--primary);
+
+}
+
+.post-top input{
+
+    flex:1;
+
+    padding:15px 20px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:35px;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-size:15px;
+
+}
+
+.post-top input:focus{
+
+    box-shadow:0 0 0 3px rgba(10,102,194,.15);
+
+}
+
+.post-actions{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:22px;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+.post-actions button{
+
+    flex:1;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.post-actions button i{
+
+    margin-right:8px;
+
+    color:var(--primary);
+
+}
+
+.post-actions button:hover{
+
+    background:var(--hover);
+
+    transform:translateY(-3px);
+
+}
+
+.post-btn{
+
+    background:var(--primary)!important;
+
+    color:white!important;
+
+}
+
+.post-btn i{
+
+    color:white;
+
+}
+
+.post-btn:hover{
+
+    background:var(--primary-hover)!important;
+
+}
+
+/*==========================
+      POSTS
+==========================*/
+
+.post-card{
+
+    background:var(--card);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+    animation:fadeUp .5s ease;
+
+}
+
+/*==========================
+      HEADER
+==========================*/
+
+.post-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:18px 20px;
+
+}
+
+.post-user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.post-user img{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.post-name{
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+.post-time{
+
+    font-size:13px;
+
+    color:var(--text-light);
+
+}
+
+.more-btn{
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    color:var(--text-light);
+
+    font-size:20px;
+
+}
+
+/*==========================
+      CONTENT
+==========================*/
+
+.post-content{
+
+    padding:0 22px 18px;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+    color:var(--text);
+
+}
+
+.post-image{
+
+    width:100%;
+
+    max-height:520px;
+
+    object-fit:cover;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.post-image:hover{
+
+    transform:scale(1.01);
+
+}
+
+/*==========================
+      POST INFO
+==========================*/
+
+.post-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:14px 22px;
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+/*==========================
+      ACTIONS
+==========================*/
+
+.post-actions-bar{
+
+    display:flex;
+
+}
+
+.post-actions-bar button{
+
+    flex:1;
+
+    border:none;
+
+    background:none;
+
+    padding:16px;
+
+    cursor:pointer;
+
+    color:var(--text);
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+.post-actions-bar button i{
+
+    margin-right:8px;
+
+}
+
+.post-actions-bar button:hover{
+
+    background:var(--hover);
+
+}
+
+.like-btn.active{
+
+    color:#ff3b5c;
+
+}
+
+/*==========================
+      COMMENTS
+==========================*/
+
+.comment-box{
+
+    padding:18px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.comment-input{
+
+    width:100%;
+
+    padding:12px 16px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:30px;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+}
+
+.comments{
+
+    margin-top:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.comment{
+
+    background:var(--bg);
+
+    border-radius:12px;
+
+    padding:12px 15px;
+
+}
+
+.comment strong{
+
+    color:var(--primary);
+
+}
+
+/*==========================
+      EMPTY FEED
+==========================*/
+
+.empty-feed{
+
+    background:var(--card);
+
+    padding:70px 25px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.empty-feed i{
+
+    font-size:65px;
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.empty-feed h2{
+
+    margin-bottom:12px;
+
+}
+
+.empty-feed p{
+
+    color:var(--text-light);
+
+}
+
+/*==========================
+      ANIMATION
+==========================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==========================================
+        PLACE MATE V2
+           PART 2C
+ RIGHT SIDEBAR + RESPONSIVE + FINISH
+==========================================*/
+
+
+/*==========================
+      RIGHT SIDEBAR
+==========================*/
+
+.right-sidebar{
+
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+
+}
+
+
+/*==========================
+      WIDGET
+==========================*/
+
+.widget{
+
+    background:var(--card);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    box-shadow:var(--shadow);
+
+    animation:fadeUp .5s ease;
+
+}
+
+.widget h3{
+
+    margin-bottom:18px;
+
+    font-size:18px;
+
+}
+
+
+/*==========================
+      RECRUITERS
+==========================*/
+
+.widget ul{
+
+    list-style:none;
+
+}
+
+.widget ul li{
+
+    padding:12px;
+
+    border-radius:10px;
+
+    margin-bottom:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.widget ul li:hover{
+
+    background:var(--hover);
+
+    padding-left:18px;
+
+    color:var(--primary);
+
+}
+
+
+/*==========================
+      PLACEMENT DRIVE
+==========================*/
+
+.drive{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    margin-bottom:12px;
+
+    background:var(--bg);
+
+    transition:.3s;
+
+}
+
+.drive:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.drive span{
+
+    color:white;
+
+    background:var(--primary);
+
+    padding:7px 15px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    cursor:pointer;
+
+}
+
+.drive span:hover{
+
+    background:var(--primary-hover);
+
+}
+
+
+/*==========================
+      SKILLS
+==========================*/
+
+.skill{
+
+    display:inline-block;
+
+    margin:6px;
+
+    padding:9px 14px;
+
+    border-radius:30px;
+
+    background:var(--bg);
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.skill:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+
+/*==========================
+      EVENTS
+==========================*/
+
+.widget p{
+
+    padding:12px;
+
+    border-radius:10px;
+
+    margin-bottom:10px;
+
+    background:var(--bg);
+
+    transition:.3s;
+
+}
+
+.widget p:hover{
+
+    background:var(--hover);
+
+}
+
+
+/*==========================
+      SCROLLBAR
+==========================*/
+
+::-webkit-scrollbar{
+
+    width:9px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:var(--bg);
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-hover);
+
+}
+
+
+/*==========================
+      TRANSITIONS
+==========================*/
+
+body,
+.navbar,
+.widget,
+.profile-card,
+.sidebar-menu,
+.post-card,
+.create-post{
+
+    transition:.35s;
+
+}
+
+
+/*==========================
+      TABLET
+==========================*/
+
+@media(max-width:1200px){
+
+.container{
+
+grid-template-columns:260px 1fr;
+
+}
+
+.right-sidebar{
+
+display:none;
+
+}
+
+.search-box{
+
+width:35%;
+
+}
+
+}
+
+
+/*==========================
+      MOBILE
+==========================*/
+
+@media(max-width:900px){
+
+.navbar{
+
+padding:15px;
+
+}
+
+.search-box{
+
+display:none;
+
+}
+
+.container{
+
+grid-template-columns:1fr;
+
+padding:15px;
+
+}
+
+.left-sidebar{
+
+display:none;
+
+}
+
+.feed{
+
+width:100%;
+
+}
+
+.create-post{
+
+padding:18px;
+
+}
+
+.post-actions{
+
+flex-direction:column;
+
+}
+
+.post-actions button{
+
+width:100%;
+
+}
+
+}
+
+
+/*==========================
+      SMALL MOBILE
+==========================*/
+
+@media(max-width:500px){
+
+.logo span{
+
+display:none;
+
+}
+
+.nav-icons{
+
+gap:10px;
+
+}
+
+.nav-icons button{
+
+width:38px;
+
+height:38px;
+
+font-size:16px;
+
+}
+
+.post-user img{
+
+width:48px;
+
+height:48px;
+
+}
+
+.profile-photo{
+
+width:90px;
+
+height:90px;
+
+margin-top:-45px;
+
+}
+
+.score-circle{
+
+width:75px;
+
+height:75px;
+
+font-size:18px;
+
+}
+
+.post-content{
+
+font-size:14px;
+
+}
+
+}
+
+
+/*==========================
+      GLASS EFFECT
+==========================*/
+
+.dark-theme .widget,
+.dark-theme .profile-card,
+.dark-theme .sidebar-menu,
+.dark-theme .create-post,
+.dark-theme .post-card{
+
+background:rgba(30,41,59,.92);
+
+backdrop-filter:blur(12px);
+
+}
+
+
+/*==========================
+      PREMIUM HOVER
+==========================*/
+
+.widget:hover,
+.profile-card:hover,
+.create-post:hover,
+.post-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+
+/*==========================
+      ACTIVE LINK
+==========================*/
+
+.sidebar-menu a.active{
+
+position:relative;
+
+}
+
+.sidebar-menu a.active::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+height:100%;
+
+width:5px;
+
+background:white;
+
+}
+
+
+/*==========================
+      SELECTION
+==========================*/
+
+::selection{
+
+background:var(--primary);
+
+color:white;
+
+}
+
+
+/*==========================
+      END
+==========================*/

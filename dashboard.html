@@ -1,861 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlaceMate | Home</title>
 
-    <head>
+    <link rel="stylesheet" href="css/dashboard.css">
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        <title>PlaceMate | Student Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+</head>
 
-        <!-- Font Awesome -->
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+<body class="light-theme">
 
-        <!-- Google Font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--================ NAVBAR ================-->
 
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-            rel="stylesheet">
+<nav class="navbar">
 
-        <!-- Dashboard CSS -->
-        <link rel="stylesheet" href="dashboard.css">
+    <div class="logo">
 
-    </head>
+        <i class="fa-solid fa-graduation-cap"></i>
 
-    <body>
+        <span>PlaceMate</span>
 
-        <!-- ===========================
-            TOP NAVBAR
-    ============================ -->
+    </div>
 
-        <header class="navbar">
+    <div class="search-box">
 
-            <div class="logo">
+        <i class="fa fa-search"></i>
 
-    <button id="menuBtn" class="menu-btn">
+        <input
+        type="text"
+        placeholder="Search students, companies, skills...">
 
-        <i class="fa-solid fa-bars"></i>
+    </div>
 
-    </button>
+    <div class="nav-icons">
 
-    <i class="fa-solid fa-graduation-cap"></i>
+        <button id="themeBtn">
 
-    <h2>PlaceMate</h2>
+            <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+        <button>
+
+            <i class="fa-regular fa-bell"></i>
+
+        </button>
+
+        <button>
+
+            <i class="fa-regular fa-envelope"></i>
+
+        </button>
+
+        <img
+        src="images/default-profile.png"
+        class="nav-profile">
+
+    </div>
+
+</nav>
+
+<!--================ MAIN ================-->
+
+<div class="container">
+
+<!--================ LEFT SIDEBAR ================-->
+
+<aside class="left-sidebar">
+
+<div class="profile-card">
+
+<div class="cover-photo"></div>
+
+<img
+src="images/default-profile.png"
+class="profile-photo">
+
+<h2 id="studentName">
+
+Jayvardhan Singh
+
+</h2>
+
+<p>
+
+BCA Student
+
+</p>
+
+<div class="career-score">
+
+<h4>
+
+Career Score
+
+</h4>
+
+<div class="score-circle">
+
+85%
 
 </div>
 
-            <div class="search-box">
+</div>
 
-                <i class="fa-solid fa-magnifying-glass"></i>
+<div class="profile-stats">
 
-                <input
-                    type="text"
-                    placeholder="Search Jobs, Companies, Skills...">
+<div>
 
-            </div>
+<h3>125</h3>
 
-            <div class="nav-right">
+<p>Followers</p>
 
-                <!-- Notification -->
+</div>
 
-                <div class="notification-area">
+<div>
 
-                    <button class="notification" id="notifyBtn">
+<h3>72</h3>
 
-                        <i class="fa-regular fa-bell"></i>
+<p>Following</p>
 
-                    </button>
+</div>
 
-                    <div
-                        class="notification-box"
-                        id="notificationBox">
+<div>
 
-                        <h3>Notifications</h3>
+<h3>18</h3>
 
-                        <p>Google Campus Drive starts tomorrow.</p>
+<p>Posts</p>
 
-                        <p>Your resume has been verified.</p>
+</div>
 
-                        <p>Amazon added new openings.</p>
+</div>
 
-                        <p>Profile completion increased to 80%.</p>
+<button class="profile-btn">
+    <a href="profile.html" style="text-decoration: none; color: inherit;">
+        View Profile
 
-                    </div>
 
-                </div>
+</button>
 
-                <!-- Student Profile -->
+</div>
 
-                <div class="profile-top" id="profileMenu">
+<nav class="sidebar-menu">
 
-                 
+<a href="#" class="active">
 
-                    <span id="studentName">
+<i class="fa-solid fa-house"></i>
 
-                        Student Name
+Home
 
-                    </span>
+</a>
 
-                    <i class="fa-solid fa-angle-down"></i>
+<a href="#">
 
-                    <div
-                        class="profile-dropdown"
-                        id="profileDropdown">
+<i class="fa-solid fa-user"></i>
 
-                        <a href="#">
+My Profile
 
-                            <i class="fa-solid fa-user"></i>
+</a>
 
-                            My Profile
+<a href="profile.html">
 
-                        </a>
+<i class="fa-solid fa-briefcase"></i>
 
-                        <a href="#">
+Placements
 
-                            <i class="fa-solid fa-gear"></i>
+</a>
 
-                            Settings
+<a href="#">
 
-                        </a>
+<i class="fa-solid fa-user-group"></i>
 
-                        <a
-                            href="#"
-                            id="logoutBtn2">
+Network
 
-                            <i class="fa-solid fa-right-from-bracket"></i>
+</a>
 
-                            Logout
+<a href="#">
 
-                        </a>
+<i class="fa-solid fa-file"></i>
 
-                    </div>
+Applications
 
-                </div>
+</a>
 
-            </div>
+<a href="#">
 
-        </header>
+<i class="fa-solid fa-gear"></i>
 
-        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+Settings
 
-        <!-- ===========================
-        DASHBOARD CONTAINER
-    ============================ -->
+</a>
 
-        <div class="dashboard-container">
+<a href="#" id="logoutBtn">
 
-            <!-- ===========================
-                SIDEBAR
-        ============================ -->
+<i class="fa-solid fa-right-from-bracket"></i>
 
-            <aside class="sidebar">
+Logout
 
-                <div class="sidebar-top">
+</a>
 
-                  
+</nav>
 
-                    <h3 id="studentName2">
+</aside>
 
-                        Student Name
+<!--================ FEED ================-->
 
-                    </h3>
+<main class="feed">
 
-                    <p id="studentRoll">
+<div class="create-post">
 
-                        Roll Number
+<div class="post-top">
 
-                    </p>
+<img
+src="images/default-profile.png"
+class="create-profile">
 
-                </div>
+<input
+type="text"
+placeholder="Share your achievement...">
 
-                <ul>
+</div>
 
-                    <li class="active">
+<div class="post-actions">
 
-                        <i class="fa-solid fa-house"></i>
+<button>
 
-                        <span>Dashboard</span>
+<i class="fa-regular fa-image"></i>
 
-                    </li>
+Photo
 
-                    <li>
+</button>
 
-                        <i class="fa-solid fa-user"></i>
+<button>
 
-                        <span>My Profile</span>
+<i class="fa-solid fa-certificate"></i>
 
-                    </li>
+Certificate
 
-                    <li>
+</button>
 
-                        <i class="fa-solid fa-briefcase"></i>
+<button>
 
-                        <span>Jobs</span>
+<i class="fa-solid fa-code"></i>
 
-                    </li>
+Project
 
-                    <li>
+</button>
 
-                        <i class="fa-solid fa-file-lines"></i>
+<button class="post-btn">
 
-                        <span>Applications</span>
+Post
 
-                    </li>
+</button>
 
-                    <li>
+</div>
 
-                        <i class="fa-solid fa-building"></i>
+</div>
 
-                        <span>Companies</span>
+<!-- Feed Starts -->
 
-                    </li>
+<div id="postContainer">
 
-                    <li>
+<!-- Posts from JavaScript -->
 
-                        <i class="fa-solid fa-calendar-days"></i>
+</div>
 
-                        <span>Interviews</span>
+</main>
 
-                    </li>
+<!--================ RIGHT SIDEBAR ================-->
 
-                    <li>
+<aside class="right-sidebar">
 
-                        <i class="fa-solid fa-bookmark"></i>
+<div class="widget">
 
-                        <span>Saved Jobs</span>
+<h3>
 
-                    </li>
+Top Recruiters
 
-                    <li>
+</h3>
 
-                        <i class="fa-solid fa-chart-line"></i>
+<ul>
 
-                        <span>Analytics</span>
+<li>Google</li>
 
-                    </li>
+<li>Microsoft</li>
 
-                    <li>
+<li>Amazon</li>
 
-                        <i class="fa-solid fa-award"></i>
+<li>Infosys</li>
 
-                        <span>Achievements</span>
+<li>TCS</li>
 
-                    </li>
+</ul>
 
-                    <li>
+</div>
 
-                        <i class="fa-solid fa-gear"></i>
+<div class="widget">
 
-                        <span>Settings</span>
+<h3>
 
-                    </li>
+Latest Placement Drives
 
-                    <li id="logoutBtn">
+</h3>
 
-                        <i class="fa-solid fa-right-from-bracket"></i>
+<div class="drive">
 
-                        <span>Logout</span>
+Google Internship
 
-                    </li>
+<span>
 
-                </ul>
+Apply
 
-            </aside>
+</span>
 
-            <!-- ===========================
-                MAIN CONTENT
-        ============================ -->
+</div>
 
-            <main class="main-content">
+<div class="drive">
 
-                <!-- ===========================
-                    WELCOME CARD
-            ============================ -->
+Amazon SDE
 
-                <section class="welcome-card">
+<span>
 
-                    <div class="welcome-text">
+Apply
 
-                        <h1>
+</span>
 
-                            Welcome Back,
+</div>
 
-                            <span id="studentName3">
+<div class="drive">
 
-                                Student
+Accenture
 
-                            </span>
+<span>
 
-                            👋
+Apply
 
-                        </h1>
+</span>
 
-                        <p>
+</div>
 
-                            Ready to explore new placement opportunities today?
+</div>
 
-                        </p>
+<div class="widget">
 
-                    </div>
+<h3>
 
-                    <div class="welcome-image">
+Trending Skills
 
-                        <i class="fa-solid fa-laptop-code"></i>
+</h3>
 
-                    </div>
+<div class="skill">
 
-                </section>
+HTML
 
-                <!-- ===========================
-                    STATISTICS
-            ============================ -->
+</div>
 
-                <section class="stats">
+<div class="skill">
 
-                    <div class="card">
+CSS
 
-                        <i class="fa-solid fa-briefcase"></i>
+</div>
 
-                        <h3>Jobs Available</h3>
+<div class="skill">
 
-                        <h2>25</h2>
+JavaScript
 
-                    </div>
+</div>
 
-                    <div class="card">
+<div class="skill">
 
-                        <i class="fa-solid fa-file-circle-check"></i>
+Python
 
-                        <h3>Applications</h3>
+</div>
 
-                        <h2>04</h2>
+<div class="skill">
 
-                    </div>
+React
 
-                    <div class="card">
+</div>
 
-                        <i class="fa-solid fa-calendar-check"></i>
+<div class="skill">
 
-                        <h3>Interviews</h3>
+Node.js
 
-                        <h2>02</h2>
+</div>
 
-                    </div>
+</div>
 
-                    <div class="card">
+<div class="widget">
 
-                        <i class="fa-solid fa-trophy"></i>
+<h3>
 
-                        <h3>Offers</h3>
+Upcoming Events
 
-                        <h2>01</h2>
+</h3>
 
-                    </div>
+<p>
 
-                </section>
+💼 Resume Workshop
 
-                <!-- ===========================
-                    LATEST JOBS
-            ============================ -->
+</p>
 
-                <section class="latest-jobs">
+<p>
 
-                    <div class="section-title">
+🚀 Mock Interview
 
-                        <h2>Latest Opportunities</h2>
+</p>
 
-                        <a href="#">View All</a>
+<p>
 
-                    </div>
+🎯 Placement Bootcamp
 
-                    <div class="jobs-grid">
+</p>
 
-                        <div class="job-card">
+</div>
 
-                            <div class="company-logo">
+</aside>
 
-                                <i class="fa-brands fa-google"></i>
+</div>
 
-                            </div>
+<script src="js/dashboard.js"></script>
 
-                            <h3>Google</h3>
-
-                            <p>Frontend Developer</p>
-
-                            <span><i class="fa-solid fa-location-dot"></i>
-                                Bangalore</span>
-
-                            <span><i class="fa-solid fa-money-bill-wave"></i>
-                                ₹12 LPA</span>
-
-                            <button>Apply Now</button>
-
-                        </div>
-
-                        <div class="job-card">
-
-                            <div class="company-logo">
-
-                                <i class="fa-brands fa-microsoft"></i>
-
-                            </div>
-
-                            <h3>Microsoft</h3>
-
-                            <p>Software Engineer</p>
-
-                            <span><i class="fa-solid fa-location-dot"></i>
-                                Hyderabad</span>
-
-                            <span><i class="fa-solid fa-money-bill-wave"></i>
-                                ₹18 LPA</span>
-
-                            <button>Apply Now</button>
-
-                        </div>
-
-                        <div class="job-card">
-
-                            <div class="company-logo">
-
-                                <i class="fa-solid fa-building"></i>
-
-                            </div>
-
-                            <h3>Infosys</h3>
-
-                            <p>Web Developer</p>
-
-                            <span><i class="fa-solid fa-location-dot"></i>
-                                Pune</span>
-
-                            <span><i class="fa-solid fa-money-bill-wave"></i>
-                                ₹6.5 LPA</span>
-
-                            <button>Apply Now</button>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <!-- ===========================
-                PROFILE COMPLETION
-            ============================ -->
-
-                <section class="profile-progress">
-
-                    <div class="progress-header">
-
-                        <h2>Profile Completion</h2>
-
-                        <span>80%</span>
-
-                    </div>
-
-                    <div class="progress-bar">
-
-                        <div class="progress-fill"></div>
-
-                    </div>
-
-                    <p>
-
-                        Complete your profile to increase placement
-                        opportunities.
-
-                    </p>
-
-                </section>
-
-                <!-- ===========================
-                RECENT APPLICATIONS
-            ============================ -->
-
-                <section class="applications">
-
-                    <div class="section-title">
-
-                        <h2>Recent Applications</h2>
-
-                        <a href="#">View All</a>
-
-                    </div>
-
-                    <table>
-
-                        <thead>
-
-                            <tr>
-
-                                <th>Company</th>
-
-                                <th>Role</th>
-
-                                <th>Date</th>
-
-                                <th>Status</th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-
-                                <td>Google</td>
-
-                                <td>Frontend Developer</td>
-
-                                <td>15 Jul 2026</td>
-
-                                <td class="selected">Interview</td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>Microsoft</td>
-
-                                <td>Software Engineer</td>
-
-                                <td>13 Jul 2026</td>
-
-                                <td class="pending">Pending</td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>Infosys</td>
-
-                                <td>Web Developer</td>
-
-                                <td>11 Jul 2026</td>
-
-                                <td class="rejected">Rejected</td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>TCS</td>
-
-                                <td>Graduate Trainee</td>
-
-                                <td>09 Jul 2026</td>
-
-                                <td class="selected">Selected</td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </section>
-
-                <!-- ===========================
-                RECOMMENDED JOBS
-            ============================ -->
-
-                <section class="recommended">
-
-                    <div class="section-title">
-
-                        <h2>Recommended For You</h2>
-
-                        <a href="#">Explore</a>
-
-                    </div>
-
-                    <div class="recommend-grid">
-
-                        <div class="recommend-card">
-
-                            <i class="fa-brands fa-amazon"></i>
-
-                            <h3>Amazon</h3>
-
-                            <p>Full Stack Developer</p>
-
-                            <button>View Details</button>
-
-                        </div>
-
-                        <div class="recommend-card">
-
-                            <i class="fa-solid fa-building"></i>
-
-                            <h3>TCS</h3>
-
-                            <p>Graduate Trainee</p>
-
-                            <button>View Details</button>
-
-                        </div>
-
-                        <div class="recommend-card">
-
-                            <i class="fa-solid fa-building"></i>
-
-                            <h3>Wipro</h3>
-
-                            <p>Frontend Engineer</p>
-
-                            <button>View Details</button>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <!-- ===========================
-                    ANNOUNCEMENTS
-            ============================ -->
-
-                <section class="announcements">
-
-                    <div class="section-title">
-
-                        <h2>Latest Announcements</h2>
-
-                        <a href="#">View All</a>
-
-                    </div>
-
-                    <div class="announcement-card">
-
-                        <i class="fa-solid fa-bullhorn"></i>
-
-                        <div>
-
-                            <h3>TCS Campus Drive</h3>
-
-                            <p>Registration closes on 20 July 2026.</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="announcement-card">
-
-                        <i class="fa-solid fa-circle-info"></i>
-
-                        <div>
-
-                            <h3>Resume Verification</h3>
-
-                            <p>Upload your updated resume before placement
-                                starts.</p>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <!-- ===========================
-                    ACHIEVEMENTS
-            ============================ -->
-
-                <section class="achievement-section">
-
-                    <div class="section-title">
-
-                        <h2>Achievements</h2>
-
-                    </div>
-
-                    <div class="badge-grid">
-
-                        <div class="badge">
-
-                            <i class="fa-solid fa-medal"></i>
-
-                            <h4>Profile Completed</h4>
-
-                        </div>
-
-                        <div class="badge">
-
-                            <i class="fa-solid fa-briefcase"></i>
-
-                            <h4>5 Applications</h4>
-
-                        </div>
-
-                        <div class="badge">
-
-                            <i class="fa-solid fa-star"></i>
-
-                            <h4>Top Performer</h4>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <!-- ===========================
-                    RECENT ACTIVITY
-            ============================ -->
-
-                <section class="activity">
-
-                    <div class="section-title">
-
-                        <h2>Recent Activity</h2>
-
-                    </div>
-
-                    <ul>
-
-                        <li>
-
-                            <i class="fa-solid fa-check"></i>
-
-                            Applied for Google Internship
-
-                        </li>
-
-                        <li>
-
-                            <i class="fa-solid fa-check"></i>
-
-                            Resume Updated Successfully
-
-                        </li>
-
-                        <li>
-
-                            <i class="fa-solid fa-check"></i>
-
-                            Amazon Drive Registered
-
-                        </li>
-
-                        <li>
-
-                            <i class="fa-solid fa-check"></i>
-
-                            Infosys Interview Scheduled
-
-                        </li>
-
-                    </ul>
-
-                </section>
-
-            </main>
-
-            <!-- ===========================
-                RIGHT SIDEBAR
-        ============================ -->
-
-            <aside class="right-panel">
-
-                <div class="profile-card">
-
-                    
-
-                    <h3 id="studentName4">
-
-                        Student Name
-
-                    </h3>
-
-                    <p>BCA Student</p>
-
-                </div>
-
-                <div class="panel-card">
-
-                    <h3>Upcoming Drives</h3>
-
-                    <ul>
-
-                        <li>Google — 22 Jul 2026</li>
-
-                        <li>Amazon — 28 Jul 2026</li>
-
-                        <li>Infosys — 30 Jul 2026</li>
-
-                        <li>Wipro — 03 Aug 2026</li>
-
-                    </ul>
-
-                </div>
-
-                <div class="panel-card">
-
-                    <h3>Top Recruiters</h3>
-
-                    <ul>
-
-                        <li>Google</li>
-
-                        <li>Microsoft</li>
-
-                        <li>Amazon</li>
-
-                        <li>Infosys</li>
-
-                        <li>TCS</li>
-
-                        <li>Wipro</li>
-
-                    </ul>
-
-                </div>
-
-                <div class="panel-card">
-
-                    <h3>Placement Tips</h3>
-
-                    <ul>
-
-                        <li>✔ Keep your resume updated.</li>
-
-                        <li>✔ Practice aptitude daily.</li>
-
-                        <li>✔ Improve communication skills.</li>
-
-                        <li>✔ Complete your profile.</li>
-
-                    </ul>
-
-                </div>
-
-            </aside>
-
-        </div>
-
-        <!-- ===========================
-            FOOTER
-    ============================ -->
-
-        <footer class="dashboard-footer">
-
-            <p>
-
-                © 2026 <strong>PlaceMate</strong> |
-                Connecting Students with Career Opportunities
-
-            </p>
-
-        </footer>
-
-        <!-- Dashboard JavaScript -->
-
-        <script src="dashboard.js"></script>
-
-    </body>
-
+</body>
 </html>
