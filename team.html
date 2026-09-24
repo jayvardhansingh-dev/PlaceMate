@@ -3,17 +3,836 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Our Team | PlaceMate</title>
 
     <link rel="stylesheet" href="css/team.css">
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        /* =====================================================
+           PlaceMate Premium Team Page
+           ===================================================== */
+
+        :root {
+            --bg: #050816;
+            --bg-soft: #090d20;
+            --card: rgba(15, 21, 47, 0.72);
+            --card-hover: rgba(20, 28, 60, 0.9);
+            --border: rgba(255, 255, 255, 0.09);
+
+            --blue: #5b8cff;
+            --blue-light: #20d9ff;
+            --purple: #805cff;
+            --pink: #c15cff;
+
+            --text: #f5f7ff;
+            --muted: #9ba5c7;
+
+            --success: #42e6a4;
+
+            --radius: 26px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Inter, "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 10% 10%, rgba(91, 140, 255, 0.16), transparent 30%),
+                radial-gradient(circle at 90% 20%, rgba(128, 92, 255, 0.15), transparent 30%),
+                radial-gradient(circle at 50% 100%, rgba(32, 217, 255, 0.08), transparent 35%),
+                var(--bg);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.22;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 45px 45px;
+            mask-image: linear-gradient(to bottom, black, transparent 90%);
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(91, 140, 255, 0.08);
+            filter: blur(100px);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -3;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =====================================================
+           NAVBAR
+           ===================================================== */
+
+        .navbar {
+            width: min(1180px, calc(100% - 32px));
+            height: 76px;
+            margin: 20px auto 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 24px;
+
+            border: 1px solid var(--border);
+            border-radius: 22px;
+
+            background: rgba(8, 12, 30, 0.78);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.28),
+                inset 0 1px rgba(255,255,255,0.04);
+
+            position: sticky;
+            top: 16px;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo i {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 13px;
+
+            color: white;
+
+            background: linear-gradient(
+                135deg,
+                var(--blue),
+                var(--purple)
+            );
+
+            box-shadow:
+                0 8px 25px rgba(91, 140, 255, 0.35);
+        }
+
+        .navbar ul {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .navbar li a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 11px 16px;
+
+            color: #aeb7d7;
+            font-size: 14px;
+            font-weight: 600;
+
+            border-radius: 12px;
+
+            transition: 0.3s ease;
+        }
+
+        .navbar li a:hover {
+            color: white;
+            background: rgba(255,255,255,0.06);
+        }
+
+        .navbar li a.active {
+            color: white;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(91,140,255,0.2),
+                    rgba(128,92,255,0.18)
+                );
+
+            border: 1px solid rgba(91,140,255,0.2);
+            box-shadow: inset 0 1px rgba(255,255,255,0.05);
+        }
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .hero {
+            width: min(1050px, calc(100% - 32px));
+            margin: 85px auto 55px;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: "✦  PLACEMATE CORE TEAM  ✦";
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 8px 16px;
+            margin-bottom: 20px;
+
+            border: 1px solid rgba(91,140,255,0.2);
+            border-radius: 100px;
+
+            color: #aebdff;
+            background: rgba(91,140,255,0.08);
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.02;
+            letter-spacing: -3px;
+            margin-bottom: 22px;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #ffffff 10%,
+                    #8fb5ff 45%,
+                    #b184ff 75%,
+                    #55ddff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+            text-shadow: 0 15px 45px rgba(91,140,255,0.15);
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: auto;
+
+            color: var(--muted);
+
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* =====================================================
+           TEAM GRID
+           ===================================================== */
+
+        .team-grid {
+            width: min(1180px, calc(100% - 32px));
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+
+            padding-bottom: 80px;
+        }
+
+        /* =====================================================
+           TEAM CARD
+           ===================================================== */
+
+        .team-card {
+            position: relative;
+            overflow: hidden;
+
+            padding: 34px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(20,28,60,0.78),
+                    rgba(9,13,32,0.78)
+                );
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 25px 70px rgba(0,0,0,0.28),
+                inset 0 1px rgba(255,255,255,0.04);
+
+            transition:
+                transform 0.45s cubic-bezier(.2,.8,.2,1),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .team-card::before {
+            content: "";
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            top: -90px;
+            right: -70px;
+
+            border-radius: 50%;
+
+            background: rgba(91,140,255,0.13);
+            filter: blur(35px);
+
+            transition: 0.5s ease;
+        }
+
+        .team-card::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--blue),
+                    var(--purple),
+                    transparent
+                );
+
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+
+            border-color: rgba(91,140,255,0.32);
+
+            box-shadow:
+                0 35px 90px rgba(0,0,0,0.4),
+                0 0 40px rgba(91,140,255,0.07);
+        }
+
+        .team-card:hover::before {
+            transform: scale(1.4);
+        }
+
+        .team-card:hover::after {
+            opacity: 1;
+        }
+
+        /* =====================================================
+           TEAM IMAGE
+           ===================================================== */
+
+        .team-card img {
+            width: 125px;
+            height: 125px;
+
+            object-fit: cover;
+
+            display: block;
+            margin: 8px auto 24px;
+
+            border-radius: 50%;
+
+            border: 4px solid rgba(255,255,255,0.08);
+
+            background: #101735;
+
+            box-shadow:
+                0 0 0 8px rgba(91,140,255,0.04),
+                0 20px 45px rgba(0,0,0,0.35);
+
+            transition: 0.45s ease;
+        }
+
+        .team-card:hover img {
+            transform: scale(1.05);
+            border-color: rgba(91,140,255,0.5);
+
+            box-shadow:
+                0 0 0 8px rgba(91,140,255,0.07),
+                0 0 35px rgba(91,140,255,0.18);
+        }
+
+        /* =====================================================
+           TEAM LEADER BADGE
+           ===================================================== */
+
+        .badge {
+            position: absolute;
+            top: 22px;
+            left: 22px;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 8px 12px;
+
+            color: #dfe6ff;
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+
+            border-radius: 100px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,190,70,0.18),
+                    rgba(128,92,255,0.15)
+                );
+
+            border: 1px solid rgba(255,190,70,0.2);
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .badge i {
+            color: #ffd15c;
+        }
+
+        /* =====================================================
+           TEXT
+           ===================================================== */
+
+        .team-card h2 {
+            text-align: center;
+
+            font-size: 25px;
+            letter-spacing: -0.6px;
+
+            margin-bottom: 7px;
+        }
+
+        .team-card h4 {
+            text-align: center;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            color: #7fa7ff;
+
+            margin-bottom: 17px;
+        }
+
+        .team-card p {
+            min-height: 62px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 14px;
+            line-height: 1.7;
+
+            margin-bottom: 22px;
+        }
+
+        /* =====================================================
+           SKILLS
+           ===================================================== */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+
+            margin-bottom: 26px;
+        }
+
+        .skills span {
+            padding: 7px 11px;
+
+            color: #b9c7ef;
+
+            background: rgba(255,255,255,0.045);
+
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 9px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            transition: 0.25s ease;
+        }
+
+        .skills span:hover {
+            color: white;
+
+            border-color: rgba(91,140,255,0.3);
+
+            background: rgba(91,140,255,0.1);
+
+            transform: translateY(-2px);
+        }
+
+        /* =====================================================
+           STATS
+           ===================================================== */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            margin-bottom: 25px;
+
+            padding: 16px 8px;
+
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 17px;
+
+            background: rgba(0,0,0,0.15);
+        }
+
+        .stats div {
+            text-align: center;
+
+            border-right: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .stats div:last-child {
+            border-right: 0;
+        }
+
+        .stats h3 {
+            font-size: 19px;
+            margin-bottom: 4px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff,
+                    #7fa7ff
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stats small {
+            color: #737e9f;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        /* =====================================================
+           BUTTON
+           ===================================================== */
+
+        .btn {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            width: 100%;
+
+            padding: 14px 18px;
+
+            color: white;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    var(--purple)
+                );
+
+            box-shadow:
+                0 12px 30px rgba(91,140,255,0.2);
+
+            overflow: hidden;
+
+            transition: 0.3s ease;
+        }
+
+        .btn::before {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            left: -100%;
+
+            width: 60%;
+            height: 100%;
+
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.22),
+                transparent
+            );
+
+            transform: skewX(-20deg);
+
+            transition: 0.55s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 17px 38px rgba(91,140,255,0.3);
+        }
+
+        .btn:hover::before {
+            left: 140%;
+        }
+
+        .btn::after {
+            content: "→";
+            font-size: 17px;
+            transition: 0.25s ease;
+        }
+
+        .btn:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        footer {
+            width: min(1180px, calc(100% - 32px));
+
+            margin: 0 auto 25px;
+            padding: 24px;
+
+            text-align: center;
+
+            border-top: 1px solid rgba(255,255,255,0.07);
+
+            color: #66708f;
+
+            font-size: 12px;
+        }
+
+        footer::before {
+            content: "PLACEMATE";
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #7d8bb2;
+
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .navbar {
+                height: auto;
+                min-height: 70px;
+                padding: 12px 16px;
+
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .navbar ul {
+                width: 100%;
+                justify-content: center;
+
+                overflow-x: auto;
+                padding-bottom: 2px;
+            }
+
+            .navbar li a {
+                padding: 9px 12px;
+                font-size: 12px;
+                white-space: nowrap;
+            }
+
+            .hero {
+                margin-top: 65px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+        }
+
+        @media (max-width: 520px) {
+
+            .navbar {
+                width: calc(100% - 20px);
+                margin-top: 10px;
+                border-radius: 17px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .logo i {
+                width: 37px;
+                height: 37px;
+            }
+
+            .hero {
+                width: calc(100% - 26px);
+                margin-top: 55px;
+                margin-bottom: 40px;
+            }
+
+            .hero::before {
+                font-size: 9px;
+                letter-spacing: 1.3px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            .team-grid {
+                width: calc(100% - 20px);
+                gap: 17px;
+                padding-bottom: 55px;
+            }
+
+            .team-card {
+                padding: 26px 19px;
+                border-radius: 22px;
+            }
+
+            .team-card img {
+                width: 110px;
+                height: 110px;
+            }
+
+            .team-card h2 {
+                font-size: 22px;
+            }
+
+            .team-card p {
+                font-size: 13px;
+            }
+
+            .badge {
+                top: 16px;
+                left: 16px;
+                font-size: 9px;
+            }
+
+            .stats {
+                padding: 13px 4px;
+            }
+
+            .stats h3 {
+                font-size: 16px;
+            }
+
+            .stats small {
+                font-size: 9px;
+            }
+
+            footer {
+                width: calc(100% - 25px);
+                font-size: 10px;
+            }
+        }
+
+        /* =====================================================
+           ACCESSIBILITY
+           ===================================================== */
+
+        a:focus-visible {
+            outline: 2px solid var(--blue-light);
+            outline-offset: 4px;
+        }
+
+        /* =====================================================
+           REDUCED MOTION
+           ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
 
 <nav class="navbar">
 
@@ -23,14 +842,29 @@
     </div>
 
     <ul>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="team.html" class="active">Our Team</a></li>
+        
+
+        <li>
+            <a href="index.html">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="team.html" class="active">
+                <i class="fa-solid fa-users"></i>
+                Our Team
+            </a>
+        </li>
     </ul>
 
 </nav>
 
-<!-- Hero -->
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
 
 <section class="hero">
 
@@ -43,11 +877,17 @@
 
 </section>
 
-<!-- Team -->
+
+<!-- =====================================================
+     TEAM
+     ===================================================== -->
 
 <section class="team-grid">
 
-    <!-- Jay -->
+
+    <!-- =================================================
+         JAYVARDHAN
+         ================================================= -->
 
     <div class="team-card">
 
@@ -56,7 +896,10 @@
             Team Leader
         </div>
 
-        <img src="images/jay.png" alt="Jayvardhan">
+        <img
+            src="images/jay.png"
+            alt="Jayvardhan Singh"
+        >
 
         <h2>Jayvardhan Singh</h2>
 
@@ -69,50 +912,46 @@
         </p>
 
         <div class="skills">
-
             <span>HTML</span>
             <span>CSS</span>
             <span>JavaScript</span>
             <span>Python</span>
-
         </div>
 
         <div class="stats">
 
             <div>
-
                 <h3>98%</h3>
                 <small>Career Score</small>
-
             </div>
 
             <div>
-
                 <h3>12</h3>
                 <small>Projects</small>
-
             </div>
 
             <div>
-
                 <h3>8</h3>
                 <small>Certificates</small>
-
             </div>
 
         </div>
 
-        <a href="profile.html?id=jay" class="btn">
-            View Profile
-        </a>
+       
 
     </div>
 
-    <!-- Uzair -->
+
+    <!-- =================================================
+         UZAIR
+         ================================================= -->
 
     <div class="team-card">
 
-        <img src="images/uzair.png" alt="Uzair">
+        <img
+            src="images/uzair.png"
+            alt="Mohammed Uzair"
+        >
 
         <h2>Mohammed Uzair</h2>
 
@@ -124,156 +963,142 @@
         </p>
 
         <div class="skills">
-
             <span>Node.js</span>
             <span>Express</span>
             <span>MongoDB</span>
             <span>Python</span>
-
         </div>
 
         <div class="stats">
 
             <div>
-
                 <h3>95%</h3>
                 <small>Career Score</small>
-
             </div>
 
             <div>
-
                 <h3>9</h3>
                 <small>Projects</small>
-
             </div>
 
             <div>
-
                 <h3>6</h3>
                 <small>Certificates</small>
-
             </div>
 
         </div>
 
-        <a href="profile.html?id=uzair" class="btn">
-            View Profile
-        </a>
+        
 
     </div>
 
-    <!-- Utsav -->
+
+    <!-- =================================================
+         UTSAV
+         ================================================= -->
 
     <div class="team-card">
 
-        <img src="images/utsav.png" alt="Aakash">
+        <img
+            src="images/utsav.png"
+            alt="Utsav Saraswat"
+        >
 
         <h2>Utsav Saraswat</h2>
 
         <h4>Database Management</h4>
 
         <p>
-            Builds and maintains the database structure of PlaceMate.,
-            APIs and database management specialist.
+            Builds and maintains the database structure
+            of PlaceMate, APIs and database management specialist.
         </p>
 
         <div class="skills">
-
             <span>Node.js</span>
             <span>Express</span>
             <span>MySQL</span>
-
         </div>
 
         <div class="stats">
 
             <div>
-
                 <h3>96%</h3>
                 <small>Career Score</small>
-
             </div>
 
             <div>
-
                 <h3>11</h3>
                 <small>Projects</small>
-
             </div>
 
             <div>
-
                 <h3>7</h3>
                 <small>Certificates</small>
-
             </div>
 
         </div>
 
-        <a href="profile.html?id=utsav" class="btn">
-            View Profile
-        </a>
+       
 
     </div>
 
-    <!-- Aakash -->
+
+    <!-- =================================================
+         AAKASH
+         ================================================= -->
 
     <div class="team-card">
 
-        <img src="images/aakash.png" alt="Aakash">
+        <img
+            src="images/aakash.png"
+            alt="Aakash Yadav"
+        >
 
         <h2>Aakash Yadav</h2>
 
         <h4>Project Testing & Documentation</h4>
 
         <p>
-            Creates beautiful user interfaces
-            and modern product experiences.
+            Creates beautiful user interfaces,
+            validates project quality and maintains
+            modern product documentation.
         </p>
 
         <div class="skills">
-
             <span>Testing</span>
             <span>Documentation</span>
             <span>Quality Assurance</span>
-
         </div>
 
         <div class="stats">
 
             <div>
-
                 <h3>94%</h3>
                 <small>Career Score</small>
-
             </div>
 
             <div>
-
                 <h3>10</h3>
                 <small>Projects</small>
-
             </div>
 
             <div>
-
                 <h3>5</h3>
                 <small>Certificates</small>
-
             </div>
 
         </div>
 
-        <a href="profile.html?id=utsav" class="btn">
-            View Profile
-        </a>
+        
 
     </div>
 
 </section>
 
-<!-- Footer -->
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
 <footer>
 
@@ -283,6 +1108,8 @@
 
 </footer>
 
+
+<!-- Existing Team JavaScript -->
 <script src="js/team.js"></script>
 
 </body>

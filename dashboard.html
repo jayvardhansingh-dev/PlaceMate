@@ -6,11 +6,142 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PlaceMate Dashboard</title>
 
-        <link rel="stylesheet" href="css/dashboard.css">
+        
 
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    </head>
+    
+<style>
+:root{
+ --bg:#050816;--bg2:#080d1d;--panel:rgba(13,21,43,.78);--panel2:rgba(18,29,57,.88);
+ --text:#f8fafc;--muted:#8d99b2;--line:rgba(148,163,184,.15);
+ --blue:#5b8cff;--violet:#805cff;--cyan:#20d9ff;--green:#35e0a1;
+ --danger:#ff6b88;--shadow:0 20px 55px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+ font-family:Inter,Poppins,Arial,sans-serif;color:var(--text);
+ background:radial-gradient(circle at 10% 0%,rgba(91,140,255,.14),transparent 28%),
+ radial-gradient(circle at 95% 30%,rgba(128,92,255,.11),transparent 27%),var(--bg);
+ overflow-x:hidden;
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.14;z-index:-1;
+ background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+ background-size:55px 55px}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer}
+.navbar{
+ position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:1000;
+ width:calc(100% - 30px);height:66px;padding:0 18px;
+ display:flex;align-items:center;gap:16px;
+ background:rgba(7,12,29,.82);border:1px solid var(--line);border-radius:20px;
+ backdrop-filter:blur(22px);box-shadow:0 15px 45px rgba(0,0,0,.28)
+}
+.menu-btn,.nav-right button{
+ width:40px;height:40px;border:1px solid var(--line);border-radius:12px;
+ color:#a9b8d6;background:rgba(255,255,255,.04);transition:.25s
+}
+.menu-btn:hover,.nav-right button:hover{transform:translateY(-2px);background:rgba(91,140,255,.12);color:#fff}
+.logo{display:flex;align-items:center;gap:10px;font-family:Poppins;font-weight:800;font-size:19px}
+.logo i{width:39px;height:39px;display:grid;place-items:center;border-radius:12px;
+ background:linear-gradient(135deg,var(--blue),var(--violet));box-shadow:0 8px 25px rgba(91,140,255,.3)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+.profile-mini{display:flex;align-items:center;gap:9px;padding:5px 9px;border:1px solid var(--line);
+ border-radius:14px;background:rgba(255,255,255,.035)}
+.profile-mini img{width:38px;height:38px;border-radius:11px;object-fit:cover}
+.profile-mini h4{font-size:11px}.profile-mini small{color:var(--green);font-size:9px}
+.dashboard{display:flex;padding-top:95px}
+.sidebar{
+ position:fixed;left:15px;top:95px;bottom:15px;width:245px;padding:20px 13px;
+ border:1px solid var(--line);border-radius:24px;background:rgba(9,15,32,.82);
+ backdrop-filter:blur(20px);box-shadow:var(--shadow);overflow:auto;z-index:900
+}
+.sidebar-profile{text-align:center;padding:8px 8px 20px;border-bottom:1px solid var(--line)}
+.sidebar-profile img{width:82px;height:82px;border-radius:22px;object-fit:cover;border:2px solid rgba(91,140,255,.45);
+ box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.sidebar-profile h2{font-family:Poppins;font-size:14px;margin-top:10px}
+.sidebar-profile p{font-size:10px;color:#8290aa;margin-top:2px}
+.sidebar ul{list-style:none;margin-top:14px}
+.sidebar li{margin:5px 0;color:#8c98af;font-size:12px;font-weight:600}
+.sidebar .menu-link,.sidebar li:not(:has(a)){display:flex;align-items:center;gap:12px;padding:12px 13px;border-radius:13px;transition:.25s}
+.sidebar .menu-link i,.sidebar li:not(:has(a)) i{width:19px;text-align:center}
+.sidebar .menu-link:hover,.sidebar li:not(:has(a)):hover{color:#fff;background:rgba(91,140,255,.08);transform:translateX(3px)}
+.sidebar .menu-link.active{color:#fff;background:linear-gradient(90deg,rgba(91,140,255,.18),rgba(128,92,255,.08));
+ border:1px solid rgba(91,140,255,.16);box-shadow:0 8px 25px rgba(0,0,0,.15)}
+.sidebar #logoutBtn{color:#ff8da5;cursor:pointer}
+.main-content{margin-left:280px;width:calc(100% - 305px);padding:15px 25px 60px}
+.hero-card{
+ min-height:245px;padding:38px 40px;display:flex;align-items:center;justify-content:space-between;gap:30px;
+ border:1px solid rgba(110,143,255,.22);border-radius:30px;overflow:hidden;position:relative;
+ background:radial-gradient(circle at 85% 50%,rgba(32,217,255,.12),transparent 25%),
+ linear-gradient(135deg,rgba(19,36,76,.9),rgba(13,18,42,.9));box-shadow:var(--shadow)
+}
+.hero-card:before{content:"";position:absolute;width:300px;height:300px;border:1px solid rgba(91,140,255,.13);
+ border-radius:50%;right:-90px;top:-130px}
+.hero-card:after{content:"";position:absolute;width:210px;height:210px;border:1px solid rgba(32,217,255,.1);
+ border-radius:50%;right:0;bottom:-140px}
+.hero-left{position:relative;z-index:2}
+.hero-left:before{content:"CAREER DASHBOARD";display:inline-flex;padding:7px 11px;border-radius:999px;
+ color:#9beeff;font-size:9px;font-weight:800;letter-spacing:1.7px;background:rgba(32,217,255,.07);
+ border:1px solid rgba(32,217,255,.18);margin-bottom:15px}
+.hero-left h1{font-family:Poppins;font-size:34px;letter-spacing:-1.2px}
+.hero-left h2{font-size:20px;margin-top:4px;background:linear-gradient(90deg,#8defff,#8daaff,#ad88ff);
+ -webkit-background-clip:text;color:transparent}
+.hero-left p{max-width:650px;color:#8f9ab1;font-size:13px;margin-top:12px;line-height:1.7}
+.career-circle{width:145px;height:145px;border-radius:50%;display:grid;place-items:center;align-content:center;
+ background:radial-gradient(circle,#142652 40%,#0d1730 42%);border:8px solid rgba(91,140,255,.2);
+ outline:1px solid rgba(91,140,255,.45);box-shadow:0 0 55px rgba(91,140,255,.15);position:relative;z-index:2}
+.career-circle h1{font-family:Poppins;font-size:31px}.career-circle span{font-size:10px;color:#8492aa}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0 30px}
+.stat-card{padding:21px;border:1px solid var(--line);border-radius:20px;background:var(--panel);
+ box-shadow:0 12px 35px rgba(0,0,0,.16);transition:.25s;position:relative;overflow:hidden}
+.stat-card:hover{transform:translateY(-5px);border-color:rgba(91,140,255,.3)}
+.stat-card i{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;color:#9db5ff;
+ background:rgba(91,140,255,.1);font-size:17px}
+.stat-card h2{font-family:Poppins;font-size:27px;margin-top:13px}.stat-card p{font-size:10px;color:#7f8ba3;text-transform:uppercase;letter-spacing:1px}
+.dashboard-section{margin-top:38px}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}
+.section-header h2{font-family:Poppins;font-size:20px;letter-spacing:-.4px}
+.section-header h2:before{content:"";display:inline-block;width:4px;height:20px;border-radius:10px;
+ background:linear-gradient(var(--cyan),var(--violet));vertical-align:-4px;margin-right:10px}
+.section-header a{font-size:11px;color:#8ea9ff}
+.action-grid,.project-grid,.skills-container,.drive-grid,.certificate-grid,.team-grid,.analytics-grid,.recruiter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.action-card,.project-card,.skill-card,.drive-card,.certificate-card,.team-card,.analytics-card,.recruiter-card,.progress-card,.activity-card,.notification-card,.resume-card,.schedule-card{
+ border:1px solid var(--line);border-radius:18px;background:var(--panel);box-shadow:0 12px 35px rgba(0,0,0,.14);
+ transition:.25s
+}
+.action-card:hover,.project-card:hover,.skill-card:hover,.drive-card:hover,.certificate-card:hover,.team-card:hover,.analytics-card:hover,.recruiter-card:hover{
+ transform:translateY(-5px);border-color:rgba(91,140,255,.32);background:var(--panel2)
+}
+.action-card{padding:21px}.action-card i{font-size:21px;color:#91aaff;margin-bottom:12px}.action-card h3{font-family:Poppins;font-size:14px}.action-card p{font-size:11px;color:#7f8ba3;margin-top:4px}
+.project-card{padding:20px}.project-card h3{font-family:Poppins;font-size:15px}.project-card p{color:#7f8ba3;font-size:11px;margin-top:5px}
+.skills-container{grid-template-columns:repeat(6,1fr)}
+.skill-card{text-align:center;padding:17px 8px}.skill-card i{font-size:22px;color:#9db5ff}.skill-card span{display:block;font-size:10px;color:#aeb8cb;margin-top:7px}
+.progress-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.progress-card{padding:20px}.progress-card h3{font-size:13px;margin-bottom:12px}.progress-card span{font-size:10px;color:#8ea9ff;display:block;text-align:right;margin-top:5px}
+.progress-bar{height:8px;background:#111a31;border-radius:20px;overflow:hidden}.progress-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--violet));box-shadow:0 0 16px rgba(91,140,255,.4)}
+.drive-grid{grid-template-columns:repeat(4,1fr)}.drive-card{padding:20px}.drive-card h3{font-family:Poppins;font-size:16px}.drive-card p{font-size:11px;color:#8793aa;margin:5px 0 15px}.drive-card button,.resume-card button{border:1px solid rgba(91,140,255,.25);border-radius:10px;padding:8px 12px;color:#cbd8ff;background:rgba(91,140,255,.09);font-size:10px;font-weight:700}
+.activity-list{display:grid;gap:10px}.activity-card{display:flex;align-items:center;gap:14px;padding:14px 17px}.activity-card>i{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;color:#8eacff;background:rgba(91,140,255,.09)}.activity-card h4{font-size:12px}.activity-card small{color:#748099;font-size:9px}
+.notification-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.notification-card{padding:15px;font-size:11px;color:#aeb8ca}.notification-card:first-letter{color:#8eacff}
+.certificate-grid{grid-template-columns:repeat(3,1fr)}.certificate-card{text-align:center;padding:24px}.certificate-card i{font-size:29px;color:#9eb4ff}.certificate-card h3{font-family:Poppins;font-size:14px;margin-top:10px}.certificate-card p{font-size:10px;color:#7d899f}
+.resume-card{display:flex;justify-content:space-between;align-items:center;padding:20px}.resume-card h3{font-family:Poppins;font-size:15px}.resume-card p{font-size:11px;color:#7f8ba3;margin-top:3px}.resume-card>div:last-child{display:flex;gap:8px}
+.team-card{text-align:center;padding:20px 10px}.team-card img{width:65px;height:65px;border-radius:18px;object-fit:cover;border:2px solid rgba(91,140,255,.35)}.team-card h3{font-family:Poppins;font-size:12px;margin-top:10px}.team-card p{font-size:9px;color:#7f8ba3;margin-top:3px}
+.analytics-card{padding:21px}.analytics-card h3{font-size:11px;color:#8290a8}.analytics-card h1{font-family:Poppins;font-size:30px;margin-top:6px}
+.recruiter-card{text-align:center;padding:23px}.recruiter-card i{font-size:24px;color:#9eb5ff}.recruiter-card h3{font-family:Poppins;font-size:13px;margin-top:9px}
+.schedule-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.schedule-card{padding:18px;border-left:3px solid var(--blue)}.schedule-card strong{font-family:Poppins;color:#a7bbff;font-size:12px}.schedule-card p{font-size:11px;color:#8c98ae;margin-top:4px}
+.dashboard-footer{margin-top:55px;padding-top:25px;border-top:1px solid var(--line)}.footer-content{display:flex;justify-content:space-between;align-items:center}.footer-content h2{font-family:Poppins;font-size:18px}.footer-content p,.footer-content small{color:#66738b;font-size:10px}
+.modal{position:fixed;inset:0;z-index:2000;display:none;place-items:center;background:rgba(2,5,14,.78);backdrop-filter:blur(14px)}.modal-content{width:min(500px,90%);padding:30px;border:1px solid var(--line);border-radius:25px;background:#0b1228;box-shadow:var(--shadow)}.close-modal{float:right;font-size:25px;color:#7e8aa2;cursor:pointer}
+@media(max-width:1100px){.sidebar{width:215px}.main-content{margin-left:235px;width:calc(100% - 260px)}.action-grid,.project-grid,.drive-grid,.analytics-grid,.recruiter-grid{grid-template-columns:repeat(2,1fr)}.skills-container{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:800px){
+ .navbar{top:8px;width:calc(100% - 16px)}.dashboard{padding-top:88px}.sidebar{left:-270px;top:88px;bottom:8px;transition:.3s}.sidebar.open{left:8px}.main-content{margin-left:0;width:100%;padding:10px 14px 50px}.profile-mini div{display:none}.hero-card{padding:28px;min-height:220px}.hero-left h1{font-size:29px}.career-circle{width:120px;height:120px}.stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+ .hero-card{display:block}.hero-right{margin-top:25px;display:flex;justify-content:center}.stats-grid{grid-template-columns:1fr 1fr}.action-grid,.project-grid,.drive-grid,.analytics-grid,.recruiter-grid,.certificate-grid,.notification-list,.progress-grid,.schedule-list{grid-template-columns:1fr}.skills-container{grid-template-columns:repeat(2,1fr)}.resume-card,.footer-content{display:block}.resume-card>div:last-child{margin-top:14px}.footer-content>div:last-child{margin-top:12px}.section-header h2{font-size:17px}
+}
+</style>
+
+</head>
 
     <body>
 
@@ -54,7 +185,7 @@
 
         <!-- ================= DASHBOARD ================= -->
 
-        <div class="dashboard">
+        <div class="dashboard app-shell">
 
             <!-- ================= SIDEBAR ================= -->
 
@@ -90,8 +221,10 @@
                     </li>
 
                     <li>
-                        <i class="fa-solid fa-users"></i>
-                        Team
+                        <a href="team.html" class="menu-link">
+                            <i class="fa-solid fa-users"></i>
+                            Team
+                        </a>
                     </li>
 
                     <li>

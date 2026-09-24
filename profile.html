@@ -6,20 +6,884 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>PlaceMate | Profile</title>
+    <title>PlaceMate | My Profile</title>
 
     <link rel="stylesheet" href="css/profile.css">
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <style>
+
+        /* =========================================================
+           PLACEMATE PREMIUM PROFILE
+           ========================================================= */
+
+        :root {
+            --bg: #050816;
+            --bg-soft: #090d20;
+
+            --card: rgba(15, 21, 47, 0.78);
+            --card-light: rgba(255, 255, 255, 0.045);
+
+            --border: rgba(255, 255, 255, 0.09);
+
+            --blue: #5b8cff;
+            --cyan: #20d9ff;
+            --purple: #805cff;
+
+            --text: #f6f8ff;
+            --muted: #98a3c5;
+
+            --success: #42e6a4;
+
+            --radius: 28px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                Inter,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(91, 140, 255, 0.16),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 15%,
+                    rgba(128, 92, 255, 0.15),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(32, 217, 255, 0.08),
+                    transparent 35%
+                ),
+                var(--bg);
+
+            overflow-x: hidden;
+        }
+
+        /* Background Grid */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: 0.22;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+
+            z-index: -2;
+        }
+
+        /* Glow */
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 450px;
+            height: 450px;
+
+            left: 50%;
+            top: 45%;
+
+            transform: translate(-50%, -50%);
+
+            background: rgba(91, 140, 255, 0.07);
+
+            filter: blur(110px);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+
+            z-index: -3;
+        }
+
+        /* =========================================================
+           MAIN CONTAINER
+           ========================================================= */
+
+        .container {
+
+            width: min(900px, calc(100% - 30px));
+
+            margin: 55px auto 70px;
+
+        }
+
+        /* =========================================================
+           PROFILE CARD
+           ========================================================= */
+
+        .profile-card {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 42px;
+
+            border-radius: var(--radius);
+
+            border: 1px solid var(--border);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(20, 28, 60, 0.82),
+                    rgba(8, 12, 30, 0.84)
+                );
+
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+
+            box-shadow:
+                0 35px 100px rgba(0,0,0,0.38),
+                inset 0 1px rgba(255,255,255,0.05);
+
+        }
+
+        /* Top glowing line */
+
+        .profile-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 10%;
+            right: 10%;
+
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--blue),
+                    var(--purple),
+                    var(--cyan),
+                    transparent
+                );
+
+            box-shadow:
+                0 0 25px rgba(91,140,255,0.35);
+
+        }
+
+        /* Background Glow */
+
+        .profile-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 240px;
+            height: 240px;
+
+            top: -120px;
+            right: -80px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(91,140,255,0.15),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+
+        }
+
+        /* =========================================================
+           PROFILE HEADER
+           ========================================================= */
+
+        .profile-header {
+
+            position: relative;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding-bottom: 40px;
+
+            margin-bottom: 35px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.07);
+
+        }
+
+        .profile-header::before {
+
+            content: "STUDENT PROFILE";
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 7px 14px;
+
+            margin-bottom: 20px;
+
+            border-radius: 100px;
+
+            color: #aebdff;
+
+            background:
+                rgba(91,140,255,0.08);
+
+            border:
+                1px solid rgba(91,140,255,0.2);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+        }
+
+        /* =========================================================
+           PROFILE IMAGE
+           ========================================================= */
+
+        #profileImage {
+
+            width: 155px;
+            height: 155px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            padding: 5px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    var(--purple),
+                    var(--cyan)
+                );
+
+            box-shadow:
+                0 0 0 8px rgba(91,140,255,0.05),
+                0 25px 60px rgba(0,0,0,0.4),
+                0 0 50px rgba(91,140,255,0.12);
+
+            transition: 0.4s ease;
+
+        }
+
+        #profileImage:hover {
+
+            transform: scale(1.04);
+
+            box-shadow:
+                0 0 0 10px rgba(91,140,255,0.07),
+                0 30px 70px rgba(0,0,0,0.45),
+                0 0 65px rgba(91,140,255,0.2);
+
+        }
+
+        /* =========================================================
+           PHOTO UPLOAD
+           ========================================================= */
+
+        .upload-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-top: 20px;
+
+            padding: 11px 17px;
+
+            border-radius: 12px;
+
+            color: #dce5ff;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid rgba(255,255,255,0.09);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+        }
+
+        .upload-btn i {
+
+            color: var(--cyan);
+
+        }
+
+        .upload-btn:hover {
+
+            color: white;
+
+            background:
+                rgba(91,140,255,0.12);
+
+            border-color:
+                rgba(91,140,255,0.3);
+
+            transform: translateY(-2px);
+
+        }
+
+        /* =========================================================
+           FORM
+           ========================================================= */
+
+        #profileForm {
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+        .row {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 20px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .input-group {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 9px;
+
+            margin-bottom: 20px;
+
+        }
+
+        .row .input-group {
+
+            margin-bottom: 0;
+
+        }
+
+        .input-group label {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: #cbd4f0;
+
+            font-size: 12px;
+
+            font-weight: 750;
+
+            letter-spacing: 0.2px;
+
+        }
+
+        .input-group label::before {
+
+            content: "";
+
+            width: 4px;
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: var(--blue);
+
+            box-shadow:
+                0 0 8px rgba(91,140,255,0.7);
+
+        }
+
+        /* =========================================================
+           INPUTS
+           ========================================================= */
+
+        .input-group input,
+        .input-group textarea {
+
+            width: 100%;
+
+            color: white;
+
+            background:
+                rgba(4, 8, 24, 0.65);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            border-radius: 14px;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            transition:
+                border-color 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+
+        }
+
+        .input-group input {
+
+            height: 50px;
+
+            padding: 0 15px;
+
+        }
+
+        .input-group textarea {
+
+            min-height: 125px;
+
+            padding: 15px;
+
+            resize: vertical;
+
+            line-height: 1.6;
+
+        }
+
+        .input-group input::placeholder,
+        .input-group textarea::placeholder {
+
+            color: #59637f;
+
+        }
+
+        .input-group input:hover,
+        .input-group textarea:hover {
+
+            border-color:
+                rgba(255,255,255,0.14);
+
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+
+            border-color:
+                rgba(91,140,255,0.65);
+
+            background:
+                rgba(8,13,34,0.85);
+
+            box-shadow:
+                0 0 0 4px rgba(91,140,255,0.08),
+                0 12px 35px rgba(0,0,0,0.15);
+
+            transform: translateY(-1px);
+
+        }
+
+        /* =========================================================
+           CGPA SPECIAL FIELD
+           ========================================================= */
+
+        #cgpa {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(91,140,255,0.07),
+                    rgba(128,92,255,0.05)
+                );
+
+        }
+
+        /* =========================================================
+           SAVE BUTTON
+           ========================================================= */
+
+        .save-btn {
+
+            position: relative;
+
+            width: 100%;
+
+            min-height: 54px;
+
+            margin-top: 5px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            border: none;
+
+            border-radius: 15px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    var(--purple)
+                );
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 15px 40px rgba(91,140,255,0.22);
+
+            transition: 0.3s ease;
+
+        }
+
+        .save-btn::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -110%;
+
+            width: 70%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.25),
+                    transparent
+                );
+
+            transform: skewX(-20deg);
+
+            transition: 0.6s ease;
+
+        }
+
+        .save-btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 20px 50px rgba(91,140,255,0.32);
+
+        }
+
+        .save-btn:hover::before {
+
+            left: 140%;
+
+        }
+
+        .save-btn:active {
+
+            transform: translateY(0);
+
+        }
+
+        .save-btn i {
+
+            font-size: 14px;
+
+        }
+
+        /* =========================================================
+           TOAST
+           ========================================================= */
+
+        #toast {
+
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            min-width: 250px;
+
+            padding: 15px 18px;
+
+            border-radius: 14px;
+
+            color: white;
+
+            background:
+                rgba(12,18,42,0.92);
+
+            border:
+                1px solid rgba(91,140,255,0.25);
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.4);
+
+            z-index: 9999;
+
+            font-size: 13px;
+
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 700px) {
+
+            .container {
+
+                width: calc(100% - 22px);
+
+                margin:
+                    25px auto 45px;
+
+            }
+
+            .profile-card {
+
+                padding: 27px 20px;
+
+                border-radius: 23px;
+
+            }
+
+            .row {
+
+                grid-template-columns: 1fr;
+
+                gap: 0;
+
+                margin-bottom: 0;
+
+            }
+
+            .row .input-group {
+
+                margin-bottom: 20px;
+
+            }
+
+            #profileImage {
+
+                width: 130px;
+                height: 130px;
+
+            }
+
+            .profile-header {
+
+                padding-bottom: 30px;
+
+                margin-bottom: 28px;
+
+            }
+
+        }
+
+        @media (max-width: 450px) {
+
+            .container {
+
+                width: calc(100% - 14px);
+
+                margin-top: 15px;
+
+            }
+
+            .profile-card {
+
+                padding: 23px 15px;
+
+                border-radius: 20px;
+
+            }
+
+            #profileImage {
+
+                width: 115px;
+                height: 115px;
+
+            }
+
+            .upload-btn {
+
+                font-size: 11px;
+
+                padding: 10px 14px;
+
+            }
+
+            .input-group input {
+
+                height: 48px;
+
+                font-size: 13px;
+
+            }
+
+            .input-group textarea {
+
+                font-size: 13px;
+
+            }
+
+            .save-btn {
+
+                min-height: 51px;
+
+            }
+
+            #toast {
+
+                left: 12px;
+                right: 12px;
+
+                bottom: 15px;
+
+                min-width: 0;
+
+            }
+
+        }
+
+        /* =========================================================
+           ACCESSIBILITY
+           ========================================================= */
+
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        label:focus-visible {
+
+            outline:
+                2px solid var(--cyan);
+
+            outline-offset: 3px;
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                transition: none !important;
+
+                animation: none !important;
+
+                scroll-behavior: auto !important;
+
+            }
+
+        }
+
+    </style>
+
 </head>
 
+
 <body>
+
 
 <div class="container">
 
     <div class="profile-card">
+
+
+        <!-- =====================================================
+             PROFILE HEADER
+             ===================================================== -->
 
         <div class="profile-header">
 
@@ -44,7 +908,15 @@
 
         </div>
 
+
+        <!-- =====================================================
+             PROFILE FORM
+             ===================================================== -->
+
         <form id="profileForm">
+
+
+            <!-- NAME + EMAIL -->
 
             <div class="row">
 
@@ -54,9 +926,11 @@
 
                     <input
                         type="text"
-                        id="name">
+                        id="name"
+                        placeholder="Enter your full name">
 
                 </div>
+
 
                 <div class="input-group">
 
@@ -64,11 +938,15 @@
 
                     <input
                         type="email"
-                        id="email">
+                        id="email"
+                        placeholder="Enter your email">
 
                 </div>
 
             </div>
+
+
+            <!-- PHONE + COLLEGE -->
 
             <div class="row">
 
@@ -78,9 +956,11 @@
 
                     <input
                         type="text"
-                        id="phone">
+                        id="phone"
+                        placeholder="Enter your phone number">
 
                 </div>
+
 
                 <div class="input-group">
 
@@ -88,11 +968,15 @@
 
                     <input
                         type="text"
-                        id="college">
+                        id="college"
+                        placeholder="Enter your college">
 
                 </div>
 
             </div>
+
+
+            <!-- BRANCH + SEMESTER -->
 
             <div class="row">
 
@@ -102,9 +986,11 @@
 
                     <input
                         type="text"
-                        id="branch">
+                        id="branch"
+                        placeholder="e.g. BCA">
 
                 </div>
+
 
                 <div class="input-group">
 
@@ -112,11 +998,15 @@
 
                     <input
                         type="text"
-                        id="semester">
+                        id="semester"
+                        placeholder="e.g. 5th Semester">
 
                 </div>
 
             </div>
+
+
+            <!-- CGPA -->
 
             <div class="input-group">
 
@@ -125,9 +1015,13 @@
                 <input
                     type="number"
                     id="cgpa"
-                    step="0.01">
+                    step="0.01"
+                    placeholder="Enter your CGPA">
 
             </div>
+
+
+            <!-- BIO -->
 
             <div class="input-group">
 
@@ -140,6 +1034,9 @@
 
             </div>
 
+
+            <!-- SAVE -->
+
             <button
                 type="submit"
                 class="save-btn">
@@ -150,16 +1047,25 @@
 
             </button>
 
+
         </form>
 
     </div>
 
 </div>
 
+
+<!-- Toast -->
+
 <div id="toast"></div>
 
+
+<!-- Existing JavaScript -->
+
 <script src="js/storage.js"></script>
+
 <script src="js/profile.js"></script>
+
 
 </body>
 

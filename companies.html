@@ -16,13 +16,1105 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <style>
+
+        /* =========================================================
+           PLACEMATE PREMIUM COMPANIES PAGE
+           ========================================================= */
+
+        :root {
+            --bg: #050816;
+            --bg-soft: #090d20;
+
+            --card: rgba(15, 21, 47, 0.76);
+            --card-hover: rgba(20, 28, 60, 0.9);
+
+            --border: rgba(255, 255, 255, 0.09);
+
+            --blue: #5b8cff;
+            --cyan: #20d9ff;
+            --purple: #805cff;
+            --pink: #c15cff;
+
+            --text: #f5f7ff;
+            --muted: #98a3c5;
+
+            --success: #42e6a4;
+
+            --radius: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                Inter,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at 8% 5%,
+                    rgba(91, 140, 255, 0.16),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 92% 12%,
+                    rgba(128, 92, 255, 0.15),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(32, 217, 255, 0.07),
+                    transparent 35%
+                ),
+                var(--bg);
+
+            overflow-x: hidden;
+        }
+
+        /* Background Grid */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: 0.22;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 45px 45px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            width: 430px;
+            height: 430px;
+
+            left: 50%;
+            top: 40%;
+
+            transform: translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+                rgba(91, 140, 255, 0.07);
+
+            filter: blur(110px);
+
+            pointer-events: none;
+
+            z-index: -3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+        /* =========================================================
+           NAVBAR
+           ========================================================= */
+
+        .navbar {
+            width: min(1200px, calc(100% - 30px));
+
+            min-height: 74px;
+
+            margin: 18px auto 0;
+
+            padding: 11px 18px 11px 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            position: sticky;
+
+            top: 15px;
+
+            z-index: 100;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 20px;
+
+            background:
+                rgba(8, 12, 30, 0.78);
+
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+
+            box-shadow:
+                0 20px 65px rgba(0,0,0,0.28),
+                inset 0 1px rgba(255,255,255,0.04);
+        }
+
+        .logo {
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            font-size: 20px;
+
+            font-weight: 850;
+
+            letter-spacing: -0.5px;
+
+            white-space: nowrap;
+        }
+
+        .logo i {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 13px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    var(--purple)
+                );
+
+            box-shadow:
+                0 9px 28px rgba(91,140,255,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            overflow-x: auto;
+
+            scrollbar-width: none;
+        }
+
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-links a {
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 10px 13px;
+
+            border-radius: 11px;
+
+            color: #9fa9c9;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: white;
+
+            background:
+                rgba(255,255,255,0.055);
+        }
+
+        .nav-links a.active {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(91,140,255,0.2),
+                    rgba(128,92,255,0.17)
+                );
+
+            border:
+                1px solid rgba(91,140,255,0.2);
+
+            box-shadow:
+                inset 0 1px rgba(255,255,255,0.04);
+        }
+
+        .nav-links a.active::after {
+            content: "";
+
+            width: 5px;
+            height: 5px;
+
+            border-radius: 50%;
+
+            background: var(--cyan);
+
+            box-shadow:
+                0 0 10px var(--cyan);
+        }
+
+        /* =========================================================
+           SEARCH / HERO
+           ========================================================= */
+
+        .search-section {
+
+            width: min(1100px, calc(100% - 30px));
+
+            margin: 75px auto 25px;
+
+            text-align: center;
+
+        }
+
+        .search-section::before {
+
+            content: "✦  CAREER OPPORTUNITIES  ✦";
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 8px 15px;
+
+            margin-bottom: 19px;
+
+            border:
+                1px solid rgba(91,140,255,0.2);
+
+            border-radius: 100px;
+
+            color: #adbcff;
+
+            background:
+                rgba(91,140,255,0.08);
+
+            font-size: 10px;
+
+            font-weight: 850;
+
+            letter-spacing: 1.8px;
+
+        }
+
+        .search-section h1 {
+
+            font-size:
+                clamp(38px, 6vw, 65px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2.7px;
+
+            margin-bottom: 15px;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #ffffff 10%,
+                    #8fb5ff 45%,
+                    #b184ff 75%,
+                    #55ddff
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
+        }
+
+        .search-section p {
+
+            color: var(--muted);
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+            margin-bottom: 28px;
+
+        }
+
+        /* =========================================================
+           SEARCH BOX
+           ========================================================= */
+
+        .search-box {
+
+            width: min(700px, 100%);
+
+            height: 58px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 0 19px;
+
+            border:
+                1px solid rgba(255,255,255,0.1);
+
+            border-radius: 17px;
+
+            background:
+                rgba(10,15,35,0.72);
+
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.2),
+                inset 0 1px rgba(255,255,255,0.035);
+
+            transition: 0.3s ease;
+
+        }
+
+        .search-box:focus-within {
+
+            border-color:
+                rgba(91,140,255,0.55);
+
+            box-shadow:
+                0 0 0 4px rgba(91,140,255,0.07),
+                0 25px 65px rgba(0,0,0,0.25);
+
+        }
+
+        .search-box i {
+
+            color: var(--blue);
+
+            font-size: 16px;
+
+        }
+
+        .search-box input {
+
+            width: 100%;
+
+            height: 100%;
+
+            border: none;
+
+            outline: none;
+
+            color: white;
+
+            background: transparent;
+
+            font-size: 13px;
+
+        }
+
+        .search-box input::placeholder {
+
+            color: #687391;
+
+        }
+
+        /* =========================================================
+           FILTERS
+           ========================================================= */
+
+        .filters {
+
+            width: min(1100px, calc(100% - 30px));
+
+            margin: 20px auto 40px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 13px;
+
+        }
+
+        .filters select {
+
+            width: 100%;
+
+            height: 50px;
+
+            padding:
+                0 40px 0 15px;
+
+            color: #cbd4ef;
+
+            background:
+                rgba(12,18,42,0.72);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            border-radius: 14px;
+
+            outline: none;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+
+            appearance: none;
+
+            background-image:
+                linear-gradient(45deg, transparent 50%, #7885a8 50%),
+                linear-gradient(135deg, #7885a8 50%, transparent 50%);
+
+            background-position:
+                calc(100% - 17px) 21px,
+                calc(100% - 12px) 21px;
+
+            background-size:
+                5px 5px,
+                5px 5px;
+
+            background-repeat: no-repeat;
+
+        }
+
+        .filters select:hover {
+
+            border-color:
+                rgba(91,140,255,0.3);
+
+        }
+
+        .filters select:focus {
+
+            border-color:
+                rgba(91,140,255,0.55);
+
+            box-shadow:
+                0 0 0 4px rgba(91,140,255,0.07);
+
+        }
+
+        .filters select option {
+
+            color: #111;
+
+            background: white;
+
+        }
+
+        /* =========================================================
+           COMPANY GRID
+           ========================================================= */
+
+        .company-grid {
+
+            width: min(1200px, calc(100% - 30px));
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 20px;
+
+            padding-bottom: 80px;
+
+        }
+
+        /* =========================================================
+           COMPANY CARDS
+           ========================================================= */
+
+        /*
+           These styles also make dynamically generated
+           company cards look premium.
+        */
+
+        .company-grid > * {
+
+            position: relative;
+
+            overflow: hidden;
+
+            min-height: 250px;
+
+            padding: 24px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(19,27,57,0.78),
+                    rgba(8,12,30,0.82)
+                );
+
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 22px 60px rgba(0,0,0,0.25),
+                inset 0 1px rgba(255,255,255,0.035);
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+
+        }
+
+        .company-grid > *::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 170px;
+            height: 170px;
+
+            top: -80px;
+            right: -60px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(91,140,255,0.12);
+
+            filter: blur(35px);
+
+            pointer-events: none;
+
+        }
+
+        .company-grid > *::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 15%;
+            right: 15%;
+
+            bottom: 0;
+
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--blue),
+                    var(--purple),
+                    transparent
+                );
+
+            opacity: 0;
+
+            transition: 0.3s ease;
+
+        }
+
+        .company-grid > *:hover {
+
+            transform: translateY(-7px);
+
+            border-color:
+                rgba(91,140,255,0.3);
+
+            box-shadow:
+                0 30px 75px rgba(0,0,0,0.38),
+                0 0 35px rgba(91,140,255,0.06);
+
+        }
+
+        .company-grid > *:hover::after {
+
+            opacity: 1;
+
+        }
+
+        /* =========================================================
+           DYNAMIC CARD COMMON ELEMENTS
+           ========================================================= */
+
+        .company-grid img {
+
+            max-width: 65px;
+
+            max-height: 65px;
+
+            object-fit: contain;
+
+            border-radius: 15px;
+
+            margin-bottom: 15px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            padding: 8px;
+
+        }
+
+        .company-grid h2,
+        .company-grid h3 {
+
+            color: white;
+
+            margin-bottom: 7px;
+
+            letter-spacing: -0.4px;
+
+        }
+
+        .company-grid p {
+
+            color: var(--muted);
+
+            line-height: 1.65;
+
+            font-size: 12px;
+
+        }
+
+        .company-grid span {
+
+            color: #aeb9da;
+
+            font-size: 11px;
+
+        }
+
+        /* =========================================================
+           MODAL
+           ========================================================= */
+
+        .modal {
+
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(2,4,14,0.78);
+
+            backdrop-filter: blur(12px);
+
+            z-index: 1000;
+
+        }
+
+        .modal.active {
+
+            display: flex;
+
+        }
+
+        .modal-content {
+
+            position: relative;
+
+            width: min(650px, 100%);
+
+            max-height: 85vh;
+
+            overflow-y: auto;
+
+            padding: 35px;
+
+            border:
+                1px solid rgba(255,255,255,0.1);
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(20,28,60,0.96),
+                    rgba(7,11,28,0.97)
+                );
+
+            backdrop-filter: blur(25px);
+
+            box-shadow:
+                0 35px 100px rgba(0,0,0,0.55),
+                0 0 60px rgba(91,140,255,0.07);
+
+            animation:
+                modalIn 0.25s ease;
+
+        }
+
+        @keyframes modalIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+        .close-modal {
+
+            position: absolute;
+
+            top: 15px;
+            right: 17px;
+
+            width: 37px;
+            height: 37px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 11px;
+
+            color: #9da8c8;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            font-size: 25px;
+
+            line-height: 1;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+
+        }
+
+        .close-modal:hover {
+
+            color: white;
+
+            background:
+                rgba(255,70,100,0.12);
+
+            border-color:
+                rgba(255,70,100,0.25);
+
+            transform: rotate(90deg);
+
+        }
+
+        #modalBody {
+
+            color: var(--muted);
+
+            line-height: 1.7;
+
+        }
+
+        #modalBody h1,
+        #modalBody h2,
+        #modalBody h3 {
+
+            color: white;
+
+        }
+
+        #modalBody button,
+        #modalBody a {
+
+            transition: 0.25s ease;
+
+        }
+
+        /* =========================================================
+           TOAST
+           ========================================================= */
+
+        #toast {
+
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            min-width: 250px;
+
+            padding: 14px 17px;
+
+            color: white;
+
+            border:
+                1px solid rgba(91,140,255,0.25);
+
+            border-radius: 14px;
+
+            background:
+                rgba(10,16,38,0.94);
+
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.45);
+
+            z-index: 2000;
+
+            font-size: 12px;
+
+        }
+
+        /* =========================================================
+           RESPONSIVE
+           ========================================================= */
+
+        @media (max-width: 950px) {
+
+            .company-grid {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+            }
+
+        }
+
+        @media (max-width: 720px) {
+
+            .navbar {
+
+                width:
+                    calc(100% - 18px);
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                padding: 12px;
+
+                border-radius: 17px;
+
+            }
+
+            .logo {
+
+                justify-content: center;
+
+            }
+
+            .nav-links {
+
+                justify-content: center;
+
+            }
+
+            .search-section {
+
+                margin-top: 55px;
+
+            }
+
+            .filters {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .company-grid {
+
+                grid-template-columns: 1fr;
+
+                max-width: 600px;
+
+            }
+
+        }
+
+        @media (max-width: 480px) {
+
+            .search-section,
+            .filters,
+            .company-grid {
+
+                width:
+                    calc(100% - 20px);
+
+            }
+
+            .search-section h1 {
+
+                font-size: 40px;
+
+                letter-spacing: -2px;
+
+            }
+
+            .search-section p {
+
+                font-size: 13px;
+
+            }
+
+            .search-box {
+
+                height: 54px;
+
+            }
+
+            .company-grid > * {
+
+                padding: 21px;
+
+                border-radius: 21px;
+
+            }
+
+            .modal-content {
+
+                padding: 28px 20px;
+
+                border-radius: 20px;
+
+            }
+
+            #toast {
+
+                left: 12px;
+                right: 12px;
+
+                min-width: 0;
+
+            }
+
+        }
+
+        /* =========================================================
+           ACCESSIBILITY
+           ========================================================= */
+
+        a:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        button:focus-visible {
+
+            outline:
+                2px solid var(--cyan);
+
+            outline-offset: 3px;
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation: none !important;
+
+                transition: none !important;
+
+                scroll-behavior: auto !important;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================
-     Navbar
-========================= -->
+
+<!-- =========================================================
+     NAVBAR
+     ========================================================= -->
 
 <header class="navbar">
 
@@ -34,23 +1126,52 @@
 
     </div>
 
+
     <div class="nav-links">
 
-        <a href="dashboard.html">Dashboard</a>
+        <a href="dashboard.html">
 
-        <a href="companies.html" class="active">Companies</a>
+            <i class="fa-solid fa-chart-line"></i>
 
-        <a href="applications.html">Applications</a>
+            Dashboard
 
-        <a href="profile.html">Profile</a>
+        </a>
+
+
+        <a href="companies.html" class="active">
+
+            <i class="fa-solid fa-building"></i>
+
+            Companies
+
+        </a>
+
+
+        <a href="applications.html">
+
+            <i class="fa-solid fa-file-circle-check"></i>
+
+            Applications
+
+        </a>
+
+
+        <a href="profile.html">
+
+            <i class="fa-solid fa-user"></i>
+
+            Profile
+
+        </a>
 
     </div>
 
 </header>
 
-<!-- =========================
-     Search Section
-========================= -->
+
+<!-- =========================================================
+     SEARCH SECTION
+     ========================================================= -->
 
 <section class="search-section">
 
@@ -58,7 +1179,9 @@
 
     <p>
         Discover top companies hiring students.
+        Find opportunities that match your skills and career goals.
     </p>
+
 
     <div class="search-box">
 
@@ -67,17 +1190,20 @@
         <input
             type="text"
             id="searchInput"
-            placeholder="Search Company, Role or Skill">
+            placeholder="Search Company, Role or Skill"
+            autocomplete="off">
 
     </div>
 
 </section>
 
-<!-- =========================
-     Filters
-========================= -->
+
+<!-- =========================================================
+     FILTERS
+     ========================================================= -->
 
 <section class="filters">
+
 
     <select id="locationFilter">
 
@@ -99,6 +1225,7 @@
 
     </select>
 
+
     <select id="packageFilter">
 
         <option value="">Any Package</option>
@@ -112,6 +1239,7 @@
         <option>30</option>
 
     </select>
+
 
     <select id="roleFilter">
 
@@ -133,11 +1261,13 @@
 
     </select>
 
+
 </section>
 
-<!-- =========================
-     Company Cards
-========================= -->
+
+<!-- =========================================================
+     COMPANY CARDS
+     ========================================================= -->
 
 <section
     id="companyContainer"
@@ -145,20 +1275,21 @@
 
 </section>
 
-<!-- =========================
-     Details Modal
-========================= -->
+
+<!-- =========================================================
+     DETAILS MODAL
+     ========================================================= -->
 
 <div id="modal" class="modal">
 
     <div class="modal-content">
 
-        <span
-            class="close-modal">
+        <span class="close-modal">
 
             &times;
 
         </span>
+
 
         <div id="modalBody"></div>
 
@@ -166,21 +1297,24 @@
 
 </div>
 
-<!-- =========================
-     Toast
-========================= -->
+
+<!-- =========================================================
+     TOAST
+     ========================================================= -->
 
 <div id="toast"></div>
 
-<!-- =========================
-     Scripts
-========================= -->
+
+<!-- =========================================================
+     EXISTING SCRIPTS
+     ========================================================= -->
 
 <script src="js/storage.js"></script>
 
 <script src="js/companies.js"></script>
 
 <script src="js/company-page.js"></script>
+
 
 </body>
 
