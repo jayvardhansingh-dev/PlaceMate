@@ -138,37 +138,8 @@ const members = {
             "Project Documentation",
             "PlaceMate Testing"
         ]
-    },
-
-    manshi: {
-        id: 5,
-        name: "Manshi",
-        role: "UI/UX Designer",
-        image: "images/manshi.png",
-        score: 90,
-        projects: 5,
-        certificates: 7,
-        companies: 12,
-        applications: 20,
-        actions: [
-            "Design Mockups",
-            "Wireframes",
-            "User Testing",
-            "Portfolio Design"
-        ],
-        skills: [
-            { name: "Adobe XD", percent: 90 },
-            { name: "Figma", percent: 88 },
-            { name: "Sketch", percent: 85 },
-            { name: "Photoshop", percent: 80 }
-        ],
-        projectsList: [
-            "Website Redesign",
-            "Mobile App Design",
-            "UI Components",
-            "PlaceMate UI/UX"
-        ]
     }
+ 
 };
 
 menuBtn.addEventListener("click", () => {

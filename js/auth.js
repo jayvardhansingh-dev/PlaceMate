@@ -29,11 +29,7 @@ const users = [
         member: "aakash"
     }
 
-    {
-        email: "manshididi@gmail.com",
-        password: "manshi123",
-        member: "manshi"
-    }
+ 
 
 ];
 
