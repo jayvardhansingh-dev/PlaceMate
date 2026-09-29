@@ -138,14 +138,13 @@ const members = {
             "Project Documentation",
             "PlaceMate Testing"
         ]
-    }
+    },
 
-};
-
-manshi: {
+    manshi: {
         id: 5,
         name: "Manshi",
         role: "UI/UX Designer",
+        image: "images/manshi.png",
         score: 90,
         projects: 5,
         certificates: 7,
@@ -170,7 +169,6 @@ manshi: {
             "PlaceMate UI/UX"
         ]
     }
-
 };
 
 menuBtn.addEventListener("click", () => {
